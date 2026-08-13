@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pour mon amoureux ♡</title>
+
+  <!-- Polices -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #07120d;
+      color: #f3efe2;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+    }
+
+
+    /* =========================
+       PAGE D'ACCUEIL
+    ========================= */
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 80px 25px;
+
+      background:
+        linear-gradient(
+          rgba(4, 15, 10, 0.68),
+          rgba(4, 15, 10, 0.86)
+        ),
+        url("IMG_E3760.jpg");
+
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+
+      overflow: hidden;
+    }
+
+
+    /* Petit voile vert Alpine */
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(95, 120, 87, 0.12),
+          rgba(5, 16, 10, 0.72)
+        );
+
+      z-index: 0;
+    }
+
+
+    /* =========================
+       PETITES ÉTOILES
+    ========================= */
+
+    .sparkle {
+      position: absolute;
+      color: #d7dfb9;
+      opacity: 0.75;
+      font-size: 23px;
+      z-index: 1;
+
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    .sparkle.one {
+      top: 7%;
+      left: 8%;
+    }
+
+    .sparkle.two {
+      top: 15%;
+      right: 8%;
+      animation-delay: 1s;
+    }
+
+    .sparkle.three {
+      bottom: 12%;
+      left: 12%;
+      animation-delay: 1.8s;
+    }
+
+    .sparkle.four {
+      bottom: 15%;
+      right: 10%;
+      animation-delay: 0.7s;
+    }
+
+    .sparkle.five {
+      top: 50%;
+      left: 4%;
+      animation-delay: 1.3s;
+    }
+
+    .sparkle.six {
+      top: 55%;
+      right: 4%;
+      animation-delay: 2s;
+    }
+
+
+    @keyframes glow {
+
+      0%, 100% {
+        opacity: 0.35;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: 1;
+        transform: scale(1.25);
+      }
+
+    }
+
+
+    /* =========================
+       POLAROIDS
+    ========================= */
+
+    .polaroid {
+      position: absolute;
+
+      background: #eeebdf;
+
+      padding:
+        10px
+        10px
+        38px
+        10px;
+
+      width: 190px;
+
+      box-shadow:
+        0 15px 40px
+        rgba(0, 0, 0, 0.50);
+
+      z-index: 2;
+
+      transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+    }
+
+
+    .polaroid img {
+      width: 100%;
+      height: 190px;
+
+      object-fit: cover;
+      display: block;
+    }
+
+
+    .polaroid:hover {
+      transform:
+        rotate(0deg)
+        scale(1.07);
+
+      box-shadow:
+        0 20px 55px
+        rgba(0, 0, 0, .65);
+    }
+
+
+    .polaroid.left {
+      top: 7%;
+      left: 5%;
+
+      transform: rotate(-7deg);
+    }
+
+
+    .polaroid.right {
+      top: 8%;
+      right: 5%;
+
+      transform: rotate(6deg);
+    }
+
+
+    /* Petit scotch */
+
+    .tape {
+      position: absolute;
+
+      width: 72px;
+      height: 23px;
+
+      background:
+        rgba(165, 184, 145, .72);
+
+      top: -12px;
+      left: 50%;
+
+      transform:
+        translateX(-50%)
+        rotate(-3deg);
+
+      opacity: .8;
+    }
+
+
+    /* =========================
+       CONTENU CENTRAL
+    ========================= */
+
+    .content {
+      position: relative;
+      z-index: 3;
+
+      text-align: center;
+
+      max-width: 680px;
+
+      margin-top: 65px;
+    }
+
+
+    .heart {
+      font-size: 45px;
+
+      margin-bottom: 10px;
+
+      color: #dce7bc;
+
+      text-shadow:
+        0 0 18px
+        rgba(190, 210, 150, 0.55);
+
+      animation:
+        heartBeat 2.6s infinite;
+    }
+
+
+    @keyframes heartBeat {
+
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.10);
+      }
+
+    }
+
+
+    .small-title {
+
+      font-family:
+        'Cormorant Garamond',
+        serif;
+
+      font-size:
+        clamp(48px, 7vw, 78px);
+
+      font-weight: 500;
+
+      line-height: .95;
+
+      text-shadow:
+        0 4px 20px
+        rgba(0, 0, 0, .55);
+    }
+
+
+    .age {
+
+      font-family:
+        'Great Vibes',
+        cursive;
+
+      color: #dce8bd;
+
+      font-size:
+        clamp(95px, 16vw, 165px);
+
+      line-height: .9;
+
+      text-shadow:
+        0 0 25px
+        rgba(183, 212, 138, .30);
+    }
+
+
+    .lover {
+
+      font-family:
+        'Cormorant Garamond',
+        serif;
+
+      font-size:
+        clamp(46px, 6vw, 70px);
+
+      font-weight: 500;
+
+      margin-top: -5px;
+    }
+
+
+    /* =========================
+       DATE
+    ========================= */
+
+    .date {
+
+      display: inline-block;
+
+      margin:
+        30px 0
+        24px;
+
+      padding:
+        9px 25px;
+
+      color: #f1eedf;
+
+      font-family:
+        'Cormorant Garamond',
+        serif;
+
+      font-size: 25px;
+
+      letter-spacing: 2px;
+
+      background:
+        rgba(91, 117, 75, .58);
+
+      border:
+        1px solid
+        rgba(223, 230, 205, .30);
+
+      border-radius: 5px;
+
+      backdrop-filter: blur(5px);
+    }
+
+
+    /* =========================
+       PETIT TEXTE
+    ========================= */
+
+    .message {
+
+      font-family:
+        'Cormorant Garamond',
+        serif;
+
+      font-size:
+        clamp(22px, 3vw, 29px);
+
+      line-height: 1.45;
+
+      margin-bottom: 36px;
+
+      text-shadow:
+        0 3px 15px
+        rgba(0, 0, 0, .70);
+    }
+
+
+    /* =========================
+       BOUTON
+    ========================= */
+
+    .enter {
+
+      display: inline-block;
+
+      min-width: 330px;
+
+      padding:
+        18px 40px;
+
+      border:
+        1px solid
+        rgba(246, 243, 224, .80);
+
+      border-radius: 999px;
+
+      color: #f8f4e7;
+
+      text-decoration: none;
+
+      letter-spacing: 7px;
+
+      font-family:
+        'Cormorant Garamond',
+        serif;
+
+      font-size: 20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(68, 91, 58, .75),
+          rgba(106, 129, 88, .55)
+        );
+
+      backdrop-filter:
+        blur(8px);
+
+      transition:
+        all .35s ease;
+
+      box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, .30);
+    }
+
+
+    .enter:hover {
+
+      background: #81956c;
+
+      color: #ffffff;
+
+      transform:
+        translateY(-4px)
+        scale(1.02);
+
+      box-shadow:
+        0 15px 40px
+        rgba(0, 0, 0, .45);
+    }
+
+
+    .little-note {
+
+      margin-top: 28px;
+
+      font-family:
+        'Great Vibes',
+        cursive;
+
+      font-size: 29px;
+
+      color: #cbd7ab;
+
+      opacity: .9;
+    }
+
+
+    /* =========================
+       PROCHAINE PARTIE
+    ========================= */
+
+    .histoire {
+
+      min-height: 100vh;
+
+      background:
+        linear-gradient(
+          #07120d,
+          #0b1c13
+        );
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      text-align: center;
+
+      padding: 60px 30px;
+    }
+
+
+    .histoire h2 {
+
+      font-family:
+        'Cormorant Garamond',
+        serif;
+
+      font-size:
+        clamp(45px, 7vw, 75px);
+
+      font-weight: 500;
+
+      color: #f3efe2;
+    }
+
+
+    .histoire p {
+
+      margin-top: 15px;
+
+      font-family:
+        'Great Vibes',
+        cursive;
+
+      font-size: 30px;
+
+      color: #bdcca2;
+    }
+
+
+    /* =========================
+       VERSION TÉLÉPHONE
+    ========================= */
+
+    @media (max-width: 800px) {
+
+      .hero {
+
+        padding:
+          165px
+          22px
+          70px;
+
+        background-attachment:
+          scroll;
+
+        background-position:
+          center center;
+      }
+
+
+      .polaroid {
+
+        width: 120px;
+
+        padding:
+          7px
+          7px
+          26px;
+      }
+
+
+      .polaroid img {
+
+        height: 115px;
+      }
+
+
+      .polaroid.left {
+
+        top: 4%;
+        left: 4%;
+      }
+
+
+      .polaroid.right {
+
+        top: 4%;
+        right: 4%;
+      }
+
+
+      .tape {
+
+        width: 50px;
+        height: 17px;
+
+        top: -9px;
+      }
+
+
+      .content {
+
+        margin-top: 35px;
+      }
+
+
+      .date {
+
+        font-size: 19px;
+      }
+
+
+      .message {
+
+        font-size: 22px;
+      }
+
+
+      .enter {
+
+        min-width: 0;
+
+        width: 100%;
+
+        max-width: 340px;
+
+        letter-spacing: 5px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- PAGE D'ACCUEIL -->
+
+  <section class="hero">
+
+
+    <!-- petites étoiles -->
+
+    <span class="sparkle one">✧</span>
+    <span class="sparkle two">✦</span>
+    <span class="sparkle three">✧</span>
+    <span class="sparkle four">✦</span>
+    <span class="sparkle five">♡</span>
+    <span class="sparkle six">✧</span>
+
+
+    <!-- PHOTO AVEC LES FLEURS -->
+
+    <div class="polaroid left">
+
+      <div class="tape"></div>
+
+      <img
+        src="IMG_2528.jpg"
+        alt="Nous deux">
+
+    </div>
+
+
+    <!-- PHOTO DEHORS -->
+
+    <div class="polaroid right">
+
+      <div class="tape"></div>
+
+      <img
+        src="IMG_5922.jpg"
+        alt="Nous deux">
+
+    </div>
+
+
+    <!-- TEXTE CENTRAL -->
+
+    <div class="content">
+
+
+      <div class="heart">
+        ♡
+      </div>
+
+
+      <h1 class="small-title">
+        Joyeux
+      </h1>
+
+
+      <div class="age">
+        23 ans
+      </div>
+
+
+      <h2 class="lover">
+        mon amoureux ♡
+      </h2>
+
+
+      <div class="date">
+        ♡ 21 août 2026 ♡
+      </div>
+
+
+      <p class="message">
+
+        J'aurais aimé être près de toi aujourd'hui.
+
+        <br>
+
+        Alors je t'ai préparé un endroit
+
+        <br>
+
+        où la distance n'existe pas.
+
+      </p>
+
+
+      <a
+        class="enter"
+        href="#histoire">
+
+        ENTRE ICI ♡
+
+      </a>
+
+
+      <div class="little-note">
+
+        notre histoire continue...
+
+      </div>
+
+
+    </div>
+
+
+  </section>
+
+
+
+  <!--
+       POUR L'INSTANT LE BOUTON
+       ARRIVE JUSTE ICI.
+
+       ENSUITE ON CONSTRUIRA
+       VOTRE HISTOIRE ❤️
+  -->
+
+
+  <section
+    class="histoire"
+    id="histoire"
+  >
+
+
+    <div>
+
+
+      <h2>
+
+        Et depuis le début...
+
+      </h2>
+
+
+      <p>
+
+        notre petite histoire ♡
+
+      </p>
+
+
+    </div>
+
+
+  </section>
+
+
+</body>
+
+</html>
