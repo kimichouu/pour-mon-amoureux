@@ -49,8 +49,9 @@
     ======================================== */
 
     .hero {
-      min-height: 100vh;
       position: relative;
+
+      min-height: 100vh;
 
       display: flex;
       justify-content: center;
@@ -256,10 +257,6 @@
       transform:
         rotate(0deg)
         scale(1.06);
-
-      box-shadow:
-        0 20px 55px
-        rgba(0, 0, 0, 0.65);
     }
 
     /* Scotch */
@@ -334,10 +331,7 @@
 
       color: #e5e8d1;
 
-      font-family:
-        "Great Vibes",
-        cursive;
-
+      font-family: "Great Vibes", cursive;
       font-size: 55px;
 
       z-index: 5;
@@ -370,8 +364,7 @@
 
       z-index: 5;
 
-      animation:
-        glow 3s ease-in-out infinite;
+      animation: glow 3s ease-in-out infinite;
     }
 
     .star-left {
@@ -409,12 +402,7 @@
 
       font-size: 45px;
 
-      text-shadow:
-        0 0 18px
-        rgba(190, 210, 150, 0.55);
-
-      animation:
-        heartBeat 2.6s infinite;
+      animation: heartBeat 2.6s infinite;
     }
 
     @keyframes heartBeat {
@@ -430,9 +418,7 @@
     }
 
     .small-title {
-      font-family:
-        "Cormorant Garamond",
-        serif;
+      font-family: "Cormorant Garamond", serif;
 
       font-size:
         clamp(48px, 7vw, 78px);
@@ -440,10 +426,6 @@
       font-weight: 500;
 
       line-height: 0.95;
-
-      text-shadow:
-        0 4px 20px
-        rgba(0, 0, 0, 0.55);
     }
 
     .age {
@@ -452,26 +434,16 @@
 
       color: #dce8bd;
 
-      font-family:
-        "Great Vibes",
-        cursive;
+      font-family: "Great Vibes", cursive;
 
       font-size:
         clamp(95px, 16vw, 165px);
 
       line-height: 0.9;
-
-      text-shadow:
-        0 0 25px
-        rgba(183, 212, 138, 0.3);
     }
 
     .lover {
-      margin-top: 0;
-
-      font-family:
-        "Cormorant Garamond",
-        serif;
+      font-family: "Cormorant Garamond", serif;
 
       font-size:
         clamp(46px, 6vw, 70px);
@@ -497,32 +469,21 @@
 
       border-radius: 5px;
 
-      font-family:
-        "Cormorant Garamond",
-        serif;
-
+      font-family: "Cormorant Garamond", serif;
       font-size: 25px;
 
       letter-spacing: 2px;
-
-      backdrop-filter: blur(5px);
     }
 
     .message {
       margin-bottom: 36px;
 
-      font-family:
-        "Cormorant Garamond",
-        serif;
+      font-family: "Cormorant Garamond", serif;
 
       font-size:
         clamp(22px, 3vw, 29px);
 
       line-height: 1.45;
-
-      text-shadow:
-        0 3px 15px
-        rgba(0, 0, 0, 0.7);
     }
 
     /* ========================================
@@ -530,8 +491,6 @@
     ======================================== */
 
     .enter {
-      display: inline-block;
-
       width: auto;
       min-width: 330px;
 
@@ -552,17 +511,12 @@
 
       border-radius: 999px;
 
-      font-family:
-        "Cormorant Garamond",
-        serif;
-
+      font-family: "Cormorant Garamond", serif;
       font-size: 20px;
 
       letter-spacing: 7px;
 
       cursor: pointer;
-
-      backdrop-filter: blur(8px);
 
       box-shadow:
         0 8px 25px
@@ -579,24 +533,84 @@
       transform:
         translateY(-4px)
         scale(1.02);
-
-      box-shadow:
-        0 15px 40px
-        rgba(0, 0, 0, 0.45);
     }
 
     /* ========================================
-       PAGE VIDE POUR LA SUITE
+       LETTRE D’AMOUR
     ======================================== */
 
-    .suite {
+    .histoire {
       min-height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 70px 25px;
 
       background:
         linear-gradient(
           #07120d,
           #0b1c13
         );
+    }
+
+    .lettre {
+      width: 100%;
+      max-width: 700px;
+
+      padding: 60px 55px;
+
+      color: #2e3b2d;
+
+      background: #f3efe2;
+
+      border:
+        1px solid
+        rgba(189, 204, 162, 0.5);
+
+      border-radius: 8px;
+
+      box-shadow:
+        0 20px 60px
+        rgba(0, 0, 0, 0.45);
+    }
+
+    .lettre h2 {
+      color: #4f6746;
+
+      font-family: "Great Vibes", cursive;
+
+      font-size:
+        clamp(48px, 7vw, 70px);
+
+      font-weight: 400;
+
+      text-align: center;
+    }
+
+    .lettre p {
+      margin-top: 30px;
+
+      color: #2e3b2d;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size:
+        clamp(21px, 3vw, 27px);
+
+      line-height: 1.7;
+    }
+
+    .signature {
+      margin-top: 35px;
+
+      color: #617954;
+
+      font-family: "Great Vibes", cursive;
+      font-size: 38px;
+
+      text-align: right;
     }
 
     /* ========================================
@@ -613,8 +627,8 @@
 
       background:
         radial-gradient(
-          circle at center,
-          #1e3627 0%,
+          circle,
+          #294732,
           #07120d 70%
         );
 
@@ -623,11 +637,11 @@
 
       pointer-events: none;
 
-      z-index: 9999;
+      z-index: 99999;
 
       transition:
-        opacity 0.45s ease,
-        visibility 0.45s ease;
+        opacity 0.4s ease,
+        visibility 0.4s ease;
     }
 
     .transition-amour.active {
@@ -636,59 +650,32 @@
     }
 
     .coeur-transition {
-      color: #e8f0d0;
+      color: #edf3d9;
 
-      font-family:
-        "Great Vibes",
-        cursive;
+      font-family: "Great Vibes", cursive;
 
       font-size:
-        clamp(85px, 25vw, 150px);
+        clamp(100px, 30vw, 180px);
 
       opacity: 0;
 
       text-shadow:
-        0 0 20px rgba(214, 232, 176, 0.7),
-        0 0 50px rgba(157, 188, 116, 0.5);
+        0 0 25px
+        rgba(220, 239, 179, 0.9);
 
-      transform: scale(0.4);
+      transform: scale(0.3);
     }
 
     .transition-amour.active .coeur-transition {
       animation:
-        coeurMagique 2.1s ease-in-out forwards;
-    }
-
-    .lueur-transition {
-      position: absolute;
-
-      width: 150px;
-      height: 150px;
-
-      background:
-        radial-gradient(
-          circle,
-          rgba(203, 225, 166, 0.35),
-          rgba(203, 225, 166, 0)
-        );
-
-      border-radius: 50%;
-
-      opacity: 0;
-
-      transform: scale(0.5);
-    }
-
-    .transition-amour.active .lueur-transition {
-      animation:
-        lueurMagique 2.1s ease-in-out forwards;
+        coeurMagique 2s ease-in-out forwards;
     }
 
     @keyframes coeurMagique {
 
       0% {
         opacity: 0;
-        transform: scale(0.4);
+        transform: scale(0.3);
       }
 
       20% {
@@ -697,48 +684,25 @@
       }
 
       35% {
-        transform: scale(1.2);
-      }
-
-      47% {
-        transform: scale(1);
-      }
-
-      59% {
         transform: scale(1.25);
       }
 
-      70% {
+      50% {
+        transform: scale(1);
+      }
+
+      65% {
+        transform: scale(1.3);
+      }
+
+      75% {
         opacity: 1;
         transform: scale(1.05);
       }
 
       100% {
         opacity: 0;
-        transform: scale(12);
-      }
-    }
-
-    @keyframes lueurMagique {
-
-      0% {
-        opacity: 0;
-        transform: scale(0.5);
-      }
-
-      25% {
-        opacity: 1;
-        transform: scale(1);
-      }
-
-      70% {
-        opacity: 0.8;
-        transform: scale(1.5);
-      }
-
-      100% {
-        opacity: 0;
-        transform: scale(9);
+        transform: scale(10);
       }
     }
 
@@ -755,7 +719,6 @@
           70px;
 
         background-attachment: scroll;
-        background-position: center;
       }
 
       .polaroid-wrap {
@@ -828,7 +791,6 @@
 
       .age {
         margin-top: 13px;
-        margin-bottom: 8px;
       }
 
       .date {
@@ -846,6 +808,14 @@
 
         letter-spacing: 5px;
       }
+
+      .histoire {
+        padding: 45px 18px;
+      }
+
+      .lettre {
+        padding: 40px 25px;
+      }
     }
 
   </style>
@@ -859,8 +829,6 @@
   ========================================= -->
 
   <section class="hero">
-
-    <!-- Étoiles -->
 
     <span class="sparkle one">✧</span>
     <span class="sparkle two">✦</span>
@@ -955,8 +923,8 @@
 
       <button
         class="enter"
-        id="bouton-entrer"
         type="button"
+        onclick="entrerSite()"
       >
         ENTRE ICI ♡
       </button>
@@ -966,26 +934,41 @@
   </section>
 
   <!-- ========================================
-       PAGE VIDE
+       LETTRE D’AMOUR
   ========================================= -->
 
   <section
-    class="suite"
-    id="suite"
+    class="histoire"
+    id="histoire"
   >
+
+    <div class="lettre">
+
+      <h2>
+        Mon amour ♡
+      </h2>
+
+      <p>
+        Écris ici ta petite lettre d’amour.
+        Ce texte sert seulement d’emplacement pour le moment.
+        Nous pourrons ensuite écrire ensemble le véritable texte
+        que tu souhaites lui adresser.
+      </p>
+
+      <div class="signature">
+        Je t’aime ♡
+      </div>
+
+    </div>
+
   </section>
 
-  <!-- ========================================
-       ÉCRAN DE TRANSITION
-  ========================================= -->
+  <!-- Écran de transition -->
 
   <div
     class="transition-amour"
     id="transition-amour"
-    aria-hidden="true"
   >
-
-    <div class="lueur-transition"></div>
 
     <div class="coeur-transition">
       ♡
@@ -996,36 +979,15 @@
   <script>
 
     /*
-      Empêche le téléphone de restaurer
-      une ancienne position dans la page.
+      Évite que le téléphone ouvre le site
+      directement sur la lettre.
     */
 
     if ("scrollRestoration" in history) {
       history.scrollRestoration = "manual";
     }
 
-    /*
-      Supprime un ancien #histoire
-      ou #suite présent dans l’adresse.
-    */
-
-    if (window.location.hash) {
-
-      history.replaceState(
-        null,
-        "",
-        window.location.pathname + window.location.search
-      );
-
-    }
-
-    /*
-      Force l’ouverture tout en haut.
-    */
-
     function revenirEnHaut() {
-
-      document.documentElement.style.scrollBehavior = "auto";
 
       window.scrollTo({
         top: 0,
@@ -1033,19 +995,7 @@
         behavior: "auto"
       });
 
-      document.documentElement.style.scrollBehavior = "smooth";
-
     }
-
-    window.addEventListener(
-      "DOMContentLoaded",
-      revenirEnHaut
-    );
-
-    window.addEventListener(
-      "load",
-      revenirEnHaut
-    );
 
     window.addEventListener(
       "pageshow",
@@ -1053,73 +1003,50 @@
     );
 
     /*
-      Transition après le clic.
+      Fonction appelée directement
+      par le bouton.
     */
 
-    const boutonEntrer =
-      document.getElementById("bouton-entrer");
+    function entrerSite() {
 
-    const transitionAmour =
-      document.getElementById("transition-amour");
+      const transition =
+        document.getElementById("transition-amour");
 
-    const pageSuivante =
-      document.getElementById("suite");
+      const histoire =
+        document.getElementById("histoire");
 
-    let transitionEnCours = false;
+      /*
+        Affiche la transition.
+      */
 
-    boutonEntrer.addEventListener(
-      "click",
-      function () {
+      transition.classList.add("active");
 
-        if (transitionEnCours) {
-          return;
-        }
+      /*
+        Lorsque l’écran est caché par la transition,
+        on descend sur la lettre.
+      */
 
-        transitionEnCours = true;
+      setTimeout(function () {
 
-        transitionAmour.classList.add("active");
+        histoire.scrollIntoView({
+          behavior: "auto",
+          block: "start"
+        });
 
-        /*
-          Pendant que l’écran est caché,
-          on descend vers la page suivante.
-        */
+      }, 1300);
 
-        setTimeout(function () {
+      /*
+        Retire progressivement la transition
+        pour révéler la lettre.
+      */
 
-          document.documentElement.style.scrollBehavior = "auto";
+      setTimeout(function () {
 
-          pageSuivante.scrollIntoView({
-            behavior: "auto",
-            block: "start"
-          });
+        transition.classList.remove("active");
 
-          document.documentElement.style.scrollBehavior = "smooth";
+      }, 2000);
 
-        }, 1400);
-
-        /*
-          On retire doucement l’écran de transition.
-        */
-
-        setTimeout(function () {
-
-          transitionAmour.classList.remove("active");
-
-        }, 2100);
-
-        /*
-          Le bouton pourra être réutilisé
-          si nous en avons besoin plus tard.
-        */
-
-        setTimeout(function () {
-
-          transitionEnCours = false;
-
-        }, 2700);
-
-      }
-    );
+    }
 
   </script>
 
