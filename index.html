@@ -216,12 +216,15 @@
 
       object-fit: cover;
 
+      /*
+        Nouveau filtre naturel
+        sans sepia et sans hue-rotate
+      */
+
       filter:
-        sepia(16%)
-        saturate(72%)
-        hue-rotate(55deg)
-        contrast(94%)
-        brightness(88%);
+        saturate(82%)
+        contrast(98%)
+        brightness(96%);
     }
 
     .polaroid::after {
@@ -231,10 +234,13 @@
 
       inset: 10px 10px 38px;
 
-      background:
-        rgba(84, 111, 74, 0.24);
+      /*
+        Voile vert très léger
+        qui ne déforme plus les couleurs
+      */
 
-      mix-blend-mode: multiply;
+      background:
+        rgba(76, 99, 69, 0.08);
 
       pointer-events: none;
     }
@@ -543,7 +549,7 @@
       backdrop-filter: blur(8px);
 
       box-shadow:
-         0 8px 25px
+        0 8px 25px
         rgba(0, 0, 0, 0.3);
 
       transition: all 0.35s ease;
@@ -572,7 +578,7 @@
 
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
 
       padding: 70px 25px;
 
@@ -586,10 +592,12 @@
     }
 
     .lettre {
-      width: 100%;
-      max-width: 700px;
+      position: relative;
 
-      padding: 60px 55px;
+      width: 100%;
+      max-width: 780px;
+
+      padding: 65px 65px;
 
       color: #2e3b2d;
 
@@ -606,13 +614,28 @@
         rgba(0, 0, 0, 0.45);
     }
 
+    .lettre::before {
+      content: "♡";
+
+      position: absolute;
+
+      top: 24px;
+      left: 50%;
+
+      color: rgba(97, 121, 84, 0.35);
+
+      font-size: 25px;
+
+      transform: translateX(-50%);
+    }
+
     .lettre h2 {
       color: #4f6746;
 
       font-family: "Great Vibes", cursive;
 
       font-size:
-        clamp(48px, 7vw, 70px);
+        clamp(52px, 7vw, 72px);
 
       font-weight: 400;
 
@@ -620,20 +643,26 @@
     }
 
     .lettre p {
-      margin-top: 30px;
+      margin-top: 25px;
 
       color: #2e3b2d;
 
       font-family: "Cormorant Garamond", serif;
 
       font-size:
-        clamp(21px, 3vw, 27px);
+        clamp(20px, 2.4vw, 25px);
 
-      line-height: 1.7;
+      line-height: 1.65;
+
+      text-align: left;
+    }
+
+    .lettre h2 + p {
+      margin-top: 35px;
     }
 
     .signature {
-      margin-top: 35px;
+      margin-top: 38px;
 
       color: #617954;
 
@@ -842,11 +871,26 @@
       }
 
       .histoire {
-        padding: 45px 18px;
+        padding: 35px 16px 55px;
       }
 
       .lettre {
-        padding: 40px 25px;
+        padding: 55px 25px 45px;
+      }
+
+      .lettre p {
+        margin-top: 22px;
+
+        font-size: 20px;
+        line-height: 1.6;
+      }
+
+      .lettre h2 + p {
+        margin-top: 30px;
+      }
+
+      .signature {
+        font-size: 34px;
       }
     }
 
@@ -974,28 +1018,105 @@
     id="histoire"
   >
 
-    <div class="lettre">
+    <article class="lettre">
 
       <h2>
-        Mon amour ♡
+        Mon amour
       </h2>
 
       <p>
-        Écris ici ta petite lettre d’amour.
-        Ce texte sert seulement d’emplacement pour le moment.
-        Nous pourrons ensuite écrire ensemble le véritable texte
-        que tu souhaites lui adresser.
+        Ces dernières semaines m’ont fait réaliser quelque chose
+        que je pensais pourtant déjà savoir. J’aime profondément
+        la vie que j’ai avec toi.
+      </p>
+
+      <p>
+        Et bizarrement, ce ne sont pas les grandes choses qui me
+        manquent le plus. C’est notre quotidien. Me réveiller dans
+        tes bras, avoir mon gros câlin et mes bisous avant que tu
+        partes travailler, partir de mon côté puis te retrouver à
+        la fin de la journée. Manger ensemble, passer nos soirées
+        l’un avec l’autre, prendre notre douche ensemble et finir
+        dans notre lit, collés serrés.
+      </p>
+
+      <p>
+        Même s’ennuyer ensemble me manque.
+      </p>
+
+      <p>
+        Avant ton départ, tout ça me paraissait tellement normal.
+        C’était juste nous, notre petite routine, nos habitudes,
+        notre façon de vivre ensemble. Maintenant que tu es loin,
+        je réalise encore plus à quel point tous ces petits moments
+        comptent pour moi.
+      </p>
+
+      <p>
+        Je sais que ces dernières semaines n’ont pas toujours été
+        simples. La distance nous pèse, on se parle moins, tu
+        travailles beaucoup et de mon côté j’ai parfois du mal à
+        gérer ton absence. Je prends vite les choses à cœur et
+        parfois beaucoup trop. Mais même quand on se prend la tête,
+        ça ne change pas ce que je ressens pour toi.
+      </p>
+
+      <p>
+        Je t’aime énormément et je ne veux surtout pas que cette
+        distance finisse par en créer une entre nous.
+      </p>
+
+      <p>
+        Je suis aussi super fière de toi. Je vois à quel point tu
+        travailles et tous les efforts que tu fais malgré les
+        difficultés. Je sais aussi que tu fais tout ça pour nous,
+        pour notre avenir, pour qu’on puisse vivre bien et profiter
+        ensemble de tout ce qu’on aura construit. Même si je ne te
+        le dis pas forcément assez, je le vois et ça compte
+        énormément pour moi.
+      </p>
+
+      <p>
+        Et quand je pense à ton retour, je n’arrive même pas à
+        choisir une seule chose qui me fait envie. J’ai juste envie
+        de tout retrouver. Tes bras, tes bisous, nos repas, nos
+        douches, notre lit, nos moments débiles, nos journées où on
+        ne fait rien. Juste retrouver notre vie ensemble.
+      </p>
+
+      <p>
+        23 ans mon amoureux… J’espère pouvoir fêter encore
+        énormément de tes anniversaires, te voir évoluer,
+        accomplir tes projets et continuer à grandir à tes côtés.
+      </p>
+
+      <p>
+        Je pourrais t’en écrire encore beaucoup, mais je préfère en
+        garder pour plus tard. Il y a des choses qui méritent une
+        lettre rien qu’à elles.
+      </p>
+
+      <p>
+        Alors pour celle-ci, je veux simplement que tu retiennes
+        que malgré les kilomètres, les journées difficiles et nos
+        petites prises de tête, je t’aime toujours autant.
+      </p>
+
+      <p>
+        Et je te choisirais encore, toi.
       </p>
 
       <div class="signature">
-        Je t’aime ♡
+        Je t’aime mon amoureux ♡
       </div>
 
-    </div>
+    </article>
 
   </section>
 
-  <!-- Écran de transition -->
+  <!-- ========================================
+       ÉCRAN DE TRANSITION
+  ========================================= -->
 
   <div
     class="transition-amour"
@@ -1028,7 +1149,8 @@
       const ancienComportement =
         document.documentElement.style.scrollBehavior;
 
-      document.documentElement.style.scrollBehavior = "auto";
+      document.documentElement.style.scrollBehavior =
+        "auto";
 
       window.scrollTo(0, 0);
 
@@ -1057,8 +1179,8 @@
       transition.classList.add("active");
 
       /*
-        Pendant que l’écran est entièrement caché,
-        on calcule la position exacte de la lettre.
+        Pendant que l’écran est caché,
+        on place précisément la lettre.
       */
 
       setTimeout(function () {
@@ -1075,10 +1197,6 @@
           Math.round(positionHistoire)
         );
 
-        /*
-          Deuxième vérification pour les navigateurs PC.
-        */
-
         requestAnimationFrame(function () {
 
           window.scrollTo(
@@ -1091,8 +1209,7 @@
       }, 1300);
 
       /*
-        La lettre est maintenant bien positionnée :
-        la transition peut disparaître.
+        Révélation de la lettre.
       */
 
       setTimeout(function () {
