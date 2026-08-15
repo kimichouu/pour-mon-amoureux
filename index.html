@@ -257,6 +257,10 @@
       transform:
         rotate(0deg)
         scale(1.06);
+
+      box-shadow:
+        0 20px 55px
+        rgba(0, 0, 0, 0.65);
     }
 
     /* Scotch */
@@ -402,6 +406,10 @@
 
       font-size: 45px;
 
+      text-shadow:
+        0 0 18px
+        rgba(190, 210, 150, 0.55);
+
       animation: heartBeat 2.6s infinite;
     }
 
@@ -426,6 +434,10 @@
       font-weight: 500;
 
       line-height: 0.95;
+
+      text-shadow:
+        0 4px 20px
+        rgba(0, 0, 0, 0.55);
     }
 
     .age {
@@ -440,6 +452,10 @@
         clamp(95px, 16vw, 165px);
 
       line-height: 0.9;
+
+      text-shadow:
+        0 0 25px
+        rgba(183, 212, 138, 0.3);
     }
 
     .lover {
@@ -473,6 +489,8 @@
       font-size: 25px;
 
       letter-spacing: 2px;
+
+      backdrop-filter: blur(5px);
     }
 
     .message {
@@ -484,6 +502,10 @@
         clamp(22px, 3vw, 29px);
 
       line-height: 1.45;
+
+      text-shadow:
+        0 3px 15px
+        rgba(0, 0, 0, 0.7);
     }
 
     /* ========================================
@@ -518,8 +540,10 @@
 
       cursor: pointer;
 
+      backdrop-filter: blur(8px);
+
       box-shadow:
-        0 8px 25px
+         0 8px 25px
         rgba(0, 0, 0, 0.3);
 
       transition: all 0.35s ease;
@@ -533,6 +557,10 @@
       transform:
         translateY(-4px)
         scale(1.02);
+
+      box-shadow:
+        0 15px 40px
+        rgba(0, 0, 0, 0.45);
     }
 
     /* ========================================
@@ -553,6 +581,8 @@
           #07120d,
           #0b1c13
         );
+
+      scroll-margin-top: 0;
     }
 
     .lettre {
@@ -719,6 +749,7 @@
           70px;
 
         background-attachment: scroll;
+        background-position: center;
       }
 
       .polaroid-wrap {
@@ -791,6 +822,7 @@
 
       .age {
         margin-top: 13px;
+        margin-bottom: 8px;
       }
 
       .date {
@@ -979,21 +1011,29 @@
   <script>
 
     /*
-      Évite que le téléphone ouvre le site
-      directement sur la lettre.
+      Empêche le navigateur de restaurer
+      une ancienne position.
     */
 
     if ("scrollRestoration" in history) {
       history.scrollRestoration = "manual";
     }
 
+    /*
+      Force l’ouverture du site tout en haut.
+    */
+
     function revenirEnHaut() {
 
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "auto"
-      });
+      const ancienComportement =
+        document.documentElement.style.scrollBehavior;
+
+      document.documentElement.style.scrollBehavior = "auto";
+
+      window.scrollTo(0, 0);
+
+      document.documentElement.style.scrollBehavior =
+        ancienComportement;
 
     }
 
@@ -1003,8 +1043,7 @@
     );
 
     /*
-      Fonction appelée directement
-      par le bouton.
+      Transition adaptée au téléphone et au PC.
     */
 
     function entrerSite() {
@@ -1015,36 +1054,55 @@
       const histoire =
         document.getElementById("histoire");
 
-      /*
-        Affiche la transition.
-      */
-
       transition.classList.add("active");
 
       /*
-        Lorsque l’écran est caché par la transition,
-        on descend sur la lettre.
+        Pendant que l’écran est entièrement caché,
+        on calcule la position exacte de la lettre.
       */
 
       setTimeout(function () {
 
-        histoire.scrollIntoView({
-          behavior: "auto",
-          block: "start"
+        const positionHistoire =
+          histoire.getBoundingClientRect().top
+          + window.pageYOffset;
+
+        document.documentElement.style.scrollBehavior =
+          "auto";
+
+        window.scrollTo(
+          0,
+          Math.round(positionHistoire)
+        );
+
+        /*
+          Deuxième vérification pour les navigateurs PC.
+        */
+
+        requestAnimationFrame(function () {
+
+          window.scrollTo(
+            0,
+            Math.round(positionHistoire)
+          );
+
         });
 
       }, 1300);
 
       /*
-        Retire progressivement la transition
-        pour révéler la lettre.
+        La lettre est maintenant bien positionnée :
+        la transition peut disparaître.
       */
 
       setTimeout(function () {
 
         transition.classList.remove("active");
 
-      }, 2000);
+        document.documentElement.style.scrollBehavior =
+          "smooth";
+
+      }, 2100);
 
     }
 
