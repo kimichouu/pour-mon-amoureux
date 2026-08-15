@@ -505,7 +505,7 @@
     }
 
     /* ========================================
-       BOUTON
+       BOUTON D’ENTRÉE
     ======================================== */
 
     .enter {
@@ -560,7 +560,7 @@
     }
 
     /* ========================================
-       LETTRE D’AMOUR
+       PARTIE DE LA LETTRE
     ======================================== */
 
     .histoire {
@@ -585,7 +585,7 @@
     }
 
     .intro-lettre {
-      margin-bottom: 38px;
+      margin-bottom: 30px;
 
       color: #e3ead0;
 
@@ -616,7 +616,61 @@
       font-size: 34px;
     }
 
+    /* Bouton Première lettre */
+
+    .bouton-lettre {
+      display: block;
+
+      margin: 0 auto 38px;
+
+      padding: 16px 35px;
+
+      color: #f3efe2;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(79, 103, 70, 0.9),
+          rgba(129, 149, 108, 0.75)
+        );
+
+      border:
+        1px solid
+        rgba(243, 239, 226, 0.7);
+
+      border-radius: 999px;
+
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+
+      letter-spacing: 3px;
+
+      cursor: pointer;
+
+      box-shadow:
+        0 10px 30px
+        rgba(0, 0, 0, 0.35);
+
+      transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        opacity 0.3s ease;
+    }
+
+    .bouton-lettre:hover {
+      background: #81956c;
+
+      transform:
+        translateY(-3px)
+        scale(1.02);
+    }
+
+    /* Lettre cachée avant le clic */
+
     .lettre {
+      display: none;
+      opacity: 0;
+
       position: relative;
 
       width: 100%;
@@ -636,6 +690,32 @@
       box-shadow:
         0 20px 60px
         rgba(0, 0, 0, 0.45);
+    }
+
+    .lettre.visible {
+      display: block;
+
+      animation:
+        apparitionLettre 1s ease forwards;
+    }
+
+    @keyframes apparitionLettre {
+
+      from {
+        opacity: 0;
+
+        transform:
+          translateY(35px)
+          scale(0.98);
+      }
+
+      to {
+        opacity: 1;
+
+        transform:
+          translateY(0)
+          scale(1);
+      }
     }
 
     .lettre::before {
@@ -900,9 +980,16 @@
       }
 
       .intro-lettre {
-        margin-bottom: 28px;
+        margin-bottom: 25px;
 
         font-size: 27px;
+      }
+
+      .bouton-lettre {
+        width: 100%;
+        max-width: 300px;
+
+        font-size: 20px;
       }
 
       .lettre {
@@ -1055,10 +1142,22 @@
         Avant de commencer, je souhaite t’écrire une petite lettre
       </p>
 
-      <article class="lettre">
+      <button
+        class="bouton-lettre"
+        id="bouton-premiere-lettre"
+        type="button"
+        onclick="ouvrirLettre()"
+      >
+        Première lettre ♡
+      </button>
+
+      <article
+        class="lettre"
+        id="premiere-lettre"
+      >
 
         <h2>
-          Mon amour
+          Mon amoureux
         </h2>
 
         <p>
@@ -1144,7 +1243,7 @@
         </p>
 
         <div class="signature">
-          Je t’aime mon amoureux ♡
+          Je t’aime ♡
         </div>
 
       </article>
@@ -1204,6 +1303,33 @@
     );
 
     /*
+      Ouvre la première lettre.
+    */
+
+    function ouvrirLettre() {
+
+      const lettre =
+        document.getElementById("premiere-lettre");
+
+      const bouton =
+        document.getElementById("bouton-premiere-lettre");
+
+      lettre.classList.add("visible");
+
+      bouton.style.display = "none";
+
+      setTimeout(function () {
+
+        lettre.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+
+      }, 100);
+
+    }
+
+    /*
       Transition adaptée au téléphone et au PC.
     */
 
@@ -1216,11 +1342,6 @@
         document.getElementById("histoire");
 
       transition.classList.add("active");
-
-      /*
-        Pendant que l’écran est caché,
-        on place précisément la lettre.
-      */
 
       setTimeout(function () {
 
@@ -1246,10 +1367,6 @@
         });
 
       }, 1300);
-
-      /*
-        Révélation de la lettre.
-      */
 
       setTimeout(function () {
 
