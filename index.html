@@ -216,11 +216,6 @@
 
       object-fit: cover;
 
-      /*
-        Nouveau filtre naturel
-        sans sepia et sans hue-rotate
-      */
-
       filter:
         saturate(82%)
         contrast(98%)
@@ -233,11 +228,6 @@
       position: absolute;
 
       inset: 10px 10px 38px;
-
-      /*
-        Voile vert très léger
-        qui ne déforme plus les couleurs
-      */
 
       background:
         rgba(76, 99, 69, 0.08);
@@ -576,11 +566,7 @@
     .histoire {
       min-height: 100vh;
 
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-
-      padding: 70px 25px;
+      padding: 65px 25px 80px;
 
       background:
         linear-gradient(
@@ -591,13 +577,51 @@
       scroll-margin-top: 0;
     }
 
+    .contenu-lettre {
+      width: 100%;
+      max-width: 780px;
+
+      margin: 0 auto;
+    }
+
+    .intro-lettre {
+      margin-bottom: 38px;
+
+      color: #e3ead0;
+
+      font-family: "Cormorant Garamond", serif;
+
+      font-size:
+        clamp(26px, 4vw, 38px);
+
+      line-height: 1.4;
+
+      text-align: center;
+
+      text-shadow:
+        0 4px 20px
+        rgba(0, 0, 0, 0.5);
+    }
+
+    .intro-lettre::after {
+      content: "♡";
+
+      display: block;
+
+      margin-top: 14px;
+
+      color: #a9bd8c;
+
+      font-family: "Great Vibes", cursive;
+      font-size: 34px;
+    }
+
     .lettre {
       position: relative;
 
       width: 100%;
-      max-width: 780px;
 
-      padding: 65px 65px;
+      padding: 65px;
 
       color: #2e3b2d;
 
@@ -622,7 +646,8 @@
       top: 24px;
       left: 50%;
 
-      color: rgba(97, 121, 84, 0.35);
+      color:
+        rgba(97, 121, 84, 0.35);
 
       font-size: 25px;
 
@@ -871,7 +896,13 @@
       }
 
       .histoire {
-        padding: 35px 16px 55px;
+        padding: 38px 16px 55px;
+      }
+
+      .intro-lettre {
+        margin-bottom: 28px;
+
+        font-size: 27px;
       }
 
       .lettre {
@@ -1018,99 +1049,107 @@
     id="histoire"
   >
 
-    <article class="lettre">
+    <div class="contenu-lettre">
 
-      <h2>
-        Mon amoureux
-      </h2>
-
-      <p>
-        Ces dernières semaines m’ont fait réaliser quelque chose
-        que je pensais pourtant déjà savoir. J’aime profondément
-        la vie que j’ai avec toi.
+      <p class="intro-lettre">
+        Avant de commencer, je souhaite t’écrire une petite lettre
       </p>
 
-      <p>
-        Et bizarrement, ce ne sont pas les grandes choses qui me
-        manquent le plus. C’est notre quotidien. Me réveiller dans
-        tes bras, avoir mon gros câlin et mes bisous avant que tu
-        partes travailler, partir de mon côté puis te retrouver à
-        la fin de la journée. Manger ensemble, passer nos soirées
-        l’un avec l’autre, prendre notre douche ensemble et finir
-        dans notre lit, collés serrés.
-      </p>
+      <article class="lettre">
 
-      <p>
-        Même s’ennuyer ensemble me manque.
-      </p>
+        <h2>
+          Mon amour
+        </h2>
 
-      <p>
-        Avant ton départ, tout ça me paraissait tellement normal.
-        C’était juste nous, notre petite routine, nos habitudes,
-        notre façon de vivre ensemble. Maintenant que tu es loin,
-        je réalise encore plus à quel point tous ces petits moments
-        comptent pour moi.
-      </p>
+        <p>
+          Ces dernières semaines m’ont fait réaliser quelque chose
+          que je pensais pourtant déjà savoir. J’aime profondément
+          la vie que j’ai avec toi.
+        </p>
 
-      <p>
-        Je sais que ces dernières semaines n’ont pas toujours été
-        simples. La distance nous pèse, on se parle moins, tu
-        travailles beaucoup et de mon côté j’ai parfois du mal à
-        gérer ton absence. Je prends vite les choses à cœur et
-        parfois beaucoup trop. Mais même quand on se prend la tête,
-        ça ne change pas ce que je ressens pour toi.
-      </p>
+        <p>
+          Et bizarrement, ce ne sont pas les grandes choses qui me
+          manquent le plus. C’est notre quotidien. Me réveiller dans
+          tes bras, avoir mon gros câlin et mes bisous avant que tu
+          partes travailler, partir de mon côté puis te retrouver à
+          la fin de la journée. Manger ensemble, passer nos soirées
+          l’un avec l’autre, prendre notre douche ensemble et finir
+          dans notre lit, collés serrés.
+        </p>
 
-      <p>
-        Je t’aime énormément et je ne veux surtout pas que cette
-        distance finisse par en créer une entre nous.
-      </p>
+        <p>
+          Même s’ennuyer ensemble me manque.
+        </p>
 
-      <p>
-        Je suis aussi super fière de toi. Je vois à quel point tu
-        travailles et tous les efforts que tu fais malgré les
-        difficultés. Je sais aussi que tu fais tout ça pour nous,
-        pour notre avenir, pour qu’on puisse vivre bien et profiter
-        ensemble de tout ce qu’on aura construit. Même si je ne te
-        le dis pas forcément assez, je le vois et ça compte
-        énormément pour moi.
-      </p>
+        <p>
+          Avant ton départ, tout ça me paraissait tellement normal.
+          C’était juste nous, notre petite routine, nos habitudes,
+          notre façon de vivre ensemble. Maintenant que tu es loin,
+          je réalise encore plus à quel point tous ces petits moments
+          comptent pour moi.
+        </p>
 
-      <p>
-        Et quand je pense à ton retour, je n’arrive même pas à
-        choisir une seule chose qui me fait envie. J’ai juste envie
-        de tout retrouver. Tes bras, tes bisous, nos repas, nos
-        douches, notre lit, nos moments débiles, nos journées où on
-        ne fait rien. Juste retrouver notre vie ensemble.
-      </p>
+        <p>
+          Je sais que ces dernières semaines n’ont pas toujours été
+          simples. La distance nous pèse, on se parle moins, tu
+          travailles beaucoup et de mon côté j’ai parfois du mal à
+          gérer ton absence. Je prends vite les choses à cœur et
+          parfois beaucoup trop. Mais même quand on se prend la tête,
+          ça ne change pas ce que je ressens pour toi.
+        </p>
 
-      <p>
-        23 ans mon amoureux… J’espère pouvoir fêter encore
-        énormément de tes anniversaires, te voir évoluer,
-        accomplir tes projets et continuer à grandir à tes côtés.
-      </p>
+        <p>
+          Je t’aime énormément et je ne veux surtout pas que cette
+          distance finisse par en créer une entre nous.
+        </p>
 
-      <p>
-        Je pourrais t’en écrire encore beaucoup, mais je préfère en
-        garder pour plus tard. Il y a des choses qui méritent une
-        lettre rien qu’à elles.
-      </p>
+        <p>
+          Je suis aussi super fière de toi. Je vois à quel point tu
+          travailles et tous les efforts que tu fais malgré les
+          difficultés. Je sais aussi que tu fais tout ça pour nous,
+          pour notre avenir, pour qu’on puisse vivre bien et profiter
+          ensemble de tout ce qu’on aura construit. Même si je ne te
+          le dis pas forcément assez, je le vois et ça compte
+          énormément pour moi.
+        </p>
 
-      <p>
-        Alors pour celle-ci, je veux simplement que tu retiennes
-        que malgré les kilomètres, les journées difficiles et nos
-        petites prises de tête, je t’aime toujours autant.
-      </p>
+        <p>
+          Et quand je pense à ton retour, je n’arrive même pas à
+          choisir une seule chose qui me fait envie. J’ai juste envie
+          de tout retrouver. Tes bras, tes bisous, nos repas, nos
+          douches, notre lit, nos moments débiles, nos journées où on
+          ne fait rien. Juste retrouver notre vie ensemble.
+        </p>
 
-      <p>
-        Et je te choisirais encore, toi.
-      </p>
+        <p>
+          23 ans mon amoureux… J’espère pouvoir fêter encore
+          énormément de tes anniversaires, te voir évoluer,
+          accomplir tes projets et continuer à grandir à tes côtés.
+        </p>
 
-      <div class="signature">
-        Je t’aime ♡
-      </div>
+        <p>
+          Je pourrais t’en écrire encore beaucoup, mais je préfère en
+          garder pour plus tard. Il y a des choses qui méritent une
+          lettre rien qu’à elles.
+        </p>
 
-    </article>
+        <p>
+          Alors pour celle-ci, je veux simplement que tu retiennes
+          que malgré les kilomètres, les journées difficiles et nos
+          petites prises de tête, je t’aime toujours autant.
+        </p>
+
+        <p>
+          Et je te choisirais encore, toi.
+        </p>
+
+        <div class="signature">
+          Je t’aime mon amoureux ♡
+        </div>
+
+      </article>
+
+    </div>
 
   </section>
 
