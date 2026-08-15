@@ -2,6 +2,7 @@
 <html lang="fr">
 
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -49,6 +50,7 @@
 
     .hero {
       min-height: 100vh;
+
       position: relative;
 
       display: flex;
@@ -73,6 +75,7 @@
 
     .hero::before {
       content: "";
+
       position: absolute;
       inset: 0;
 
@@ -94,6 +97,7 @@
       position: absolute;
 
       color: #d7dfb9;
+
       opacity: 0.75;
 
       font-size: 23px;
@@ -111,30 +115,35 @@
     .sparkle.two {
       top: 15%;
       right: 8%;
+
       animation-delay: 1s;
     }
 
     .sparkle.three {
       bottom: 12%;
       left: 12%;
+
       animation-delay: 1.8s;
     }
 
     .sparkle.four {
       right: 10%;
       bottom: 15%;
+
       animation-delay: 0.7s;
     }
 
     .sparkle.five {
       top: 50%;
       left: 4%;
+
       animation-delay: 1.3s;
     }
 
     .sparkle.six {
       top: 55%;
       right: 4%;
+
       animation-delay: 2s;
     }
 
@@ -143,11 +152,13 @@
       0%,
       100% {
         opacity: 0.35;
+
         transform: scale(1);
       }
 
       50% {
         opacity: 1;
+
         transform: scale(1.25);
       }
     }
@@ -184,7 +195,9 @@
 
       background: #eeeade;
 
-      border: 1px solid rgba(194, 213, 169, 0.22);
+      border:
+        1px solid
+        rgba(194, 213, 169, 0.22);
 
       box-shadow:
         0 15px 40px
@@ -220,7 +233,8 @@
 
       inset: 10px 10px 38px;
 
-      background: rgba(84, 111, 74, 0.24);
+      background:
+        rgba(84, 111, 74, 0.24);
 
       mix-blend-mode: multiply;
 
@@ -262,7 +276,8 @@
       width: 76px;
       height: 24px;
 
-      background: rgba(159, 181, 138, 0.7);
+      background:
+        rgba(159, 181, 138, 0.7);
 
       opacity: 0.82;
 
@@ -285,10 +300,6 @@
       opacity: 0.8;
 
       z-index: 1;
-
-      text-shadow:
-        0 0 15px
-        rgba(170, 200, 140, 0.18);
     }
 
     .leaf-left-1 {
@@ -326,14 +337,13 @@
 
       color: #e5e8d1;
 
-      font-family: "Great Vibes", cursive;
+      font-family:
+        "Great Vibes",
+        cursive;
+
       font-size: 55px;
 
       z-index: 5;
-
-      text-shadow:
-        0 0 12px
-        rgba(220, 235, 190, 0.25);
     }
 
     .heart-left {
@@ -350,7 +360,7 @@
       transform: rotate(-15deg);
     }
 
-    /* Petites étoiles autour des photos */
+    /* Étoiles autour des photos */
 
     .doodle-star {
       position: absolute;
@@ -363,7 +373,8 @@
 
       z-index: 5;
 
-      animation: glow 3s ease-in-out infinite;
+      animation:
+        glow 3s ease-in-out infinite;
     }
 
     .star-left {
@@ -405,7 +416,8 @@
         0 0 18px
         rgba(190, 210, 150, 0.55);
 
-      animation: heartBeat 2.6s infinite;
+      animation:
+        heartBeat 2.6s infinite;
     }
 
     @keyframes heartBeat {
@@ -421,7 +433,9 @@
     }
 
     .small-title {
-      font-family: "Cormorant Garamond", serif;
+      font-family:
+        "Cormorant Garamond",
+        serif;
 
       font-size:
         clamp(48px, 7vw, 78px);
@@ -441,7 +455,9 @@
 
       color: #dce8bd;
 
-      font-family: "Great Vibes", cursive;
+      font-family:
+        "Great Vibes",
+        cursive;
 
       font-size:
         clamp(95px, 16vw, 165px);
@@ -456,7 +472,9 @@
     .lover {
       margin-top: 0;
 
-      font-family: "Cormorant Garamond", serif;
+      font-family:
+        "Cormorant Garamond",
+        serif;
 
       font-size:
         clamp(46px, 6vw, 70px);
@@ -473,12 +491,19 @@
 
       color: #f1eedf;
 
-      background: rgba(91, 117, 75, 0.58);
+      background:
+        rgba(91, 117, 75, 0.58);
 
-      border: 1px solid rgba(223, 230, 205, 0.3);
+      border:
+        1px solid
+        rgba(223, 230, 205, 0.3);
+
       border-radius: 5px;
 
-      font-family: "Cormorant Garamond", serif;
+      font-family:
+        "Cormorant Garamond",
+        serif;
+
       font-size: 25px;
 
       letter-spacing: 2px;
@@ -489,7 +514,9 @@
     .message {
       margin-bottom: 36px;
 
-      font-family: "Cormorant Garamond", serif;
+      font-family:
+        "Cormorant Garamond",
+        serif;
 
       font-size:
         clamp(22px, 3vw, 29px);
@@ -508,6 +535,7 @@
     .enter {
       display: inline-block;
 
+      width: auto;
       min-width: 330px;
 
       padding: 18px 40px;
@@ -521,14 +549,21 @@
           rgba(106, 129, 88, 0.55)
         );
 
-      border: 1px solid rgba(246, 243, 224, 0.8);
+      border:
+        1px solid
+        rgba(246, 243, 224, 0.8);
+
       border-radius: 999px;
 
-      font-family: "Cormorant Garamond", serif;
+      font-family:
+        "Cormorant Garamond",
+        serif;
+
       font-size: 20px;
 
       letter-spacing: 7px;
-      text-decoration: none;
+
+      cursor: pointer;
 
       backdrop-filter: blur(8px);
 
@@ -554,79 +589,17 @@
     }
 
     /* ========================================
-       LETTRE D’AMOUR
+       PAGE VIDE POUR LA SUITE
     ======================================== */
 
-    .histoire {
+    .suite {
       min-height: 100vh;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      padding: 70px 25px;
 
       background:
         linear-gradient(
           #07120d,
           #0b1c13
         );
-    }
-
-    .lettre {
-      width: 100%;
-      max-width: 700px;
-
-      padding: 60px 55px;
-
-      color: #2e3b2d;
-
-      background: #f3efe2;
-
-      border: 1px solid rgba(189, 204, 162, 0.5);
-      border-radius: 8px;
-
-      box-shadow:
-        0 20px 60px
-        rgba(0, 0, 0, 0.45);
-    }
-
-    .lettre h2 {
-      color: #4f6746;
-
-      font-family: "Great Vibes", cursive;
-
-      font-size:
-        clamp(48px, 7vw, 70px);
-
-      font-weight: 400;
-
-      text-align: center;
-    }
-
-    .lettre p {
-      margin-top: 30px;
-
-      color: #2e3b2d;
-
-      font-family: "Cormorant Garamond", serif;
-
-      font-size:
-        clamp(21px, 3vw, 27px);
-
-      line-height: 1.7;
-      text-align: left;
-    }
-
-    .signature {
-      margin-top: 35px;
-
-      color: #617954;
-
-      font-family: "Great Vibes", cursive;
-      font-size: 38px;
-
-      text-align: right;
     }
 
     /* ========================================
@@ -636,7 +609,10 @@
     @media (max-width: 800px) {
 
       .hero {
-        padding: 165px 22px 70px;
+        padding:
+          165px
+          22px
+          70px;
 
         background-attachment: scroll;
         background-position: center;
@@ -660,7 +636,10 @@
       .polaroid {
         width: 120px;
 
-        padding: 7px 7px 26px;
+        padding:
+          7px
+          7px
+          26px;
       }
 
       .polaroid img {
@@ -668,7 +647,10 @@
       }
 
       .polaroid::after {
-        inset: 7px 7px 26px;
+        inset:
+          7px
+          7px
+          26px;
       }
 
       .polaroid.left {
@@ -724,25 +706,10 @@
 
         letter-spacing: 5px;
       }
-
-      .histoire {
-        padding: 45px 18px;
-      }
-
-      .lettre {
-        padding: 40px 25px;
-      }
-
-      .lettre p {
-        font-size: 21px;
-      }
-
-      .signature {
-        font-size: 33px;
-      }
     }
 
   </style>
+
 </head>
 
 <body>
@@ -846,52 +813,38 @@
 
       </p>
 
-      <a
+      <!--
+        C’est maintenant un bouton et non un lien.
+        Il ne peut donc plus ajouter #histoire
+        dans l’adresse.
+      -->
+
+      <button
         class="enter"
         id="bouton-entrer"
-        href="#histoire"
+        type="button"
       >
         ENTRE ICI ♡
-      </a>
+      </button>
 
     </div>
 
   </section>
 
   <!-- ========================================
-       PETITE LETTRE D’AMOUR
+       PAGE VIDE
   ========================================= -->
 
   <section
-    class="histoire"
-    id="histoire"
+    class="suite"
+    id="suite"
   >
-
-    <div class="lettre">
-
-      <h2>
-        Mon amour ♡
-      </h2>
-
-      <p>
-        Écris ta petite lettre d’amour ici.
-        Pour le moment, ce texte sert simplement à voir
-        à quoi ressemblera la lettre sur le site.
-        Nous écrirons ensuite ensemble le véritable texte.
-      </p>
-
-      <div class="signature">
-        Je t’aime ♡
-      </div>
-
-    </div>
-
   </section>
 
   <script>
 
     /*
-      Le navigateur ne doit pas mémoriser
+      Empêche le téléphone de restaurer
       l’ancienne position de la page.
     */
 
@@ -900,27 +853,55 @@
     }
 
     /*
-      À chaque nouvelle ouverture,
-      le site revient tout en haut.
+      Supprime l’ancien #histoire de l’adresse
+      s’il est encore présent.
     */
 
-    window.addEventListener("pageshow", function () {
+    if (window.location.hash) {
 
-      if (window.location.hash) {
-        history.replaceState(
-          null,
-          "",
-          window.location.pathname + window.location.search
-        );
-      }
+      history.replaceState(
+        null,
+        "",
+        window.location.pathname + window.location.search
+      );
 
-      window.scrollTo(0, 0);
-
-    });
+    }
 
     /*
-      Le bouton descend jusqu’à la lettre
-      sans ajouter #histoire dans l’adresse.
+      Force l’ouverture tout en haut.
+    */
+
+    function revenirEnHaut() {
+
+      document.documentElement.style.scrollBehavior = "auto";
+
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: "auto"
+      });
+
+      document.documentElement.style.scrollBehavior = "smooth";
+
+    }
+
+    window.addEventListener(
+      "DOMContentLoaded",
+      revenirEnHaut
+    );
+
+    window.addEventListener(
+      "load",
+      revenirEnHaut
+    );
+
+    window.addEventListener(
+      "pageshow",
+      revenirEnHaut
+    );
+
+    /*
+      Au clic, le site descend vers la page vide.
     */
 
     const boutonEntrer =
@@ -928,12 +909,10 @@
 
     boutonEntrer.addEventListener(
       "click",
-      function (event) {
-
-        event.preventDefault();
+      function () {
 
         document
-          .getElementById("histoire")
+          .getElementById("suite")
           .scrollIntoView({
             behavior: "smooth",
             block: "start"
