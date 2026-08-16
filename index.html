@@ -1,3 +1,53 @@
+Texte collé(4).txt
+Document
+ voici le code
+Texte collé(5).txt
+Document
+ce sont les photos en ville qu''on passait ensemble je tenvoi les autre photos petit a petit jai très peu de photo 
+d'autre phooto de nous durant cet periode
+ma pdp et a lui
+
+voila un peu l'interface. oui ook pour les polaroids et comme mots dit juste quelque mometns de nootre rencontre avec en fond la musique et les photos souvenirs
+
+Texte collé(6).txt
+Document
+alors t y arrives?
+
+Oui, c’est terminé ! 
+Ouvre le code complet ici, puis fais Ctrl + A, Ctrl + C et remplace tout ton index.html sur GitHub.
+
+J’ai ajouté :
+
+le cadre de la phrase et du bouton centré sur PC et téléphone ;
+la lettre qui s’ouvre au clic ;
+« Mais commençons par le vrai début… » ;
+le bouton « Chapitre 0 ♡ » ;
+l’interface TikTok reconstituée ;
+vos vrais pseudos et photos de profil ;
+la musique qui tente de démarrer avec le chapitre ;
+un lien de secours si le navigateur bloque la lecture automatique ;
+les six photos en Polaroids ;
+« Et pourtant, ce n’était encore que le début. »
+index-chapitre-0.html
+HTML
+jai pas le code ou je dois faire copier cooler
+
+Clique ici : 
+code-complet-chapitre-0.txt
+
+Puis :
+
+Fais Ctrl + A.
+Fais Ctrl + C.
+Sur GitHub, ouvre index.html.
+Clique sur le crayon.
+Fais Ctrl + A.
+Fais Ctrl + V.
+Clique sur Commit changes.
+code-complet-chapitre-0.txt
+Document
+
+code-complet-chapitre-0.txt
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -577,11 +627,38 @@
       scroll-margin-top: 0;
     }
 
+    .histoire.intro-mode {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
     .contenu-lettre {
       width: 100%;
       max-width: 780px;
 
       margin: 0 auto;
+    }
+
+    .intro-cadre {
+      width: min(680px, 100%);
+
+      padding: 55px 40px;
+
+      background:
+        rgba(18, 42, 28, 0.82);
+
+      border:
+        1px solid
+        rgba(220, 232, 197, 0.28);
+
+      border-radius: 18px;
+
+      box-shadow:
+        0 22px 70px
+        rgba(0, 0, 0, 0.42);
+
+      backdrop-filter: blur(10px);
     }
 
     .intro-lettre {
@@ -775,6 +852,625 @@
       font-size: 38px;
 
       text-align: right;
+    }
+
+    /* ========================================
+       APPEL DU CHAPITRE 0
+    ======================================== */
+
+    .appel-chapitre {
+      display: none;
+
+      min-height: 100vh;
+
+      justify-content: center;
+      align-items: center;
+
+      padding: 55px 22px;
+
+      background:
+        radial-gradient(
+          circle at center,
+          #173522,
+          #07120d 72%
+        );
+
+      text-align: center;
+    }
+
+    .appel-chapitre.visible {
+      display: flex;
+    }
+
+    .appel-cadre {
+      width: min(680px, 100%);
+
+      padding: 55px 35px;
+
+      border:
+        1px solid
+        rgba(223, 232, 205, 0.28);
+
+      border-radius: 18px;
+
+      background:
+        rgba(12, 31, 20, 0.82);
+
+      box-shadow:
+        0 22px 70px
+        rgba(0, 0, 0, 0.42);
+
+      backdrop-filter: blur(10px);
+    }
+
+    .appel-cadre p {
+      margin-bottom: 30px;
+
+      color: #e3ead0;
+
+      font-family:
+        "Cormorant Garamond",
+        serif;
+
+      font-size:
+        clamp(30px, 5vw, 48px);
+
+      line-height: 1.35;
+    }
+
+    .bouton-chapitre {
+      padding: 17px 38px;
+
+      color: #f3efe2;
+
+      background:
+        linear-gradient(
+          135deg,
+          #4f6746,
+          #81956c
+        );
+
+      border:
+        1px solid
+        rgba(243, 239, 226, 0.72);
+
+      border-radius: 999px;
+
+      font-family:
+        "Cormorant Garamond",
+        serif;
+
+      font-size: 22px;
+
+      letter-spacing: 4px;
+
+      cursor: pointer;
+
+      transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+    }
+
+    .bouton-chapitre:hover {
+      background: #91a47b;
+
+      transform:
+        translateY(-3px)
+        scale(1.02);
+    }
+
+    /* ========================================
+       CHAPITRE 0
+    ======================================== */
+
+    .chapitre-zero {
+      display: none;
+
+      position: relative;
+
+      min-height: 100vh;
+
+      padding: 65px 20px 90px;
+
+      background:
+        radial-gradient(
+          circle at top,
+          #173522,
+          #07120d 68%
+        );
+
+      overflow: hidden;
+    }
+
+    .chapitre-zero.visible {
+      display: block;
+
+      animation:
+        apparitionChapitre 1s ease forwards;
+    }
+
+    @keyframes apparitionChapitre {
+
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .chapitre-zero-contenu {
+      width: 100%;
+      max-width: 980px;
+
+      margin: 0 auto;
+
+      text-align: center;
+    }
+
+    .chapitre-date {
+      color: #a9bd8c;
+
+      font-family:
+        "Montserrat",
+        sans-serif;
+
+      font-size: 14px;
+
+      letter-spacing: 5px;
+    }
+
+    .chapitre-titre {
+      margin-top: 12px;
+
+      color: #f3efe2;
+
+      font-family:
+        "Cormorant Garamond",
+        serif;
+
+      font-size:
+        clamp(48px, 8vw, 78px);
+
+      font-weight: 500;
+    }
+
+    .chapitre-sous-titre {
+      margin-bottom: 35px;
+
+      color: #bdcca2;
+
+      font-family:
+        "Great Vibes",
+        cursive;
+
+      font-size:
+        clamp(34px, 5vw, 48px);
+    }
+
+    /* Téléphone TikTok */
+
+    .telephone {
+      width: min(310px, 86vw);
+
+      margin: 0 auto 34px;
+
+      padding: 9px;
+
+      background: #050505;
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.18);
+
+      border-radius: 36px;
+
+      box-shadow:
+        0 28px 75px
+        rgba(0, 0, 0, 0.58);
+    }
+
+    .ecran-tiktok {
+      position: relative;
+
+      aspect-ratio: 9 / 16;
+
+      border-radius: 28px;
+
+      overflow: hidden;
+
+      background: #000000;
+    }
+
+    .tiktok-photo {
+      position: absolute;
+      inset: 0;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      filter:
+        brightness(68%)
+        saturate(86%);
+    }
+
+    .tiktok-haut {
+      position: absolute;
+
+      top: 15px;
+      left: 16px;
+      right: 16px;
+
+      display: flex;
+      justify-content: space-between;
+
+      color: #ffffff;
+
+      font-family:
+        "Montserrat",
+        sans-serif;
+
+      font-size: 13px;
+
+      text-shadow:
+        0 2px 7px
+        rgba(0, 0, 0, 0.85);
+    }
+
+    .tiktok-haut span:nth-child(2) {
+      font-weight: 500;
+    }
+
+    .actions-tiktok {
+      position: absolute;
+
+      right: 11px;
+      bottom: 75px;
+
+      display: grid;
+
+      gap: 13px;
+
+      color: #ffffff;
+
+      font-family:
+        "Montserrat",
+        sans-serif;
+
+      font-size: 12px;
+
+      text-align: center;
+
+      text-shadow:
+        0 2px 8px
+        rgba(0, 0, 0, 0.9);
+    }
+
+    .pdp-kimi {
+      width: 43px;
+      height: 43px;
+
+      border:
+        2px solid
+        #ffffff;
+
+      border-radius: 50%;
+
+      object-fit: cover;
+    }
+
+    .commentaire-tiktok {
+      position: absolute;
+
+      top: 51%;
+      left: 10px;
+      right: 10px;
+
+      display: flex;
+      align-items: center;
+
+      gap: 10px;
+
+      padding: 11px;
+
+      color: #ffffff;
+
+      background:
+        rgba(0, 0, 0, 0.72);
+
+      border:
+        1px solid
+        rgba(255, 255, 255, 0.12);
+
+      border-radius: 15px;
+
+      text-align: left;
+
+      backdrop-filter: blur(8px);
+
+      animation:
+        commentaireApparait 1.2s ease both;
+    }
+
+    @keyframes commentaireApparait {
+
+      from {
+        opacity: 0;
+
+        transform:
+          translateY(20px)
+          scale(0.96);
+      }
+
+      to {
+        opacity: 1;
+
+        transform:
+          translateY(0)
+          scale(1);
+      }
+    }
+
+    .pdp-edit-cadre {
+      width: 43px;
+      height: 43px;
+
+      flex: 0 0 43px;
+
+      border-radius: 50%;
+
+      overflow: hidden;
+
+      background: #000000;
+    }
+
+    .pdp-edit {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transform: scale(1.38);
+    }
+
+    .commentaire-texte {
+      min-width: 0;
+
+      font-family:
+        "Montserrat",
+        sans-serif;
+
+      font-size: 12px;
+    }
+
+    .commentaire-texte strong {
+      display: block;
+
+      margin-bottom: 3px;
+
+      font-weight: 500;
+    }
+
+    .commentaire-texte small {
+      display: block;
+
+      margin-top: 4px;
+
+      color: #b8b8b8;
+    }
+
+    .legende-tiktok {
+      position: absolute;
+
+      left: 13px;
+      right: 55px;
+      bottom: 57px;
+
+      color: #ffffff;
+
+      font-family:
+        "Montserrat",
+        sans-serif;
+
+      font-size: 12px;
+
+      text-align: left;
+
+      text-shadow:
+        0 2px 8px
+        rgba(0, 0, 0, 0.9);
+    }
+
+    .legende-tiktok p {
+      margin-top: 5px;
+    }
+
+    .navigation-tiktok {
+      position: absolute;
+
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+      display: flex;
+      justify-content: space-around;
+
+      padding: 10px 5px;
+
+      color: #ffffff;
+
+      background:
+        rgba(0, 0, 0, 0.88);
+
+      font-family:
+        "Montserrat",
+        sans-serif;
+
+      font-size: 9px;
+    }
+
+    .reconstitution {
+      margin-top: 13px;
+
+      color: #8fa47a;
+
+      font-family:
+        "Montserrat",
+        sans-serif;
+
+      font-size: 12px;
+    }
+
+    .lecteur-musique {
+      position: absolute;
+
+      width: 1px;
+      height: 1px;
+
+      opacity: 0.01;
+
+      pointer-events: none;
+    }
+
+    .secours-musique {
+      display: inline-block;
+
+      margin-bottom: 40px;
+
+      color: #bdcca2;
+
+      font-family:
+        "Cormorant Garamond",
+        serif;
+
+      font-size: 17px;
+
+      text-underline-offset: 4px;
+    }
+
+    /* Galerie Polaroid */
+
+    .titre-souvenirs {
+      margin:
+        45px 0
+        35px;
+
+      color: #f3efe2;
+
+      font-family:
+        "Cormorant Garamond",
+        serif;
+
+      font-size:
+        clamp(38px, 6vw, 58px);
+
+      font-weight: 500;
+    }
+
+    .mur-polaroids {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 30px 22px;
+
+      align-items: center;
+
+      padding: 20px 10px 45px;
+    }
+
+    .souvenir-polaroid {
+      position: relative;
+
+      padding: 10px 10px 38px;
+
+      background: #eeeade;
+
+      box-shadow:
+        0 18px 45px
+        rgba(0, 0, 0, 0.46);
+
+      opacity: 0;
+
+      animation:
+        photoApparait 0.9s ease forwards;
+    }
+
+    .souvenir-polaroid:nth-child(1) {
+      transform: rotate(-4deg);
+      animation-delay: 0.2s;
+    }
+
+    .souvenir-polaroid:nth-child(2) {
+      transform: translateY(18px) rotate(3deg);
+      animation-delay: 0.4s;
+    }
+
+    .souvenir-polaroid:nth-child(3) {
+      transform: rotate(5deg);
+      animation-delay: 0.6s;
+    }
+
+    .souvenir-polaroid:nth-child(4) {
+      transform: rotate(3deg);
+      animation-delay: 0.8s;
+    }
+
+    .souvenir-polaroid:nth-child(5) {
+      transform: translateY(14px) rotate(-4deg);
+      animation-delay: 1s;
+    }
+
+    .souvenir-polaroid:nth-child(6) {
+      transform: rotate(4deg);
+      animation-delay: 1.2s;
+    }
+
+    @keyframes photoApparait {
+
+      from {
+        opacity: 0;
+
+        margin-top: 25px;
+      }
+
+      to {
+        opacity: 1;
+
+        margin-top: 0;
+      }
+    }
+
+    .souvenir-polaroid img {
+      display: block;
+
+      width: 100%;
+
+      aspect-ratio: 3 / 4;
+
+      object-fit: cover;
+
+      filter:
+        saturate(86%)
+        contrast(98%)
+        brightness(96%);
+    }
+
+    .fin-chapitre-zero {
+      margin-top: 25px;
+
+      color: #bdcca2;
+
+      font-family:
+        "Cormorant Garamond",
+        serif;
+
+      font-size:
+        clamp(28px, 4vw, 40px);
     }
 
     /* ========================================
@@ -979,6 +1675,16 @@
         padding: 38px 16px 55px;
       }
 
+      .histoire.intro-mode {
+        padding:
+          30px 16px;
+      }
+
+      .intro-cadre {
+        padding:
+          42px 22px;
+      }
+
       .intro-lettre {
         margin-bottom: 25px;
 
@@ -1009,6 +1715,53 @@
 
       .signature {
         font-size: 34px;
+      }
+
+      .appel-cadre {
+        padding:
+          45px 22px;
+      }
+
+      .bouton-chapitre {
+        width: 100%;
+        max-width: 300px;
+
+        font-size: 20px;
+      }
+
+      .chapitre-zero {
+        padding:
+          48px 12px
+          70px;
+      }
+
+      .mur-polaroids {
+        grid-template-columns:
+          repeat(2, 1fr);
+
+        gap: 22px 10px;
+
+        padding:
+          12px 2px
+          35px;
+      }
+
+      .souvenir-polaroid {
+        padding:
+          7px 7px
+          27px;
+      }
+
+      .souvenir-polaroid:nth-child(n) {
+        transform: rotate(0deg);
+      }
+
+      .souvenir-polaroid:nth-child(odd) {
+        transform: rotate(-2deg);
+      }
+
+      .souvenir-polaroid:nth-child(even) {
+        transform: rotate(2deg);
       }
     }
 
@@ -1132,24 +1885,31 @@
   ========================================= -->
 
   <section
-    class="histoire"
+    class="histoire intro-mode"
     id="histoire"
   >
 
     <div class="contenu-lettre">
 
-      <p class="intro-lettre">
-        Avant de commencer, je souhaite t’écrire une petite lettre
-      </p>
-
-      <button
-        class="bouton-lettre"
-        id="bouton-premiere-lettre"
-        type="button"
-        onclick="ouvrirLettre()"
+      <div
+        class="intro-cadre"
+        id="intro-cadre-lettre"
       >
-        Première lettre ♡
-      </button>
+
+        <p class="intro-lettre">
+          Avant de commencer, je souhaite t’écrire une petite lettre
+        </p>
+
+        <button
+          class="bouton-lettre"
+          id="bouton-premiere-lettre"
+          type="button"
+          onclick="ouvrirLettre()"
+        >
+          Première lettre ♡
+        </button>
+
+      </div>
 
       <article
         class="lettre"
@@ -1253,6 +2013,201 @@
   </section>
 
   <!-- ========================================
+       BOUTON VERS LE CHAPITRE 0
+  ========================================= -->
+
+  <section
+    class="appel-chapitre"
+    id="appel-chapitre-zero"
+  >
+
+    <div class="appel-cadre">
+
+      <p>
+        Mais commençons par le vrai début…
+      </p>
+
+      <button
+        class="bouton-chapitre"
+        type="button"
+        onclick="ouvrirChapitreZero()"
+      >
+        Chapitre 0 ♡
+      </button>
+
+    </div>
+
+  </section>
+
+  <!-- ========================================
+       CHAPITRE 0
+  ========================================= -->
+
+  <section
+    class="chapitre-zero"
+    id="chapitre-zero"
+  >
+
+    <div class="chapitre-zero-contenu">
+
+      <div class="chapitre-date">
+        DÉCEMBRE 2021
+      </div>
+
+      <h2 class="chapitre-titre">
+        Chapitre 0
+      </h2>
+
+      <div class="chapitre-sous-titre">
+        Notre vraie rencontre
+      </div>
+
+      <!-- Reconstitution TikTok -->
+
+      <div class="telephone">
+
+        <div class="ecran-tiktok">
+
+          <img
+            class="tiktok-photo"
+            src="6DA6B9DA-0563-472C-AB57-07E05F9CF8FA.jpeg"
+            alt="Ancienne photo de profil de Kimi_Chou"
+          >
+
+          <div class="tiktok-haut">
+            <span>Suivis</span>
+            <span>Pour toi</span>
+            <span>⌕</span>
+          </div>
+
+          <div class="actions-tiktok">
+
+            <img
+              class="pdp-kimi"
+              src="6DA6B9DA-0563-472C-AB57-07E05F9CF8FA.jpeg"
+              alt="Photo de profil de Kimi_Chou"
+            >
+
+            <span>♡<br>21</span>
+            <span>◯<br>1</span>
+            <span>↗<br>0</span>
+
+          </div>
+
+          <div class="commentaire-tiktok">
+
+            <div class="pdp-edit-cadre">
+              <img
+                class="pdp-edit"
+                src="DE6AE301-62E4-4C31-BD1B-DA73AFDD0279.png"
+                alt="Ancienne photo de profil de Edit_afk"
+              >
+            </div>
+
+            <div class="commentaire-texte">
+              <strong>Edit_afk</strong>
+              <span>You gave me goosebumps</span>
+              <small>Décembre 2021</small>
+            </div>
+
+          </div>
+
+          <div class="legende-tiktok">
+            <strong>@Kimi_Chou</strong>
+            <p>♫ Comfort Chain · Instupendo</p>
+          </div>
+
+          <div class="navigation-tiktok">
+            <span>⌂<br>Accueil</span>
+            <span>⌕<br>Découvrir</span>
+            <span>＋</span>
+            <span>♡<br>Activité</span>
+            <span>♙<br>Profil</span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="reconstitution">
+        Reconstitution de notre premier échange
+      </div>
+
+      <iframe
+        class="lecteur-musique"
+        id="lecteur-musique"
+        title="Comfort Chain par Instupendo"
+        allow="autoplay"
+      ></iframe>
+
+      <a
+        class="secours-musique"
+        href="https://www.youtube.com/watch?v=8b-WwN4H7lE"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Réécouter à nos risques et périls
+      </a>
+
+      <h3 class="titre-souvenirs">
+        Quelques moments de notre rencontre
+      </h3>
+
+      <div class="mur-polaroids">
+
+        <figure class="souvenir-polaroid">
+          <img
+            src="IMG_9117.JPG"
+            alt="Un souvenir de notre rencontre"
+          >
+        </figure>
+
+        <figure class="souvenir-polaroid">
+          <img
+            src="IMG_9113.JPG"
+            alt="Une photo de nous deux"
+          >
+        </figure>
+
+        <figure class="souvenir-polaroid">
+          <img
+            src="IMG_9091(2).JPG"
+            alt="Une photo de nous deux"
+          >
+        </figure>
+
+        <figure class="souvenir-polaroid">
+          <img
+            src="IMG_9111.JPG"
+            alt="Une photo drôle de nous deux"
+          >
+        </figure>
+
+        <figure class="souvenir-polaroid">
+          <img
+            src="IMG_9086(1).JPG"
+            alt="Une photo déformée de nous deux"
+          >
+        </figure>
+
+        <figure class="souvenir-polaroid">
+          <img
+            src="IMG_9123(1).JPG"
+            alt="Un souvenir de nos sorties"
+          >
+        </figure>
+
+      </div>
+
+      <p class="fin-chapitre-zero">
+        Et pourtant, ce n’était encore que le début.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- ========================================
        ÉCRAN DE TRANSITION
   ========================================= -->
 
@@ -1314,15 +2269,81 @@
       const bouton =
         document.getElementById("bouton-premiere-lettre");
 
+      const introCadre =
+        document.getElementById("intro-cadre-lettre");
+
+      const histoire =
+        document.getElementById("histoire");
+
+      const appelChapitre =
+        document.getElementById("appel-chapitre-zero");
+
       lettre.classList.add("visible");
 
       bouton.style.display = "none";
+
+      introCadre.style.display = "none";
+
+      histoire.classList.remove("intro-mode");
+
+      appelChapitre.classList.add("visible");
 
       setTimeout(function () {
 
         lettre.scrollIntoView({
           behavior: "smooth",
           block: "start"
+        });
+
+      }, 100);
+
+    }
+
+    /*
+      Ouvre le chapitre 0 et lance la musique.
+    */
+
+    function ouvrirChapitreZero() {
+
+      const chapitreZero =
+        document.getElementById("chapitre-zero");
+
+      const lecteurMusique =
+        document.getElementById("lecteur-musique");
+
+      chapitreZero.classList.add("visible");
+
+      if (!lecteurMusique.src) {
+
+        lecteurMusique.src =
+          "https://www.youtube.com/embed/8b-WwN4H7lE?autoplay=1&loop=1&playlist=8b-WwN4H7lE&playsinline=1";
+
+      }
+
+      setTimeout(function () {
+
+        const positionChapitre =
+          chapitreZero.getBoundingClientRect().top
+          + window.pageYOffset;
+
+        document.documentElement.style.scrollBehavior =
+          "auto";
+
+        window.scrollTo(
+          0,
+          Math.round(positionChapitre)
+        );
+
+        requestAnimationFrame(function () {
+
+          window.scrollTo(
+            0,
+            Math.round(positionChapitre)
+          );
+
+          document.documentElement.style.scrollBehavior =
+            "smooth";
+
         });
 
       }, 100);
