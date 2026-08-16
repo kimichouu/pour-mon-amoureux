@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -1002,10 +1001,17 @@
 
     /* Téléphone TikTok */
 
+    .bloc-tiktok {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 28px;
+    }
+
     .telephone {
       width: min(310px, 86vw);
 
-      margin: 0 auto 34px;
+      margin: 0 0 34px;
 
       padding: 9px;
 
@@ -1042,6 +1048,7 @@
       height: 100%;
 
       object-fit: cover;
+      object-position: 48% center;
 
       filter:
         brightness(68%)
@@ -1183,8 +1190,9 @@
       height: 100%;
 
       object-fit: cover;
+      object-position: center 53%;
 
-      transform: scale(1.38);
+      transform: scale(1.42);
     }
 
     .commentaire-texte {
@@ -1286,20 +1294,29 @@
       pointer-events: none;
     }
 
-    .secours-musique {
-      display: inline-block;
+    .commandes-musique {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 34px;
+    }
 
-      margin-bottom: 40px;
+    .bouton-musique {
+      min-width: 105px;
+      padding: 12px 18px;
+      color: #f3efe2;
+      background: rgba(189, 204, 162, 0.1);
+      border: 1px solid rgba(189, 204, 162, 0.7);
+      border-radius: 999px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 13px;
+      cursor: pointer;
+      transition: transform 0.25s ease, background 0.25s ease;
+    }
 
-      color: #bdcca2;
-
-      font-family:
-        "Cormorant Garamond",
-        serif;
-
-      font-size: 17px;
-
-      text-underline-offset: 4px;
+    .bouton-musique:hover {
+      transform: translateY(-2px);
+      background: rgba(189, 204, 162, 0.2);
     }
 
     /* Galerie Polaroid */
@@ -1522,6 +1539,16 @@
     ======================================== */
 
     @media (max-width: 800px) {
+
+      .bloc-tiktok {
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .commandes-musique {
+        flex-direction: row;
+        justify-content: center;
+      }
 
       .hero {
         padding:
@@ -1848,7 +1875,7 @@
       >
 
         <p class="intro-lettre">
-          Avant de commencer, je souhaite t’écrire une petite lettre
+          Avant de commencer, je souhaite te dire « quelques » mots
         </p>
 
         <button
@@ -1975,7 +2002,7 @@
     <div class="appel-cadre">
 
       <p>
-        Mais commençons par le vrai début…
+        Maintenant commençons par le vrai début…
       </p>
 
       <button
@@ -2010,10 +2037,12 @@
       </h2>
 
       <div class="chapitre-sous-titre">
-        Notre vraie rencontre
+        Notre vraie rencontre... sur TIKTOK
       </div>
 
       <!-- Reconstitution TikTok -->
+
+      <div class="bloc-tiktok">
 
       <div class="telephone">
 
@@ -2021,8 +2050,8 @@
 
           <img
             class="tiktok-photo"
-            src="6DA6B9DA-0563-472C-AB57-07E05F9CF8FA.jpeg"
-            alt="Ancienne photo de profil de Kimi_Chou"
+            src="ED4B8EFD-8D5F-4D49-9F74-1150BCCAAEBE.jpeg"
+            alt="Photo de Kimi sur la reconstitution TikTok"
           >
 
           <div class="tiktok-haut">
@@ -2080,8 +2109,28 @@
 
       </div>
 
+      <div class="commandes-musique">
+        <button
+          class="bouton-musique"
+          type="button"
+          onclick="controlerMusique('playVideo')"
+        >
+          ▶ Play
+        </button>
+
+        <button
+          class="bouton-musique"
+          type="button"
+          onclick="controlerMusique('pauseVideo')"
+        >
+          ❚❚ Pause
+        </button>
+      </div>
+
+      </div>
+
       <div class="reconstitution">
-        Reconstitution de notre premier échange
+       ( Petite reconstitution, j'ai galéré )
       </div>
 
       <iframe
@@ -2091,59 +2140,50 @@
         allow="autoplay"
       ></iframe>
 
-      <a
-        class="secours-musique"
-        href="https://www.youtube.com/watch?v=8b-WwN4H7lE"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Réécouter à nos risques et périls
-      </a>
-
       <h3 class="titre-souvenirs">
-        Quelques moments de notre rencontre
+        Quelques moments 
       </h3>
 
       <div class="mur-polaroids">
 
         <figure class="souvenir-polaroid">
           <img
-            src="IMG_9117.JPG"
+            src="IMG_9117.jpg"
             alt="Un souvenir de notre rencontre"
           >
         </figure>
 
         <figure class="souvenir-polaroid">
           <img
-            src="IMG_9113.JPG"
+            src="IMG_9113.jpg"
             alt="Une photo de nous deux"
           >
         </figure>
 
         <figure class="souvenir-polaroid">
           <img
-            src="IMG_9091(2).JPG"
+            src="IMG_9091.jpg"
             alt="Une photo de nous deux"
           >
         </figure>
 
         <figure class="souvenir-polaroid">
           <img
-            src="IMG_9111.JPG"
+            src="IMG_9111.jpg"
             alt="Une photo drôle de nous deux"
           >
         </figure>
 
         <figure class="souvenir-polaroid">
           <img
-            src="IMG_9086(1).JPG"
+            src="IMG_9086.jpg"
             alt="Une photo déformée de nous deux"
           >
         </figure>
 
         <figure class="souvenir-polaroid">
           <img
-            src="IMG_9123(1).JPG"
+            src="IMG_9123.jpg"
             alt="Un souvenir de nos sorties"
           >
         </figure>
@@ -2267,7 +2307,7 @@
       if (!lecteurMusique.src) {
 
         lecteurMusique.src =
-          "https://www.youtube.com/embed/8b-WwN4H7lE?autoplay=1&loop=1&playlist=8b-WwN4H7lE&playsinline=1";
+          "https://www.youtube.com/embed/8b-WwN4H7lE?autoplay=1&loop=1&playlist=8b-WwN4H7lE&playsinline=1&enablejsapi=1";
 
       }
 
@@ -2298,6 +2338,29 @@
         });
 
       }, 100);
+
+    }
+
+    function controlerMusique(commande) {
+
+      const lecteurMusique =
+        document.getElementById("lecteur-musique");
+
+      if (!lecteurMusique.src) {
+        lecteurMusique.src =
+          "https://www.youtube.com/embed/8b-WwN4H7lE?loop=1&playlist=8b-WwN4H7lE&playsinline=1&enablejsapi=1";
+      }
+
+      setTimeout(function () {
+        lecteurMusique.contentWindow.postMessage(
+          JSON.stringify({
+            event: "command",
+            func: commande,
+            args: []
+          }),
+          "*"
+        );
+      }, 350);
 
     }
 
