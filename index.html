@@ -1002,10 +1002,13 @@
     /* Téléphone TikTok */
 
     .bloc-tiktok {
+      position: relative;
+
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 28px;
+
+      width: 100%;
     }
 
     .telephone {
@@ -1295,10 +1298,17 @@
     }
 
     .commandes-musique {
+      position: absolute;
+      top: 50%;
+      left: calc(50% + 185px);
+
       display: flex;
       flex-direction: column;
       gap: 12px;
-      margin-bottom: 34px;
+
+      margin: 0;
+
+      transform: translateY(-50%);
     }
 
     .bouton-musique {
@@ -1317,6 +1327,61 @@
     .bouton-musique:hover {
       transform: translateY(-2px);
       background: rgba(189, 204, 162, 0.2);
+    }
+
+    /* Boutons de likes */
+
+    .zone-like {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+
+      margin: 28px auto;
+    }
+
+    .bouton-like {
+      padding: 12px 20px;
+
+      color: #f3efe2;
+      background: rgba(189, 204, 162, 0.1);
+
+      border: 1px solid rgba(189, 204, 162, 0.72);
+      border-radius: 999px;
+
+      font-family:
+        "Montserrat",
+        sans-serif;
+
+      font-size: 14px;
+
+      cursor: pointer;
+
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .bouton-like:hover {
+      transform: translateY(-2px) scale(1.02);
+      background: rgba(189, 204, 162, 0.2);
+    }
+
+    .bouton-like:active {
+      transform: scale(0.94);
+    }
+
+    .compteur-like {
+      min-width: 62px;
+
+      color: #bdcca2;
+
+      font-family:
+        "Montserrat",
+        sans-serif;
+
+      font-size: 13px;
     }
 
     /* Galerie Polaroid */
@@ -1590,8 +1655,14 @@
       }
 
       .commandes-musique {
+        position: static;
+
         flex-direction: row;
         justify-content: center;
+
+        margin-bottom: 34px;
+
+        transform: none;
       }
 
       .hero {
@@ -2028,6 +2099,22 @@
           Je t’aime ♡
         </div>
 
+        <div class="zone-like">
+          <button
+            class="bouton-like"
+            type="button"
+            onclick="ajouterLike('lettre', this)"
+          >
+            👍 Tu likes? :DD
+          </button>
+          <span
+            class="compteur-like"
+            data-like="lettre"
+          >
+            0 like
+          </span>
+        </div>
+
       </article>
 
     </div>
@@ -2177,6 +2264,22 @@
         Reconstitution de notre premier échange. J’ai galéré, donc like stp…
       </div>
 
+      <div class="zone-like">
+        <button
+          class="bouton-like"
+          type="button"
+          onclick="ajouterLike('tiktok', this)"
+        >
+          👍 Tu likes? :DD
+        </button>
+        <span
+          class="compteur-like"
+          data-like="tiktok"
+        >
+          0 like
+        </span>
+      </div>
+
       <iframe
         class="lecteur-musique"
         id="lecteur-musique"
@@ -2238,12 +2341,44 @@
 
       </div>
 
+      <div class="zone-like">
+        <button
+          class="bouton-like"
+          type="button"
+          onclick="ajouterLike('photos-chapitre-0', this)"
+        >
+          👍 Tu likes? :DD
+        </button>
+        <span
+          class="compteur-like"
+          data-like="photos-chapitre-0"
+        >
+          0 like
+        </span>
+      </div>
+
       <p class="fin-chapitre-zero">
         Ce sont tellement de moments que je n’oublierai jamais,
         même si ça s’est mal terminé… Sincèrement, je m’en excuse
         encore aujourd’hui. Ce sont des erreurs de jeunesse.
         Maintenant, je t’aime plus que tout.
       </p>
+
+      <div class="zone-like">
+        <button
+          class="bouton-like"
+          type="button"
+          onclick="ajouterLike('chapitre-0', this)"
+        >
+          👍 Tu likes? :DD
+        </button>
+        <span
+          class="compteur-like"
+          data-like="chapitre-0"
+        >
+          0 like
+        </span>
+      </div>
 
     </div>
 
@@ -2414,6 +2549,94 @@
       }, 350);
 
     }
+
+    /*
+      Compteurs de likes enregistrés sur l’appareil.
+    */
+
+    function texteDuCompteur(nombre) {
+
+      return nombre + (nombre === 1 ? " like" : " likes");
+
+    }
+
+    function afficherCompteurLike(nom, nombre) {
+
+      const compteur =
+        document.querySelector('[data-like="' + nom + '"]');
+
+      if (compteur) {
+        compteur.textContent = texteDuCompteur(nombre);
+      }
+
+    }
+
+    function ajouterLike(nom, bouton) {
+
+      const cle = "cadeau-like-" + nom;
+      let nombre = 0;
+
+      try {
+        nombre = Number(localStorage.getItem(cle)) || 0;
+        nombre += 1;
+        localStorage.setItem(cle, nombre);
+      } catch (erreur) {
+        const compteur =
+          document.querySelector('[data-like="' + nom + '"]');
+
+        nombre = compteur
+          ? (Number(compteur.dataset.nombre) || 0) + 1
+          : 1;
+
+        if (compteur) {
+          compteur.dataset.nombre = nombre;
+        }
+      }
+
+      afficherCompteurLike(nom, nombre);
+
+      if (bouton && bouton.animate) {
+        bouton.animate(
+          [
+            { transform: "scale(1)" },
+            { transform: "scale(1.12)" },
+            { transform: "scale(1)" }
+          ],
+          {
+            duration: 280,
+            easing: "ease-out"
+          }
+        );
+      }
+
+    }
+
+    function chargerLesLikes() {
+
+      document
+        .querySelectorAll("[data-like]")
+        .forEach(function (compteur) {
+
+          const nom = compteur.dataset.like;
+          let nombre = 0;
+
+          try {
+            nombre =
+              Number(
+                localStorage.getItem("cadeau-like-" + nom)
+              ) || 0;
+          } catch (erreur) {
+            nombre = 0;
+          }
+
+          compteur.dataset.nombre = nombre;
+          compteur.textContent = texteDuCompteur(nombre);
+
+        });
+
+    }
+
+    chargerLesLikes();
 
     /*
       Transition adaptée au téléphone et au PC.
