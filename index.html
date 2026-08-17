@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -1369,6 +1368,10 @@
         photoApparait 0.9s ease forwards;
     }
 
+    .souvenir-polaroid.avec-annotation {
+      padding-bottom: 45px;
+    }
+
     .souvenir-polaroid:nth-child(1) {
       transform: rotate(-4deg);
       animation-delay: 0.2s;
@@ -1427,6 +1430,46 @@
         saturate(86%)
         contrast(98%)
         brightness(96%);
+    }
+
+    .pupa-annotation {
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 7px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+
+      margin: 0;
+
+      color: #1c3324;
+
+      font-family:
+        "Great Vibes",
+        cursive;
+
+      font-size:
+        clamp(16px, 2vw, 21px);
+
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .pupa-fleche {
+      display: inline-block;
+
+      font-family:
+        "Cormorant Garamond",
+        serif;
+
+      font-size: 27px;
+
+      transform:
+        translateY(-7px)
+        rotate(10deg);
     }
 
     .fin-chapitre-zero {
@@ -2131,7 +2174,7 @@
       </div>
 
       <div class="reconstitution">
-        Reconstitution de notre premier échange, j'ai galéré donc like stp..
+        Reconstitution de notre premier échange. J’ai galéré, donc like stp…
       </div>
 
       <iframe
@@ -2161,11 +2204,15 @@
           >
         </figure>
 
-        <figure class="souvenir-polaroid">
+        <figure class="souvenir-polaroid avec-annotation">
           <img
             src="IMG_9091.jpg"
             alt="Une photo de nous deux"
           >
+          <figcaption class="pupa-annotation">
+            <span class="pupa-fleche">↖</span>
+            Ici, on a Pupa hihihi
+          </figcaption>
         </figure>
 
         <figure class="souvenir-polaroid">
@@ -2192,7 +2239,10 @@
       </div>
 
       <p class="fin-chapitre-zero">
-       C'est tellement des moments que j'oublierais jamais, malgrè que ça soit mal terminé... Sincèrement, je m'en excuse encore aujourd'hui. C'est les erreurs de jeunesse. Maintenant je t'aime plus que tout.
+        Ce sont tellement de moments que je n’oublierai jamais,
+        même si ça s’est mal terminé… Sincèrement, je m’en excuse
+        encore aujourd’hui. Ce sont des erreurs de jeunesse.
+        Maintenant, je t’aime plus que tout.
       </p>
 
     </div>
