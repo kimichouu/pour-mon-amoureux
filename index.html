@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -650,6 +651,10 @@
         );
 
       scroll-margin-top: 0;
+    }
+
+    .histoire.verrouillee-36 {
+      display: none !important;
     }
 
     .histoire.intro-mode {
@@ -2548,6 +2553,31 @@
       line-height: 1.4;
     }
 
+    .appel-chapitre-deux {
+      margin-top: 58px;
+      padding-top: 42px;
+      border-top: 1px solid rgba(117, 76, 93, 0.24);
+    }
+
+    .bouton-chapitre-deux {
+      min-width: 230px;
+      color: #fff9fb;
+      background: linear-gradient(135deg, #b96f89, #d99aae);
+      border-color: rgba(255, 255, 255, 0.75);
+      box-shadow: 0 12px 28px rgba(117, 76, 93, 0.2);
+    }
+
+    .bouton-chapitre-deux:hover {
+      background: #c77f99;
+    }
+
+    .appel-chapitre-deux p {
+      margin-top: 18px;
+      color: #754c5d;
+      font-size: clamp(22px, 3.4vw, 31px);
+      font-style: normal;
+    }
+
     /* Visionneuse des photos */
 
     .visionneuse-photo {
@@ -2755,7 +2785,7 @@
   ========================================= -->
 
   <section
-    class="histoire intro-mode"
+    class="histoire intro-mode verrouillee-36"
     id="histoire"
   >
 
@@ -3266,7 +3296,6 @@
 
       <div class="moment-album">
         <div class="entete-moment">
-          <h3>Nos premières sorties</h3>
           <span>Deux photos · un même moment</span>
         </div>
 
@@ -3276,7 +3305,6 @@
             onclick="ouvrirPhoto(this.querySelector('img').src)"
           >
             <img src="IMG_1586.jpg" alt="Nous deux près de l’eau" loading="lazy">
-            <figcaption>Nos journées près de l’eau</figcaption>
           </figure>
 
           <figure
@@ -3284,7 +3312,6 @@
             onclick="ouvrirPhoto(this.querySelector('img').src)"
           >
             <img src="IMG_1599.jpg" alt="Nous deux avec les montagnes derrière" loading="lazy">
-            <figcaption>Tahiti derrière nous</figcaption>
           </figure>
         </div>
 
@@ -3296,7 +3323,6 @@
 
       <div class="moment-album">
         <div class="entete-moment">
-          <h3>Nos balades</h3>
           <span>Fais glisser les photos</span>
         </div>
 
@@ -3319,7 +3345,6 @@
 
       <div class="moment-album">
         <div class="entete-moment">
-          <h3>Notre quotidien à Tahiti</h3>
           <span>Rien d’extraordinaire · juste nous</span>
         </div>
 
@@ -3353,7 +3378,7 @@
         <div class="legende-video-rose">
           <span>Souvenir en mouvement</span>
           <h3>Notre 3e nouvel an</h3>
-          <p>La vidéo est volontairement sans son.</p>
+          <p>J’ai pas retrouvé les deux premières années, mais je m’en souviens encore.</p>
 
           <div class="zone-like">
             <button class="bouton-like" type="button" onclick="ajouterLike(this)" aria-label="Ajouter un cœur">♡</button>
@@ -3364,13 +3389,11 @@
 
       <div class="moment-album">
         <div class="entete-moment">
-          <h3>Nos journées dans l’eau</h3>
           <span>Et toujours aucune photo normale</span>
         </div>
 
         <div class="pellicule-rose">
           <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_7087.jpg" alt="Une photo drôle dans l’eau" loading="lazy"></button>
-          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="https://raw.githubusercontent.com/kimichouu/pour-mon-amoureux/main/IMG_8263.jpg" alt="Nous deux dans l’eau" loading="lazy"></button>
           <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8276.jpg" alt="Une photo drôle de nous dans l’eau" loading="lazy"></button>
           <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8291.jpg" alt="Un bisou dans l’eau" loading="lazy"></button>
           <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8297.jpg" alt="Une photo drôle de nous deux" loading="lazy"></button>
@@ -3385,8 +3408,7 @@
       </div>
 
       <div class="dossiers-caches">
-        <h3>Les dossiers compromettants</h3>
-        <p>Tu peux encore décider de ne pas regarder.</p>
+        <h3>Encore plus de photos si tu cliques.</h3>
 
         <button
           class="bouton-preuve"
@@ -3394,7 +3416,7 @@
           type="button"
           onclick="basculerDossiers()"
         >
-          Voir les photos cachées
+          Clique
         </button>
 
         <div class="grille-cachee" id="grille-cachee">
@@ -3420,6 +3442,14 @@
         <div class="zone-like">
           <button class="bouton-like" type="button" onclick="ajouterLike(this)" aria-label="Ajouter un cœur">♡</button>
           <span class="compteur-like" data-like-global>0</span>
+        </div>
+
+        <div class="appel-chapitre-deux">
+          <button class="bouton-chapitre-un bouton-chapitre-deux" type="button">
+            Chapitre 2
+          </button>
+
+          <p>Ton départ pour la France, une torture</p>
         </div>
       </div>
 
@@ -3534,6 +3564,65 @@
       Ouvre le chapitre 0 et lance la musique.
     */
 
+    let minuteriesExtraitChapitreZero = [];
+
+    function annulerExtraitChapitreZero() {
+      minuteriesExtraitChapitreZero.forEach(function (minuterie) {
+        clearTimeout(minuterie);
+      });
+
+      minuteriesExtraitChapitreZero = [];
+    }
+
+    function envoyerCommandeMusique(commande, argumentsCommande) {
+      const lecteurMusique = document.getElementById("lecteur-musique");
+
+      if (!lecteurMusique.contentWindow) {
+        return;
+      }
+
+      lecteurMusique.contentWindow.postMessage(
+        JSON.stringify({
+          event: "command",
+          func: commande,
+          args: argumentsCommande || []
+        }),
+        "*"
+      );
+    }
+
+    function programmerFinDouceChapitreZero() {
+      annulerExtraitChapitreZero();
+
+      [80, 60, 40, 20, 0].forEach(function (volume, index) {
+        minuteriesExtraitChapitreZero.push(
+          setTimeout(function () {
+            envoyerCommandeMusique("setVolume", [volume]);
+          }, 25000 + index * 1000)
+        );
+      });
+
+      minuteriesExtraitChapitreZero.push(
+        setTimeout(function () {
+          envoyerCommandeMusique("pauseVideo");
+          envoyerCommandeMusique("setVolume", [100]);
+        }, 30000)
+      );
+    }
+
+    function lancerExtraitChapitreZero() {
+      const lecteurMusique = document.getElementById("lecteur-musique");
+
+      lecteurMusique.onload = function () {
+        lecteurMusique.onload = null;
+        envoyerCommandeMusique("setVolume", [100]);
+        programmerFinDouceChapitreZero();
+      };
+
+      lecteurMusique.src =
+        "https://www.youtube.com/embed/8b-WwN4H7lE?autoplay=1&start=16&end=46&playsinline=1&enablejsapi=1";
+    }
+
     function ouvrirChapitreZero() {
 
       const chapitreZero =
@@ -3544,12 +3633,7 @@
 
       chapitreZero.classList.add("visible");
 
-      if (!lecteurMusique.src) {
-
-        lecteurMusique.src =
-          "https://www.youtube.com/embed/8b-WwN4H7lE?autoplay=1&loop=1&playlist=8b-WwN4H7lE&playsinline=1&enablejsapi=1";
-
-      }
+      lancerExtraitChapitreZero();
 
       setTimeout(function () {
 
@@ -3586,21 +3670,20 @@
       const lecteurMusique =
         document.getElementById("lecteur-musique");
 
-      if (!lecteurMusique.src) {
-        lecteurMusique.src =
-          "https://www.youtube.com/embed/8b-WwN4H7lE?loop=1&playlist=8b-WwN4H7lE&playsinline=1&enablejsapi=1";
-      }
+      if (commande === "playVideo") {
+        if (!lecteurMusique.src) {
+          lancerExtraitChapitreZero();
+          return;
+        }
 
-      setTimeout(function () {
-        lecteurMusique.contentWindow.postMessage(
-          JSON.stringify({
-            event: "command",
-            func: commande,
-            args: []
-          }),
-          "*"
-        );
-      }, 350);
+        envoyerCommandeMusique("seekTo", [16, true]);
+        envoyerCommandeMusique("setVolume", [100]);
+        envoyerCommandeMusique("playVideo");
+        programmerFinDouceChapitreZero();
+      } else {
+        annulerExtraitChapitreZero();
+        envoyerCommandeMusique("pauseVideo");
+      }
 
     }
 
@@ -3614,6 +3697,8 @@
       const transition = document.getElementById("transition-amour");
       const lecteurMusique = document.getElementById("lecteur-musique");
       const identifiantMusique = "DbxOmAsowd0";
+
+      annulerExtraitChapitreZero();
 
       /* Changer la source arrête immédiatement l’ancienne musique. */
       lecteurMusique.src =
@@ -3656,7 +3741,7 @@
       Le total reste enregistré sur cet appareil.
     */
 
-    const cleTotalLikes = "cadeau-like-total-version-10";
+    const cleTotalLikes = "cadeau-like-total-version-11";
     let totalLikesMemoire = 0;
 
     function lireTotalLikes() {
@@ -3731,7 +3816,7 @@
     */
 
     let nombreClicsEntree = 0;
-    const clePorte36 = "porte-36-mois-version-10";
+    const clePorte36 = "porte-36-mois-version-11";
 
     function cliquerTrenteSix(bouton) {
       if (nombreClicsEntree >= 36) {
@@ -3770,6 +3855,7 @@
 
         const porte = document.getElementById("porte-trente-six");
         const vraieEntree = document.getElementById("vraie-entree");
+        const histoire = document.getElementById("histoire");
 
         setTimeout(function () {
           porte.classList.add("terminee");
@@ -3779,6 +3865,7 @@
           porte.style.display = "none";
           vraieEntree.classList.remove("avant-entree-cache");
           vraieEntree.classList.add("avant-entree-visible");
+          histoire.classList.remove("verrouillee-36");
         }, 1000);
       }
     }
@@ -3798,6 +3885,7 @@
         const vraieEntree = document.getElementById("vraie-entree");
         vraieEntree.classList.remove("avant-entree-cache");
         vraieEntree.classList.add("avant-entree-visible");
+        document.getElementById("histoire").classList.remove("verrouillee-36");
       }
     }
 
@@ -3835,8 +3923,8 @@
       const estVisible = grille.classList.toggle("visible");
 
       bouton.textContent = estVisible
-        ? "Refermer les dossiers"
-        : "Voir les photos cachées";
+        ? "Refermer"
+        : "Clique";
     }
 
     function ouvrirPhoto(source) {
