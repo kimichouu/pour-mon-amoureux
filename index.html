@@ -504,6 +504,22 @@
         rgba(0, 0, 0, 0.7);
     }
 
+    .avertissement-coeurs {
+      width: fit-content;
+      max-width: 440px;
+      margin: -12px auto 24px;
+      padding: 10px 17px;
+      color: #dce7c8;
+      background: rgba(7, 18, 13, 0.62);
+      border: 1px solid rgba(220, 232, 197, 0.36);
+      border-radius: 999px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 13px;
+      line-height: 1.45;
+      text-align: center;
+      backdrop-filter: blur(8px);
+    }
+
     /* ========================================
        BOUTON D’ENTRÉE
     ======================================== */
@@ -1342,25 +1358,50 @@
     }
 
     .bouton-like {
-      padding: 12px 20px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 58px;
+      height: 58px;
+      padding: 0;
 
       color: #f3efe2;
       background: rgba(189, 204, 162, 0.1);
 
       border: 1px solid rgba(189, 204, 162, 0.72);
-      border-radius: 999px;
+      border-radius: 50%;
 
       font-family:
         "Montserrat",
         sans-serif;
 
-      font-size: 14px;
+      font-size: 30px;
+      line-height: 1;
 
       cursor: pointer;
 
       transition:
         transform 0.2s ease,
         background 0.2s ease;
+    }
+
+    .bouton-like.aime {
+      color: #173522;
+      background: #dce7c8;
+      box-shadow: 0 8px 26px rgba(189, 204, 162, 0.28);
+    }
+
+    .lettre .bouton-like {
+      color: #4f6746;
+      background: rgba(97, 121, 84, 0.08);
+      border-color: rgba(79, 103, 70, 0.72);
+      box-shadow: 0 8px 22px rgba(46, 59, 45, 0.16);
+    }
+
+    .lettre .bouton-like.aime {
+      color: #f3efe2;
+      background: #617954;
     }
 
     .bouton-like:hover {
@@ -1373,7 +1414,7 @@
     }
 
     .compteur-like {
-      min-width: 62px;
+      min-width: 18px;
 
       color: #bdcca2;
 
@@ -1382,6 +1423,10 @@
         sans-serif;
 
       font-size: 13px;
+    }
+
+    .lettre .compteur-like {
+      color: #617954;
     }
 
     /* Galerie Polaroid */
@@ -1756,6 +1801,12 @@
         font-size: 22px;
       }
 
+      .avertissement-coeurs {
+        max-width: 330px;
+        margin-bottom: 19px;
+        font-size: 12px;
+      }
+
       .enter {
         width: 100%;
         max-width: 340px;
@@ -1961,6 +2012,10 @@
 
       </p>
 
+      <p class="avertissement-coeurs">
+        Tu peux appuyer sur les ♡ pendant toute ta visite
+      </p>
+
       <button
         class="enter"
         type="button"
@@ -2103,15 +2158,18 @@
           <button
             class="bouton-like"
             type="button"
+            data-like-button="lettre"
             onclick="ajouterLike('lettre', this)"
+            aria-label="Aimer la première lettre"
+            aria-pressed="false"
           >
-            👍 Tu likes? :DD
+            ♡
           </button>
           <span
             class="compteur-like"
             data-like="lettre"
           >
-            0 like
+            0
           </span>
         </div>
 
@@ -2261,22 +2319,25 @@
       </div>
 
       <div class="reconstitution">
-        Reconstitution de notre premier échange. J’ai galéré, donc like stp…
+        Reconstitution de notre premier échange. J’ai galéré…
       </div>
 
       <div class="zone-like">
         <button
           class="bouton-like"
           type="button"
+          data-like-button="tiktok"
           onclick="ajouterLike('tiktok', this)"
+          aria-label="Aimer la reconstitution TikTok"
+          aria-pressed="false"
         >
-          👍 Tu likes? :DD
+          ♡
         </button>
         <span
           class="compteur-like"
           data-like="tiktok"
         >
-          0 like
+          0
         </span>
       </div>
 
@@ -2345,15 +2406,18 @@
         <button
           class="bouton-like"
           type="button"
+          data-like-button="photos-chapitre-0"
           onclick="ajouterLike('photos-chapitre-0', this)"
+          aria-label="Aimer les photos du chapitre 0"
+          aria-pressed="false"
         >
-          👍 Tu likes? :DD
+          ♡
         </button>
         <span
           class="compteur-like"
           data-like="photos-chapitre-0"
         >
-          0 like
+          0
         </span>
       </div>
 
@@ -2368,15 +2432,18 @@
         <button
           class="bouton-like"
           type="button"
+          data-like-button="chapitre-0"
           onclick="ajouterLike('chapitre-0', this)"
+          aria-label="Aimer la fin du chapitre 0"
+          aria-pressed="false"
         >
-          👍 Tu likes? :DD
+          ♡
         </button>
         <span
           class="compteur-like"
           data-like="chapitre-0"
         >
-          0 like
+          0
         </span>
       </div>
 
@@ -2556,7 +2623,7 @@
 
     function texteDuCompteur(nombre) {
 
-      return nombre + (nombre === 1 ? " like" : " likes");
+      return String(nombre);
 
     }
 
@@ -2567,6 +2634,17 @@
 
       if (compteur) {
         compteur.textContent = texteDuCompteur(nombre);
+        compteur.dataset.nombre = nombre;
+      }
+
+      const bouton =
+        document.querySelector('[data-like-button="' + nom + '"]');
+
+      if (bouton) {
+        const estAime = nombre === 1;
+        bouton.classList.toggle("aime", estAime);
+        bouton.textContent = estAime ? "♥" : "♡";
+        bouton.setAttribute("aria-pressed", String(estAime));
       }
 
     }
@@ -2577,15 +2655,15 @@
       let nombre = 0;
 
       try {
-        nombre = Number(localStorage.getItem(cle)) || 0;
-        nombre += 1;
+        nombre = Number(localStorage.getItem(cle)) > 0 ? 1 : 0;
+        nombre = nombre === 1 ? 0 : 1;
         localStorage.setItem(cle, nombre);
       } catch (erreur) {
         const compteur =
           document.querySelector('[data-like="' + nom + '"]');
 
-        nombre = compteur
-          ? (Number(compteur.dataset.nombre) || 0) + 1
+        nombre = compteur && Number(compteur.dataset.nombre) === 1
+          ? 0
           : 1;
 
         if (compteur) {
@@ -2621,10 +2699,10 @@
           let nombre = 0;
 
           try {
-            nombre =
+          nombre =
               Number(
                 localStorage.getItem("cadeau-like-" + nom)
-              ) || 0;
+              ) > 0 ? 1 : 0;
           } catch (erreur) {
             nombre = 0;
           }
