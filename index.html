@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -518,6 +519,64 @@
       line-height: 1.45;
       text-align: center;
       backdrop-filter: blur(8px);
+    }
+
+    .porte-trente-six {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin: -10px auto 22px;
+    }
+
+    .porte-trente-six p {
+      width: min(500px, 100%);
+      margin: 0;
+      color: #edf3d9;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(20px, 3vw, 26px);
+      line-height: 1.35;
+      text-shadow: 0 3px 15px rgba(0, 0, 0, 0.7);
+    }
+
+    .bouton-trente-six {
+      min-width: 210px;
+      padding: 15px 30px;
+      color: #f8f4e7;
+      background: rgba(90, 117, 75, 0.7);
+      border: 1px solid rgba(246, 243, 224, 0.8);
+      border-radius: 999px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 21px;
+      letter-spacing: 6px;
+      cursor: pointer;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+      transition: transform 0.16s ease, background 0.2s ease;
+    }
+
+    .bouton-trente-six:hover { background: #81956c; }
+    .bouton-trente-six:active { transform: scale(0.93); }
+
+    .compteur-trente-six {
+      color: #dce7c8;
+      font-family: "Montserrat", sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.12em;
+    }
+
+    .porte-trente-six.terminee {
+      animation: disparitionPorte 0.55s ease forwards;
+    }
+
+    @keyframes disparitionPorte {
+      to { opacity: 0; transform: translateY(-12px); }
+    }
+
+    .avant-entree-cache { display: none; }
+
+    .avant-entree-visible {
+      display: block;
+      animation: apparitionPreuve 0.65s ease both;
     }
 
     /* ========================================
@@ -1631,6 +1690,20 @@
       visibility: visible;
     }
 
+    .transition-amour.transition-rose {
+      background:
+        radial-gradient(
+          circle,
+          #f6dce5,
+          #b96f89 72%
+        );
+    }
+
+    .transition-amour.transition-rose .coeur-transition {
+      color: #fff8fa;
+      text-shadow: 0 0 28px rgba(255, 255, 255, 0.92);
+    }
+
     .coeur-transition {
       color: #edf3d9;
 
@@ -1807,6 +1880,9 @@
         font-size: 12px;
       }
 
+      .porte-trente-six p { font-size: 20px; }
+      .bouton-trente-six { min-width: 190px; }
+
       .enter {
         width: 100%;
         max-width: 340px;
@@ -1934,15 +2010,16 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 190px;
-      padding: 14px 24px;
+      min-width: 0;
+      padding: 17px 38px;
       color: #173522;
       background: #f1d7df;
       border: 1px solid rgba(255, 255, 255, 0.6);
       border-radius: 999px;
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-      font-family: "Montserrat", sans-serif;
-      font-size: 14px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+      letter-spacing: 4px;
       text-decoration: none;
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
@@ -1957,6 +2034,7 @@
     ======================================== */
 
     .chapitre-un {
+      display: none;
       position: relative;
       overflow: hidden;
       min-height: 100vh;
@@ -1966,6 +2044,11 @@
         radial-gradient(circle at 8% 8%, rgba(255, 255, 255, 0.86), transparent 26%),
         radial-gradient(circle at 92% 20%, rgba(219, 239, 218, 0.75), transparent 24%),
         linear-gradient(145deg, #f8e7ec 0%, #edcdd8 50%, #f7e8df 100%);
+    }
+
+    .chapitre-un.visible {
+      display: block;
+      animation: apparitionChapitre 0.9s ease both;
     }
 
     .chapitre-un::before,
@@ -2157,6 +2240,30 @@
     .reponse-preuve.visible {
       display: block;
       animation: apparitionPreuve 0.55s ease both;
+    }
+
+    .capture-preuve {
+      display: none;
+      width: min(430px, 100%);
+      margin: 24px auto 0;
+      padding: 8px;
+      background: #171116;
+      border: 7px solid #fffaf7;
+      border-radius: 18px;
+      box-shadow: 0 18px 44px rgba(71, 41, 53, 0.25);
+    }
+
+    .capture-preuve.visible {
+      display: block;
+      animation: apparitionPreuve 0.65s ease both;
+    }
+
+    .capture-preuve img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 9px;
+      cursor: zoom-in;
     }
 
     @keyframes apparitionPreuve {
@@ -2606,17 +2713,38 @@
 
       </p>
 
-      <p class="avertissement-coeurs">
-        Tu peux appuyer sur les ♡ pendant toute ta visite
-      </p>
+      <div class="porte-trente-six" id="porte-trente-six">
+        <p>
+          Avant d’entrer, clique 36 fois ici, c’est le nombre de mois de nous
+        </p>
 
-      <button
-        class="enter"
-        type="button"
-        onclick="entrerSite()"
-      >
-        ENTRE ICI ♡
-      </button>
+        <button
+          class="bouton-trente-six"
+          id="bouton-trente-six"
+          type="button"
+          onclick="cliquerTrenteSix(this)"
+        >
+          CLIQUE
+        </button>
+
+        <span class="compteur-trente-six" id="compteur-trente-six">
+          0 / 36
+        </span>
+      </div>
+
+      <div class="avant-entree-cache" id="vraie-entree">
+        <p class="avertissement-coeurs">
+          Tu peux appuyer sur les ♡ pendant toute ta visite
+        </p>
+
+        <button
+          class="enter"
+          type="button"
+          onclick="entrerSite()"
+        >
+          ENTRE ICI ♡
+        </button>
+      </div>
 
     </div>
 
@@ -3043,9 +3171,13 @@
 
       <div class="passage-chapitre-un">
         <p>Et puis, on s’est retrouvés…</p>
-        <a class="bouton-chapitre-un" href="#chapitre-1">
+        <button
+          class="bouton-chapitre-un"
+          type="button"
+          onclick="ouvrirChapitreUn()"
+        >
           Chapitre 1 ♡
-        </a>
+        </button>
       </div>
 
     </div>
@@ -3114,8 +3246,22 @@
         </div>
 
         <div class="reponse-preuve" id="reponse-preuve">
-          Je cherche encore la capture, mais ne t’inquiète pas… je l’ai toujours dans mon téléphone XD
+          Trop tard, je l’ai toujours dans mon téléphone XD
         </div>
+
+        <button
+          class="capture-preuve"
+          id="capture-preuve"
+          type="button"
+          onclick="ouvrirPhoto(this.querySelector('img').src)"
+          aria-label="Agrandir le message compromettant"
+        >
+          <img
+            src="IMG_9708.PNG"
+            alt="Le message compromettant envoyé quand tu étais un peu pompette"
+            loading="lazy"
+          >
+        </button>
       </div>
 
       <div class="moment-album">
@@ -3193,15 +3339,21 @@
       </div>
 
       <div class="cadre-video-rose">
-        <video controls playsinline preload="metadata">
+        <video
+          controls
+          muted
+          playsinline
+          preload="metadata"
+          onvolumechange="this.muted = true"
+        >
           <source src="0819.mp4" type="video/mp4">
           Ton navigateur ne peut pas lire cette vidéo.
         </video>
 
         <div class="legende-video-rose">
           <span>Souvenir en mouvement</span>
-          <h3>Un petit bout de cette époque</h3>
-          <p>Appuie sur lecture quand tu veux.</p>
+          <h3>Notre 3e nouvel an</h3>
+          <p>La vidéo est volontairement sans son.</p>
 
           <div class="zone-like">
             <button class="bouton-like" type="button" onclick="ajouterLike(this)" aria-label="Ajouter un cœur">♡</button>
@@ -3218,7 +3370,7 @@
 
         <div class="pellicule-rose">
           <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_7087.jpg" alt="Une photo drôle dans l’eau" loading="lazy"></button>
-          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8263.jpg" alt="Nous deux dans l’eau" loading="lazy"></button>
+          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="https://raw.githubusercontent.com/kimichouu/pour-mon-amoureux/main/IMG_8263.jpg" alt="Nous deux dans l’eau" loading="lazy"></button>
           <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8276.jpg" alt="Une photo drôle de nous dans l’eau" loading="lazy"></button>
           <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8291.jpg" alt="Un bisou dans l’eau" loading="lazy"></button>
           <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8297.jpg" alt="Une photo drôle de nous deux" loading="lazy"></button>
@@ -3453,12 +3605,58 @@
     }
 
     /*
+      Ouvre le chapitre 1 avec une transition rose,
+      arrête la musique du chapitre 0 et lance la nouvelle.
+    */
+
+    function ouvrirChapitreUn() {
+      const chapitreUn = document.getElementById("chapitre-1");
+      const transition = document.getElementById("transition-amour");
+      const lecteurMusique = document.getElementById("lecteur-musique");
+      const identifiantMusique = "DbxOmAsowd0";
+
+      /* Changer la source arrête immédiatement l’ancienne musique. */
+      lecteurMusique.src =
+        "https://www.youtube.com/embed/" +
+        identifiantMusique +
+        "?autoplay=1&loop=1&playlist=" +
+        identifiantMusique +
+        "&playsinline=1&enablejsapi=1";
+
+      transition.classList.add("transition-rose");
+      transition.classList.add("active");
+
+      setTimeout(function () {
+        chapitreUn.classList.add("visible");
+
+        const positionChapitre =
+          chapitreUn.getBoundingClientRect().top + window.pageYOffset;
+
+        document.documentElement.style.scrollBehavior = "auto";
+        window.scrollTo(0, Math.round(positionChapitre));
+
+        requestAnimationFrame(function () {
+          window.scrollTo(0, Math.round(positionChapitre));
+        });
+      }, 1100);
+
+      setTimeout(function () {
+        transition.classList.remove("active");
+        document.documentElement.style.scrollBehavior = "smooth";
+
+        setTimeout(function () {
+          transition.classList.remove("transition-rose");
+        }, 450);
+      }, 2100);
+    }
+
+    /*
       Tous les cœurs utilisent le même total.
       Chaque clic ajoute un cœur supplémentaire.
       Le total reste enregistré sur cet appareil.
     */
 
-    const cleTotalLikes = "cadeau-like-total";
+    const cleTotalLikes = "cadeau-like-total-version-10";
     let totalLikesMemoire = 0;
 
     function lireTotalLikes() {
@@ -3527,22 +3725,108 @@
 
     chargerLesLikes();
 
+    /*
+      Porte d’entrée des 36 mois.
+      Chaque clic compte également dans le total des likes.
+    */
+
+    let nombreClicsEntree = 0;
+    const clePorte36 = "porte-36-mois-version-10";
+
+    function cliquerTrenteSix(bouton) {
+      if (nombreClicsEntree >= 36) {
+        return;
+      }
+
+      nombreClicsEntree += 1;
+
+      const nouveauTotal = lireTotalLikes() + 1;
+      enregistrerTotalLikes(nouveauTotal);
+      afficherTotalLikes(nouveauTotal);
+
+      document.getElementById("compteur-trente-six").textContent =
+        nombreClicsEntree + " / 36";
+
+      if (bouton.animate) {
+        bouton.animate(
+          [
+            { transform: "scale(1)" },
+            { transform: "scale(0.92)" },
+            { transform: "scale(1.04)" },
+            { transform: "scale(1)" }
+          ],
+          { duration: 230, easing: "ease-out" }
+        );
+      }
+
+      if (nombreClicsEntree === 36) {
+        bouton.textContent = "36 MOIS ♡";
+
+        try {
+          localStorage.setItem(clePorte36, "terminee");
+        } catch (erreur) {
+          /* La porte reste utilisable même sans stockage local. */
+        }
+
+        const porte = document.getElementById("porte-trente-six");
+        const vraieEntree = document.getElementById("vraie-entree");
+
+        setTimeout(function () {
+          porte.classList.add("terminee");
+        }, 450);
+
+        setTimeout(function () {
+          porte.style.display = "none";
+          vraieEntree.classList.remove("avant-entree-cache");
+          vraieEntree.classList.add("avant-entree-visible");
+        }, 1000);
+      }
+    }
+
+    function chargerPorteTrenteSix() {
+      let dejaTerminee = false;
+
+      try {
+        dejaTerminee = localStorage.getItem(clePorte36) === "terminee";
+      } catch (erreur) {
+        dejaTerminee = false;
+      }
+
+      if (dejaTerminee) {
+        document.getElementById("porte-trente-six").style.display = "none";
+
+        const vraieEntree = document.getElementById("vraie-entree");
+        vraieEntree.classList.remove("avant-entree-cache");
+        vraieEntree.classList.add("avant-entree-visible");
+      }
+    }
+
+    chargerPorteTrenteSix();
+
     /* Interactions du chapitre 1. */
 
     function revelerPreuve(choix) {
       const reponse = document.getElementById("reponse-preuve");
+      const capture = document.getElementById("capture-preuve");
 
       if (choix === "cacher") {
         reponse.textContent =
           "Trop tard, je l’ai toujours dans mon téléphone XD";
+        reponse.classList.remove("visible");
+        capture.classList.remove("visible");
+
+        void reponse.offsetWidth;
+        reponse.classList.add("visible");
       } else {
         reponse.textContent =
-          "Je cherche encore la capture, mais ne t’inquiète pas… je l’ai toujours dans mon téléphone XD";
-      }
+          "Bon… puisque tu l’as décidé, voici la preuve XD";
+        reponse.classList.remove("visible");
+        capture.classList.remove("visible");
 
-      reponse.classList.remove("visible");
-      void reponse.offsetWidth;
-      reponse.classList.add("visible");
+        void reponse.offsetWidth;
+        reponse.classList.add("visible");
+        capture.classList.add("visible");
+      }
     }
 
     function basculerDossiers() {
