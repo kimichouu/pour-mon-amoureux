@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -3579,7 +3578,15 @@
 
       histoire.classList.remove("intro-mode");
 
-      appelChapitre.classList.add("visible");
+      document.body.dataset.lettreOuverte = "oui";
+
+      try {
+        if (localStorage.getItem(cleDeblocageLike) === "oui") {
+          afficherSuiteDebloquee();
+        }
+      } catch (erreur) {
+        /* La suite attendra un clic sur un cœur pendant cette visite. */
+      }
 
       setTimeout(function () {
 
@@ -3823,8 +3830,8 @@
       Le total reste enregistré sur cet appareil.
     */
 
-    const cleTotalLikes = "cadeau-like-total-version-12";
-    const cleDeblocageLike = "suite-debloquee-par-like-version-12";
+    const cleTotalLikes = "cadeau-like-total-version-13";
+    const cleDeblocageLike = "suite-debloquee-par-like-version-13";
     let totalLikesMemoire = 0;
 
     function lireTotalLikes() {
@@ -3897,9 +3904,14 @@
     function afficherSuiteDebloquee() {
       const boutonChapitre = document.getElementById("bouton-chapitre-zero");
       const indice = document.getElementById("indice-like-obligatoire");
+      const appelChapitre = document.getElementById("appel-chapitre-zero");
 
       boutonChapitre.disabled = false;
       indice.classList.add("cache");
+
+      if (document.body.dataset.lettreOuverte === "oui") {
+        appelChapitre.classList.add("visible");
+      }
     }
 
     function debloquerSuiteApresLike() {
@@ -3930,7 +3942,7 @@
     */
 
     let nombreClicsEntree = 0;
-    const clePorte36 = "porte-36-mois-version-12";
+    const clePorte36 = "porte-36-mois-version-13";
 
     function cliquerTrenteSix(bouton) {
       if (nombreClicsEntree >= 36) {
