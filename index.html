@@ -1909,6 +1909,600 @@
       }
     }
 
+    /* ========================================
+       PASSAGE VERS LE CHAPITRE 1
+    ======================================== */
+
+    .passage-chapitre-un {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      margin: 70px auto 10px;
+      text-align: center;
+    }
+
+    .passage-chapitre-un p {
+      margin: 0;
+      color: #dce7c8;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(26px, 5vw, 40px);
+      font-style: italic;
+    }
+
+    .bouton-chapitre-un {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 190px;
+      padding: 14px 24px;
+      color: #173522;
+      background: #f1d7df;
+      border: 1px solid rgba(255, 255, 255, 0.6);
+      border-radius: 999px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+      font-family: "Montserrat", sans-serif;
+      font-size: 14px;
+      text-decoration: none;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .bouton-chapitre-un:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.25);
+    }
+
+    /* ========================================
+       CHAPITRE 1 — ALBUM ROSE PASTEL
+    ======================================== */
+
+    .chapitre-un {
+      position: relative;
+      overflow: hidden;
+      min-height: 100vh;
+      padding: 90px 20px 120px;
+      color: #553d48;
+      background:
+        radial-gradient(circle at 8% 8%, rgba(255, 255, 255, 0.86), transparent 26%),
+        radial-gradient(circle at 92% 20%, rgba(219, 239, 218, 0.75), transparent 24%),
+        linear-gradient(145deg, #f8e7ec 0%, #edcdd8 50%, #f7e8df 100%);
+    }
+
+    .chapitre-un::before,
+    .chapitre-un::after {
+      content: "";
+      position: absolute;
+      width: 240px;
+      height: 240px;
+      border: 1px solid rgba(138, 91, 108, 0.18);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .chapitre-un::before {
+      top: 80px;
+      left: -130px;
+    }
+
+    .chapitre-un::after {
+      right: -110px;
+      bottom: 120px;
+    }
+
+    .album-rose {
+      position: relative;
+      z-index: 1;
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    .etiquette-chapitre {
+      width: max-content;
+      margin: 0 auto 12px;
+      padding: 8px 17px;
+      color: #784f60;
+      background: rgba(255, 255, 255, 0.58);
+      border: 1px solid rgba(120, 79, 96, 0.23);
+      border-radius: 999px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .titre-chapitre-un {
+      margin: 0;
+      color: #704657;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(48px, 9vw, 92px);
+      font-weight: 500;
+      line-height: 0.95;
+      text-align: center;
+    }
+
+    .sous-titre-chapitre-un {
+      margin: 18px auto 45px;
+      color: #8a5b6c;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(25px, 4vw, 38px);
+      font-style: italic;
+      text-align: center;
+    }
+
+    .ouverture-chapitre-un {
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(260px, 0.72fr);
+      align-items: center;
+      gap: 45px;
+      margin-bottom: 70px;
+    }
+
+    .photo-ouverture {
+      position: relative;
+      padding: 13px 13px 48px;
+      background: #fffaf7;
+      border-radius: 5px;
+      box-shadow: 0 24px 55px rgba(102, 61, 77, 0.2);
+      transform: rotate(-1.4deg);
+    }
+
+    .photo-ouverture::after {
+      content: "Tahiti";
+      position: absolute;
+      right: 22px;
+      bottom: 13px;
+      color: #9a7180;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 22px;
+      font-style: italic;
+    }
+
+    .photo-ouverture img {
+      display: block;
+      width: 100%;
+      max-height: 660px;
+      object-fit: cover;
+      border-radius: 2px;
+    }
+
+    .texte-ouverture-rose {
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(126, 77, 96, 0.2);
+      border-radius: 28px 8px 28px 8px;
+      box-shadow: 0 18px 45px rgba(118, 70, 88, 0.1);
+    }
+
+    .texte-ouverture-rose p {
+      margin: 0;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.35;
+    }
+
+    .texte-ouverture-rose p + p {
+      margin-top: 18px;
+      color: #80596a;
+      font-family: "Montserrat", sans-serif;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .preuve-retour {
+      width: min(720px, 100%);
+      margin: 0 auto 85px;
+      padding: 38px 28px;
+      text-align: center;
+      background: rgba(255, 250, 247, 0.72);
+      border: 1px dashed rgba(124, 77, 95, 0.42);
+      border-radius: 22px;
+      box-shadow: 0 20px 50px rgba(112, 70, 87, 0.12);
+    }
+
+    .preuve-retour h3 {
+      margin: 0 0 10px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(30px, 5vw, 46px);
+      font-weight: 500;
+    }
+
+    .preuve-retour > p {
+      margin: 0 auto 24px;
+      color: #805d6a;
+      font-family: "Montserrat", sans-serif;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .choix-preuve {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .bouton-preuve {
+      padding: 12px 18px;
+      color: #684354;
+      background: #f4d7e1;
+      border: 1px solid rgba(104, 67, 84, 0.25);
+      border-radius: 999px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 12px;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .bouton-preuve.secondaire {
+      background: rgba(255, 255, 255, 0.7);
+    }
+
+    .bouton-preuve:hover {
+      transform: translateY(-2px);
+      background: #efc5d3;
+    }
+
+    .reponse-preuve {
+      display: none;
+      margin: 24px auto 0;
+      padding: 18px;
+      color: #694454;
+      background: rgba(255, 255, 255, 0.72);
+      border-radius: 16px;
+      font-family: "Montserrat", sans-serif;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .reponse-preuve.visible {
+      display: block;
+      animation: apparitionPreuve 0.55s ease both;
+    }
+
+    @keyframes apparitionPreuve {
+      from { opacity: 0; transform: translateY(12px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .moment-album {
+      margin: 90px auto;
+    }
+
+    .entete-moment {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 26px;
+      padding: 0 8px;
+    }
+
+    .entete-moment h3 {
+      margin: 0;
+      color: #6c4655;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(34px, 5vw, 54px);
+      font-weight: 500;
+    }
+
+    .entete-moment span {
+      color: #987482;
+      font-family: "Montserrat", sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    .duo-album {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .photo-album {
+      position: relative;
+      margin: 0;
+      padding: 10px 10px 42px;
+      overflow: hidden;
+      background: #fffaf7;
+      border-radius: 4px;
+      box-shadow: 0 16px 36px rgba(102, 61, 77, 0.16);
+      cursor: zoom-in;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .photo-album:nth-child(odd) { transform: rotate(-1deg); }
+    .photo-album:nth-child(even) { transform: rotate(1deg); }
+
+    .photo-album:hover {
+      z-index: 2;
+      transform: rotate(0) translateY(-7px);
+      box-shadow: 0 22px 45px rgba(102, 61, 77, 0.22);
+    }
+
+    .photo-album img {
+      display: block;
+      width: 100%;
+      height: clamp(280px, 43vw, 520px);
+      object-fit: cover;
+      border-radius: 2px;
+    }
+
+    .photo-album figcaption {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 11px;
+      overflow: hidden;
+      color: #8b6875;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 17px;
+      font-style: italic;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .pellicule-rose {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(235px, 31%);
+      gap: 15px;
+      overflow-x: auto;
+      padding: 22px 12px 28px;
+      background: #6d4b59;
+      border-top: 9px dotted #edcdd8;
+      border-bottom: 9px dotted #edcdd8;
+      scroll-snap-type: x mandatory;
+      scrollbar-color: #c996a8 transparent;
+    }
+
+    .pellicule-rose button {
+      padding: 0;
+      overflow: hidden;
+      background: #fff;
+      border: 0;
+      border-radius: 3px;
+      cursor: zoom-in;
+      scroll-snap-align: center;
+    }
+
+    .pellicule-rose img {
+      display: block;
+      width: 100%;
+      height: 315px;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .pellicule-rose button:hover img { transform: scale(1.035); }
+
+    .mosaique-rose {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 82px;
+      gap: 12px;
+    }
+
+    .tuile-photo {
+      padding: 0;
+      overflow: hidden;
+      background: #fff;
+      border: 8px solid rgba(255, 250, 247, 0.92);
+      border-radius: 10px;
+      box-shadow: 0 15px 30px rgba(105, 63, 80, 0.13);
+      cursor: zoom-in;
+    }
+
+    .tuile-photo:nth-child(1) { grid-column: span 7; grid-row: span 4; }
+    .tuile-photo:nth-child(2) { grid-column: span 5; grid-row: span 3; }
+    .tuile-photo:nth-child(3) { grid-column: span 5; grid-row: span 4; }
+    .tuile-photo:nth-child(4) { grid-column: span 7; grid-row: span 3; }
+    .tuile-photo:nth-child(5) { grid-column: span 6; grid-row: span 4; }
+    .tuile-photo:nth-child(6) { grid-column: span 6; grid-row: span 4; }
+
+    .tuile-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .tuile-photo:hover img { transform: scale(1.035); }
+
+    .dossiers-caches {
+      width: min(900px, 100%);
+      margin: 80px auto;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.46);
+      border: 1px solid rgba(111, 69, 86, 0.17);
+      border-radius: 28px;
+      text-align: center;
+    }
+
+    .dossiers-caches h3 {
+      margin: 0 0 8px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(32px, 5vw, 50px);
+      font-weight: 500;
+    }
+
+    .dossiers-caches > p {
+      margin: 0 0 20px;
+      color: #8a6573;
+      font-family: "Montserrat", sans-serif;
+      font-size: 12px;
+    }
+
+    .grille-cachee {
+      display: none;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .grille-cachee.visible {
+      display: grid;
+      animation: apparitionPreuve 0.55s ease both;
+    }
+
+    .grille-cachee button {
+      padding: 0;
+      overflow: hidden;
+      background: #fff;
+      border: 6px solid #fffaf7;
+      border-radius: 8px;
+      cursor: zoom-in;
+    }
+
+    .grille-cachee img {
+      display: block;
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+    }
+
+    .cadre-video-rose {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(220px, 0.58fr);
+      align-items: center;
+      gap: 38px;
+      width: min(920px, 100%);
+      margin: 95px auto;
+      padding: 28px;
+      background: #6e4a59;
+      border: 10px solid #fffaf7;
+      border-radius: 24px;
+      box-shadow: 0 25px 55px rgba(95, 55, 72, 0.22);
+    }
+
+    .cadre-video-rose video {
+      display: block;
+      width: 100%;
+      max-height: 620px;
+      background: #261c20;
+      border-radius: 13px;
+      object-fit: contain;
+    }
+
+    .legende-video-rose {
+      color: #fff4f6;
+    }
+
+    .legende-video-rose span {
+      color: #eccbd6;
+      font-family: "Montserrat", sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+    }
+
+    .legende-video-rose h3 {
+      margin: 10px 0 12px;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .legende-video-rose p {
+      margin: 0;
+      color: #ead9df;
+      font-family: "Montserrat", sans-serif;
+      font-size: 12px;
+      line-height: 1.7;
+    }
+
+    .chapitre-un .bouton-like {
+      color: #754c5d;
+      background: rgba(255, 255, 255, 0.62);
+      border-color: rgba(117, 76, 93, 0.45);
+    }
+
+    .chapitre-un .bouton-like.aime {
+      color: #fff;
+      background: #b96f89;
+    }
+
+    .chapitre-un .compteur-like { color: #754c5d; }
+
+    .fin-chapitre-un {
+      width: min(680px, 100%);
+      margin: 80px auto 0;
+      text-align: center;
+    }
+
+    .fin-chapitre-un p {
+      margin: 0;
+      color: #684554;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(27px, 4vw, 40px);
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    /* Visionneuse des photos */
+
+    .visionneuse-photo {
+      position: fixed;
+      z-index: 10000;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      background: rgba(35, 24, 29, 0.92);
+      backdrop-filter: blur(10px);
+    }
+
+    .visionneuse-photo.ouverte { display: flex; }
+
+    .visionneuse-photo img {
+      display: block;
+      max-width: min(1100px, 94vw);
+      max-height: 88vh;
+      object-fit: contain;
+      border: 8px solid #fffaf7;
+      border-radius: 5px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+    }
+
+    .fermer-visionneuse {
+      position: absolute;
+      top: 18px;
+      right: 20px;
+      width: 46px;
+      height: 46px;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 50%;
+      font-size: 25px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 760px) {
+      .chapitre-un { padding: 72px 14px 90px; }
+      .ouverture-chapitre-un { grid-template-columns: 1fr; gap: 28px; }
+      .photo-ouverture { padding: 9px 9px 42px; transform: rotate(-0.7deg); }
+      .texte-ouverture-rose { padding: 24px 20px; }
+      .preuve-retour { padding: 30px 18px; }
+      .entete-moment { align-items: flex-start; flex-direction: column; }
+      .duo-album { grid-template-columns: 1fr; gap: 18px; }
+      .photo-album img { height: min(112vw, 520px); }
+      .pellicule-rose { grid-auto-columns: 78%; }
+      .pellicule-rose img { height: 330px; }
+      .mosaique-rose { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 145px; }
+      .tuile-photo:nth-child(n) { grid-column: span 1; grid-row: span 2; }
+      .tuile-photo:nth-child(3n) { grid-column: span 2; }
+      .grille-cachee { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .grille-cachee img { height: 190px; }
+      .cadre-video-rose { grid-template-columns: 1fr; gap: 24px; padding: 14px; border-width: 7px; }
+      .legende-video-rose { padding: 0 8px 10px; text-align: center; }
+      .visionneuse-photo { padding: 18px; }
+      .visionneuse-photo img { max-width: 96vw; border-width: 5px; }
+    }
+
   </style>
 
 </head>
@@ -2447,9 +3041,250 @@
         </span>
       </div>
 
+      <div class="passage-chapitre-un">
+        <p>Et puis, on s’est retrouvés…</p>
+        <a class="bouton-chapitre-un" href="#chapitre-1">
+          Chapitre 1 ♡
+        </a>
+      </div>
+
     </div>
 
   </section>
+
+  <!-- ========================================
+       CHAPITRE 1 — LE DÉBUT DE NOTRE RELATION
+  ========================================= -->
+
+  <section class="chapitre-un" id="chapitre-1">
+    <div class="album-rose">
+
+      <div class="etiquette-chapitre">Août · Tahiti</div>
+
+      <h2 class="titre-chapitre-un">Chapitre 1</h2>
+      <p class="sous-titre-chapitre-un">
+        Cette fois, c’était vraiment nous
+      </p>
+
+      <div class="ouverture-chapitre-un">
+        <button
+          class="photo-ouverture"
+          type="button"
+          onclick="ouvrirPhoto(this.querySelector('img').src)"
+          aria-label="Agrandir notre photo"
+        >
+          <img
+            src="IMG_1701.jpg"
+            alt="Nous deux enlacés à Tahiti"
+          >
+        </button>
+
+        <div class="texte-ouverture-rose">
+          <p>
+            Après tous nos détours, on s’est finalement retrouvés en août.
+          </p>
+          <p>
+            Et cette fois, notre histoire a réellement commencé.
+          </p>
+        </div>
+      </div>
+
+      <div class="preuve-retour">
+        <h3>J’ai gardé une preuve de ton retour…</h3>
+        <p>
+          Ton message où, un peu pompette, tu m’écrivais que tu voulais bien de moi XD
+        </p>
+
+        <div class="choix-preuve">
+          <button
+            class="bouton-preuve"
+            type="button"
+            onclick="revelerPreuve('reveler')"
+          >
+            Révéler la preuve
+          </button>
+
+          <button
+            class="bouton-preuve secondaire"
+            type="button"
+            onclick="revelerPreuve('cacher')"
+          >
+            Préserver ma dignité
+          </button>
+        </div>
+
+        <div class="reponse-preuve" id="reponse-preuve">
+          Je cherche encore la capture, mais ne t’inquiète pas… je l’ai toujours dans mon téléphone XD
+        </div>
+      </div>
+
+      <div class="moment-album">
+        <div class="entete-moment">
+          <h3>Nos premières sorties</h3>
+          <span>Deux photos · un même moment</span>
+        </div>
+
+        <div class="duo-album">
+          <figure
+            class="photo-album"
+            onclick="ouvrirPhoto(this.querySelector('img').src)"
+          >
+            <img src="IMG_1586.jpg" alt="Nous deux près de l’eau" loading="lazy">
+            <figcaption>Nos journées près de l’eau</figcaption>
+          </figure>
+
+          <figure
+            class="photo-album"
+            onclick="ouvrirPhoto(this.querySelector('img').src)"
+          >
+            <img src="IMG_1599.jpg" alt="Nous deux avec les montagnes derrière" loading="lazy">
+            <figcaption>Tahiti derrière nous</figcaption>
+          </figure>
+        </div>
+
+        <div class="zone-like">
+          <button class="bouton-like" type="button" onclick="ajouterLike(this)" aria-label="Ajouter un cœur">♡</button>
+          <span class="compteur-like" data-like-global>0</span>
+        </div>
+      </div>
+
+      <div class="moment-album">
+        <div class="entete-moment">
+          <h3>Nos balades</h3>
+          <span>Fais glisser les photos</span>
+        </div>
+
+        <div class="pellicule-rose">
+          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_1673.jpg" alt="Nous pendant une promenade" loading="lazy"></button>
+          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_5866.jpg" alt="Une photo drôle dans les hauteurs" loading="lazy"></button>
+          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_5910.jpg" alt="Un bisou sur la joue" loading="lazy"></button>
+          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_5916.jpg" alt="Nous deux souriants" loading="lazy"></button>
+          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_5922.jpg" alt="Nous deux dans le brouillard" loading="lazy"></button>
+          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_5952.jpg" alt="Nous enlacés dans les hauteurs" loading="lazy"></button>
+          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_5965.jpg" alt="Un bisou dans les hauteurs" loading="lazy"></button>
+          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_6019.jpg" alt="Nous marchant main dans la main" loading="lazy"></button>
+        </div>
+
+        <div class="zone-like">
+          <button class="bouton-like" type="button" onclick="ajouterLike(this)" aria-label="Ajouter un cœur">♡</button>
+          <span class="compteur-like" data-like-global>0</span>
+        </div>
+      </div>
+
+      <div class="moment-album">
+        <div class="entete-moment">
+          <h3>Notre quotidien à Tahiti</h3>
+          <span>Rien d’extraordinaire · juste nous</span>
+        </div>
+
+        <div class="mosaique-rose">
+          <button class="tuile-photo" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_6999.jpg" alt="Nous pendant une sortie" loading="lazy"></button>
+          <button class="tuile-photo" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_7286.jpg" alt="Nous deux à la maison" loading="lazy"></button>
+          <button class="tuile-photo" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8098.jpg" alt="Un moment de notre quotidien" loading="lazy"></button>
+          <button class="tuile-photo" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8460.jpg" alt="Nous deux pendant une sortie" loading="lazy"></button>
+          <button class="tuile-photo" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8471.jpg" alt="Moi appuyée contre toi" loading="lazy"></button>
+          <button class="tuile-photo" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8505.jpg" alt="Nous deux dans la voiture" loading="lazy"></button>
+        </div>
+
+        <div class="zone-like">
+          <button class="bouton-like" type="button" onclick="ajouterLike(this)" aria-label="Ajouter un cœur">♡</button>
+          <span class="compteur-like" data-like-global>0</span>
+        </div>
+      </div>
+
+      <div class="cadre-video-rose">
+        <video controls playsinline preload="metadata">
+          <source src="0819.mp4" type="video/mp4">
+          Ton navigateur ne peut pas lire cette vidéo.
+        </video>
+
+        <div class="legende-video-rose">
+          <span>Souvenir en mouvement</span>
+          <h3>Un petit bout de cette époque</h3>
+          <p>Appuie sur lecture quand tu veux.</p>
+
+          <div class="zone-like">
+            <button class="bouton-like" type="button" onclick="ajouterLike(this)" aria-label="Ajouter un cœur">♡</button>
+            <span class="compteur-like" data-like-global>0</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="moment-album">
+        <div class="entete-moment">
+          <h3>Nos journées dans l’eau</h3>
+          <span>Et toujours aucune photo normale</span>
+        </div>
+
+        <div class="pellicule-rose">
+          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_7087.jpg" alt="Une photo drôle dans l’eau" loading="lazy"></button>
+          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8263.jpg" alt="Nous deux dans l’eau" loading="lazy"></button>
+          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8276.jpg" alt="Une photo drôle de nous dans l’eau" loading="lazy"></button>
+          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8291.jpg" alt="Un bisou dans l’eau" loading="lazy"></button>
+          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8297.jpg" alt="Une photo drôle de nous deux" loading="lazy"></button>
+          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="WhatsApp Image 2026-08-19 at 14.55.12.jpg" alt="Une photo très rapprochée dans l’eau" loading="lazy"></button>
+          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="WhatsApp Image 2026-08-19 at 14.55.14 (1).jpg" alt="Nous souriants après la baignade" loading="lazy"></button>
+        </div>
+
+        <div class="zone-like">
+          <button class="bouton-like" type="button" onclick="ajouterLike(this)" aria-label="Ajouter un cœur">♡</button>
+          <span class="compteur-like" data-like-global>0</span>
+        </div>
+      </div>
+
+      <div class="dossiers-caches">
+        <h3>Les dossiers compromettants</h3>
+        <p>Tu peux encore décider de ne pas regarder.</p>
+
+        <button
+          class="bouton-preuve"
+          id="bouton-dossiers"
+          type="button"
+          onclick="basculerDossiers()"
+        >
+          Voir les photos cachées
+        </button>
+
+        <div class="grille-cachee" id="grille-cachee">
+          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8043.jpg" alt="Une photo drôle au parc" loading="lazy"></button>
+          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8051.jpg" alt="Nous au parc" loading="lazy"></button>
+          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8168.jpg" alt="Nous sous une lumière bleue" loading="lazy"></button>
+          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8179.jpg" alt="Une photo drôle sous la lumière bleue" loading="lazy"></button>
+          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8881.jpg" alt="Une photo drôle de nous deux" loading="lazy"></button>
+          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="WhatsApp Image 2026-08-19 at 14.54.50.jpg" alt="Une photo drôle sous les palmiers" loading="lazy"></button>
+        </div>
+
+        <div class="zone-like">
+          <button class="bouton-like" type="button" onclick="ajouterLike(this)" aria-label="Ajouter un cœur">♡</button>
+          <span class="compteur-like" data-like-global>0</span>
+        </div>
+      </div>
+
+      <div class="fin-chapitre-un">
+        <p>
+          On vivait encore chacun chez soi, mais on construisait déjà quelque chose à nous.
+        </p>
+
+        <div class="zone-like">
+          <button class="bouton-like" type="button" onclick="ajouterLike(this)" aria-label="Ajouter un cœur">♡</button>
+          <span class="compteur-like" data-like-global>0</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div
+    class="visionneuse-photo"
+    id="visionneuse-photo"
+    onclick="fermerPhoto(event)"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Photo agrandie"
+  >
+    <button class="fermer-visionneuse" type="button" onclick="fermerPhoto(event)" aria-label="Fermer">×</button>
+    <img id="photo-agrandie" src="" alt="Souvenir agrandi">
+  </div>
 
   <!-- ========================================
        ÉCRAN DE TRANSITION
@@ -2618,103 +3453,137 @@
     }
 
     /*
-      Compteurs de likes enregistrés sur l’appareil.
+      Tous les cœurs utilisent le même total.
+      Chaque clic ajoute un cœur supplémentaire.
+      Le total reste enregistré sur cet appareil.
     */
 
-    function texteDuCompteur(nombre) {
+    const cleTotalLikes = "cadeau-like-total";
+    let totalLikesMemoire = 0;
 
-      return String(nombre);
-
+    function lireTotalLikes() {
+      try {
+        const nombre = Number(localStorage.getItem(cleTotalLikes));
+        return Number.isFinite(nombre) && nombre > 0
+          ? Math.floor(nombre)
+          : 0;
+      } catch (erreur) {
+        return totalLikesMemoire;
+      }
     }
 
-    function afficherCompteurLike(nom, nombre) {
-
-      const compteur =
-        document.querySelector('[data-like="' + nom + '"]');
-
-      if (compteur) {
-        compteur.textContent = texteDuCompteur(nombre);
-        compteur.dataset.nombre = nombre;
-      }
-
-      const bouton =
-        document.querySelector('[data-like-button="' + nom + '"]');
-
-      if (bouton) {
-        const estAime = nombre === 1;
-        bouton.classList.toggle("aime", estAime);
-        bouton.textContent = estAime ? "♥" : "♡";
-        bouton.setAttribute("aria-pressed", String(estAime));
-      }
-
-    }
-
-    function ajouterLike(nom, bouton) {
-
-      const cle = "cadeau-like-" + nom;
-      let nombre = 0;
+    function enregistrerTotalLikes(nombre) {
+      totalLikesMemoire = nombre;
 
       try {
-        nombre = Number(localStorage.getItem(cle)) > 0 ? 1 : 0;
-        nombre = nombre === 1 ? 0 : 1;
-        localStorage.setItem(cle, nombre);
+        localStorage.setItem(cleTotalLikes, String(nombre));
       } catch (erreur) {
-        const compteur =
-          document.querySelector('[data-like="' + nom + '"]');
-
-        nombre = compteur && Number(compteur.dataset.nombre) === 1
-          ? 0
-          : 1;
-
-        if (compteur) {
-          compteur.dataset.nombre = nombre;
-        }
+        /* Le compteur fonctionne quand même pendant la visite. */
       }
+    }
 
-      afficherCompteurLike(nom, nombre);
+    function afficherTotalLikes(nombre) {
+      document
+        .querySelectorAll("[data-like], [data-like-global]")
+        .forEach(function (compteur) {
+          compteur.textContent = String(nombre);
+          compteur.dataset.nombre = String(nombre);
+        });
+    }
+
+    function ajouterLike(nomOuBouton, ancienBouton) {
+      const bouton = ancienBouton || nomOuBouton;
+      const nouveauTotal = lireTotalLikes() + 1;
+
+      enregistrerTotalLikes(nouveauTotal);
+      afficherTotalLikes(nouveauTotal);
+
+      if (bouton && bouton.classList) {
+        bouton.classList.add("aime");
+        bouton.textContent = "♥";
+
+        setTimeout(function () {
+          bouton.classList.remove("aime");
+          bouton.textContent = "♡";
+        }, 550);
+      }
 
       if (bouton && bouton.animate) {
         bouton.animate(
           [
             { transform: "scale(1)" },
-            { transform: "scale(1.12)" },
+            { transform: "scale(1.18)" },
             { transform: "scale(1)" }
           ],
-          {
-            duration: 280,
-            easing: "ease-out"
-          }
+          { duration: 360, easing: "ease-out" }
         );
       }
-
     }
 
     function chargerLesLikes() {
-
-      document
-        .querySelectorAll("[data-like]")
-        .forEach(function (compteur) {
-
-          const nom = compteur.dataset.like;
-          let nombre = 0;
-
-          try {
-          nombre =
-              Number(
-                localStorage.getItem("cadeau-like-" + nom)
-              ) > 0 ? 1 : 0;
-          } catch (erreur) {
-            nombre = 0;
-          }
-
-          compteur.dataset.nombre = nombre;
-          compteur.textContent = texteDuCompteur(nombre);
-
-        });
-
+      totalLikesMemoire = lireTotalLikes();
+      afficherTotalLikes(totalLikesMemoire);
     }
 
     chargerLesLikes();
+
+    /* Interactions du chapitre 1. */
+
+    function revelerPreuve(choix) {
+      const reponse = document.getElementById("reponse-preuve");
+
+      if (choix === "cacher") {
+        reponse.textContent =
+          "Trop tard, je l’ai toujours dans mon téléphone XD";
+      } else {
+        reponse.textContent =
+          "Je cherche encore la capture, mais ne t’inquiète pas… je l’ai toujours dans mon téléphone XD";
+      }
+
+      reponse.classList.remove("visible");
+      void reponse.offsetWidth;
+      reponse.classList.add("visible");
+    }
+
+    function basculerDossiers() {
+      const grille = document.getElementById("grille-cachee");
+      const bouton = document.getElementById("bouton-dossiers");
+      const estVisible = grille.classList.toggle("visible");
+
+      bouton.textContent = estVisible
+        ? "Refermer les dossiers"
+        : "Voir les photos cachées";
+    }
+
+    function ouvrirPhoto(source) {
+      const visionneuse = document.getElementById("visionneuse-photo");
+      const photo = document.getElementById("photo-agrandie");
+
+      photo.src = source;
+      visionneuse.classList.add("ouverte");
+      document.body.style.overflow = "hidden";
+    }
+
+    function fermerPhoto(event) {
+      const visionneuse = document.getElementById("visionneuse-photo");
+
+      if (
+        event.target.id === "visionneuse-photo" ||
+        event.target.classList.contains("fermer-visionneuse")
+      ) {
+        visionneuse.classList.remove("ouverte");
+        document.getElementById("photo-agrandie").src = "";
+        document.body.style.overflow = "";
+      }
+    }
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        const visionneuse = document.getElementById("visionneuse-photo");
+        visionneuse.classList.remove("ouverte");
+        document.body.style.overflow = "";
+      }
+    });
 
     /*
       Transition adaptée au téléphone et au PC.
