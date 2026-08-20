@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -555,6 +556,12 @@
 
     .bouton-trente-six:hover { background: #81956c; }
     .bouton-trente-six:active { transform: scale(0.93); }
+
+    .bouton-trente-six.termine {
+      width: min(100%, 360px);
+      letter-spacing: 0.04em;
+      font-size: 17px;
+    }
 
     .compteur-trente-six {
       color: #dce7c8;
@@ -1622,6 +1629,28 @@
         saturate(86%)
         contrast(98%)
         brightness(96%);
+    }
+
+    .legende-polaroid-zero {
+      position: absolute;
+      left: 8px;
+      right: 8px;
+      bottom: 7px;
+      display: flex;
+      min-height: 25px;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      color: #1c3324;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(13px, 1.7vw, 17px);
+      font-weight: 600;
+      line-height: 1.05;
+      text-align: center;
+    }
+
+    .mur-polaroids .souvenir-polaroid {
+      padding-bottom: 52px;
     }
 
     .pupa-annotation {
@@ -2851,8 +2880,28 @@
       border: 1px solid rgba(185, 201, 156, 0.28);
       border-radius: 24px;
       background: rgba(185, 201, 156, 0.06);
-      font-size: 1rem;
+      font-size: 1.1rem;
       line-height: 1.9;
+    }
+
+    .erreur-chapitre-deux {
+      display: none;
+      max-width: 620px;
+      margin: 22px auto 0 !important;
+      padding: 15px 18px;
+      border: 1px solid rgba(151, 55, 82, 0.35);
+      border-radius: 15px;
+      background: rgba(255, 238, 244, 0.88);
+      color: #8f2948 !important;
+      font-family: "Montserrat", sans-serif !important;
+      font-size: 0.9rem !important;
+      font-style: normal !important;
+      line-height: 1.5 !important;
+    }
+
+    .erreur-chapitre-deux.visible {
+      display: block;
+      animation: apparitionPreuve 0.4s ease both;
     }
 
     @media (max-width: 650px) {
@@ -2970,7 +3019,7 @@
 
       <div class="porte-trente-six" id="porte-trente-six">
         <p>
-          Avant d’entrer, clique 36 fois ici, c’est le nombre de mois de nous
+          Avant d’entrer, clique 36 fois
         </p>
 
         <button
@@ -3230,9 +3279,8 @@
             </div>
           </div>
         </div>
-        <p class="reconstitution"> J’ai tellement galéré…</p>
         <div class="zone-like">
-          <button class="bouton-like" type="button" onclick="aimerEtReveler(this, 'etape-messages-intro')" aria-label="Aimer et découvrir la suite">♡</button>
+          <button class="bouton-like" type="button" onclick="aimerVingtFoisCommentaire(this)" aria-label="Appuyer vingt fois pour découvrir la suite">♡</button>
           <span class="compteur-like" data-like-global>0</span>
         </div>
       </div>
@@ -3259,7 +3307,7 @@
             <div class="bulle-message lui">bloblobloblo</div>
             <div class="bulle-message moi">blibliblibli</div>
           </div>
-          <p class="note-reconstitution">Les mots sont reconstitués, mais je me souviens de toutes ces discussions jusqu’à pas d’heure.</p>
+          <p class="note-reconstitution">Je n’ai pas les conversations exactes, mais on a tellement parlé… C’était trop bien, je m’en souviens. Tu étais devenu ma nouvelle petite épaule.</p>
         </div>
         <div class="zone-like">
           <button class="bouton-like" type="button" onclick="aimerEtReveler(this, 'etape-appels-intro')" aria-label="Aimer et découvrir la suite">♡</button>
@@ -3295,12 +3343,12 @@
       <div class="etape-zero" id="etape-photos-rencontre">
         <h3 class="titre-souvenirs">Dire qu'on pensait pas vraiment a + ;)) .</h3>
         <div class="mur-polaroids">
-          <figure class="souvenir-polaroid"><img src="IMG_9117.jpg" alt="Un souvenir de notre rencontre"></figure>
-          <figure class="souvenir-polaroid"><img src="IMG_9113.jpg" alt="Une photo de nous deux"></figure>
-          <figure class="souvenir-polaroid avec-annotation"><img src="IMG_9091.jpg" alt="Une photo de nous deux"><figcaption class="pupa-annotation"><span class="pupa-fleche">↖</span>Ici, on a Pupa hihihi</figcaption></figure>
-          <figure class="souvenir-polaroid"><img src="IMG_9111.jpg" alt="Une photo drôle de nous deux"></figure>
-          <figure class="souvenir-polaroid"><img src="IMG_9086.jpg" alt="Une photo déformée de nous deux"></figure>
-          <figure class="souvenir-polaroid"><img src="IMG_9123.jpg" alt="Un souvenir de nos sorties"></figure>
+          <figure class="souvenir-polaroid"><img src="IMG_9117.jpg" alt="Un souvenir de notre rencontre"><figcaption class="legende-polaroid-zero">On allait souvent à Next Level</figcaption></figure>
+          <figure class="souvenir-polaroid"><img src="IMG_9113.jpg" alt="Une photo de nous deux"><figcaption class="legende-polaroid-zero">On attendait ma mère</figcaption></figure>
+          <figure class="souvenir-polaroid"><img src="IMG_9091.jpg" alt="Une photo de nous deux"><figcaption class="legende-polaroid-zero">Là, on a Pupa fort hihihi</figcaption></figure>
+          <figure class="souvenir-polaroid"><img src="IMG_9111.jpg" alt="Une photo drôle de nous deux"><figcaption class="legende-polaroid-zero">Et toi, tu rentrais à pied</figcaption></figure>
+          <figure class="souvenir-polaroid"><img src="IMG_9086.jpg" alt="Une photo déformée de nous deux"><figcaption class="legende-polaroid-zero">Tu m’as fait découvrir ce bel endroit</figcaption></figure>
+          <figure class="souvenir-polaroid"><img src="IMG_9123.jpg" alt="Un souvenir de nos sorties"><figcaption class="legende-polaroid-zero">À Next Level encore</figcaption></figure>
         </div>
         <p class="fin-chapitre-zero nouveau-texte-fin">
           Je sais que ce n’est pas vraiment un beau souvenir avec ce qui s’est passé après. Je souhaiterais toujours et encore te demander pardon pour l’erreur que j’ai faite. Maintenant, c’est toi et rien que toi dans mon cœur. Et malgré mon erreur, ça reste une belle rencontre, saine et magique.
@@ -3544,11 +3592,12 @@
         </div>
 
         <div class="appel-chapitre-deux">
-          <button class="bouton-chapitre-un bouton-chapitre-deux" type="button">
+          <button class="bouton-chapitre-un bouton-chapitre-deux" type="button" onclick="verifierLikesChapitreDeux()">
             Chapitre 2
           </button>
 
           <p>Ton départ pour la France, une torture</p>
+          <p class="erreur-chapitre-deux" id="erreur-chapitre-deux" role="alert"></p>
         </div>
       </div>
 
@@ -3813,6 +3862,27 @@
     function aimerEtReveler(bouton, identifiantEtape) {
       ajouterLike(bouton);
       revelerEtape(identifiantEtape);
+    }
+
+    let clicsCoeurCommentaire = 0;
+
+    function aimerVingtFoisCommentaire(bouton) {
+      if (clicsCoeurCommentaire >= 20) {
+        return;
+      }
+
+      clicsCoeurCommentaire += 1;
+      ajouterLike(bouton);
+
+      if (clicsCoeurCommentaire === 20) {
+        bouton.disabled = true;
+        bouton.setAttribute("aria-label", "Suite débloquée");
+
+        setTimeout(function () {
+          bouton.textContent = "♥";
+          revelerEtape("etape-messages-intro");
+        }, 600);
+      }
     }
 
     function controlerMusique(commande) {
@@ -4082,7 +4152,8 @@
       }
 
       if (nombreClicsEntree === 36) {
-        bouton.textContent = "36 MOIS ♡";
+        bouton.textContent = "36 mois de nous (cad 3 ans)";
+        bouton.classList.add("termine");
 
         try {
           localStorage.setItem(clePorte36, "terminee");
@@ -4102,7 +4173,6 @@
           porte.style.display = "none";
           vraieEntree.classList.remove("avant-entree-cache");
           vraieEntree.classList.add("avant-entree-visible");
-          histoire.classList.remove("verrouillee-36");
         }, 1000);
       }
     }
@@ -4129,6 +4199,7 @@
       porte.style.display = "flex";
       porte.classList.remove("terminee");
       bouton.textContent = "CLIQUE";
+      bouton.classList.remove("termine");
       compteur.textContent = "0 / 36";
 
       vraieEntree.classList.remove("avant-entree-visible");
@@ -4174,6 +4245,32 @@
         : "Clique";
     }
 
+    function verifierLikesChapitreDeux() {
+      const messageErreur = document.getElementById("erreur-chapitre-deux");
+      const total = lireTotalLikes();
+
+      if (total < 100) {
+        messageErreur.textContent =
+          "Erreur : pour continuer, il faut comptabiliser 100 likes afin d’ouvrir ce chapitre. Il t’en manque " +
+          (100 - total) + ".";
+        messageErreur.classList.remove("visible");
+
+        void messageErreur.offsetWidth;
+        messageErreur.classList.add("visible");
+        return;
+      }
+
+      const chapitreDeux = document.getElementById("chapitre-2");
+
+      if (chapitreDeux) {
+        chapitreDeux.classList.add("visible");
+        chapitreDeux.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        messageErreur.textContent = "Chapitre 2 débloqué ♡";
+        messageErreur.classList.add("visible");
+      }
+    }
+
     function ouvrirPhoto(source) {
       const visionneuse = document.getElementById("visionneuse-photo");
       const photo = document.getElementById("photo-agrandie");
@@ -4215,6 +4312,9 @@
 
       const histoire =
         document.getElementById("histoire");
+
+      /* La lettre ne devient visible qu’après ce clic. */
+      histoire.classList.remove("verrouillee-36");
 
       transition.classList.add("active");
 
