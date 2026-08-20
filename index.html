@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -2659,6 +2658,213 @@
       .visionneuse-photo img { max-width: 96vw; border-width: 5px; }
     }
 
+    /* ========================================
+       NOUVEAU PARCOURS DU CHAPITRE 0
+    ======================================== */
+
+    .parcours-chapitre-zero {
+      max-width: 980px;
+      min-height: 100vh;
+      margin: 0 auto;
+      padding-bottom: 110px;
+    }
+
+    .etape-zero {
+      display: none;
+      width: min(100%, 860px);
+      margin: 48px auto 0;
+      opacity: 0;
+      transform: translateY(28px);
+    }
+
+    .etape-zero.visible-etape {
+      display: block;
+      animation: apparitionEtapeZero 0.85s ease forwards;
+    }
+
+    #intro-rencontre.visible-etape {
+      display: flex;
+      min-height: 48vh;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    @keyframes apparitionEtapeZero {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .phrase-etape {
+      max-width: 700px;
+      margin: 0 auto 24px;
+      color: #f3efe2;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(1.7rem, 4.5vw, 2.8rem);
+      line-height: 1.2;
+      text-align: center;
+    }
+
+    .fleche-decouverte {
+      display: grid;
+      width: 66px;
+      height: 66px;
+      margin: 18px auto 0;
+      place-items: center;
+      border: 1px solid #b9c99c;
+      border-radius: 50%;
+      background: rgba(185, 201, 156, 0.08);
+      color: #dce5c7;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 3rem;
+      line-height: 1;
+      cursor: pointer;
+      animation: flecheRespire 1.8s ease-in-out infinite;
+    }
+
+    @keyframes flecheRespire {
+      50% { transform: translateY(8px); box-shadow: 0 0 28px rgba(185, 201, 156, 0.2); }
+    }
+
+    .bouton-revelation {
+      display: block;
+      min-width: 190px;
+      margin: 0 auto;
+      padding: 14px 26px;
+      border: 1px solid #b8c69b;
+      border-radius: 999px;
+      background: rgba(184, 198, 155, 0.1);
+      color: #f3efe2;
+      font: 500 0.88rem "Montserrat", sans-serif;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .bouton-revelation:hover {
+      background: #b8c69b;
+      color: #0d291b;
+      transform: translateY(-2px);
+    }
+
+    .sous-bouton-zero {
+      display: block;
+      margin-top: 12px;
+      color: #8fa079;
+      text-align: center;
+    }
+
+    .messagerie-reconstitution,
+    .journal-appels {
+      width: min(100%, 580px);
+      margin: 0 auto;
+      overflow: hidden;
+      border: 1px solid rgba(185, 201, 156, 0.32);
+      border-radius: 28px;
+      background: linear-gradient(160deg, rgba(25, 58, 39, 0.96), rgba(7, 24, 15, 0.98));
+      box-shadow: 0 26px 70px rgba(0, 0, 0, 0.35);
+    }
+
+    .messagerie-entete {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      padding: 19px 22px;
+      border-bottom: 1px solid rgba(185, 201, 156, 0.18);
+    }
+
+    .messagerie-entete strong,
+    .messagerie-entete small { display: block; }
+    .messagerie-entete small { margin-top: 4px; color: #879b79; }
+
+    .profils-duo { display: flex; padding-left: 14px; }
+    .profils-duo img {
+      width: 48px;
+      height: 48px;
+      margin-left: -14px;
+      border: 2px solid #183a27;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .conversation-reconstituee {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 25px 18px 18px;
+    }
+
+    .bulle-message {
+      max-width: 76%;
+      padding: 11px 15px;
+      border-radius: 20px;
+      font-size: 0.92rem;
+      line-height: 1.45;
+    }
+
+    .bulle-message.lui {
+      align-self: flex-start;
+      border-bottom-left-radius: 5px;
+      background: #27392d;
+    }
+
+    .bulle-message.moi {
+      align-self: flex-end;
+      border-bottom-right-radius: 5px;
+      background: #819367;
+      color: #07120d;
+    }
+
+    .note-reconstitution {
+      padding: 0 24px 22px;
+      color: #8fa079;
+      font-size: 0.73rem;
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    .journal-titre {
+      padding: 20px 22px;
+      border-bottom: 1px solid rgba(185, 201, 156, 0.18);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.35rem;
+      text-align: center;
+    }
+
+    .ligne-appel {
+      display: grid;
+      grid-template-columns: 52px 1fr auto;
+      align-items: center;
+      gap: 13px;
+      padding: 15px 20px;
+      border-bottom: 1px solid rgba(185, 201, 156, 0.1);
+    }
+
+    .ligne-appel:last-child { border-bottom: 0; }
+    .ligne-appel img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; }
+    .ligne-appel strong, .ligne-appel span { display: block; }
+    .ligne-appel span { margin-top: 4px; color: #8fa079; font-size: 0.73rem; }
+    .ligne-appel b { color: #b8c69b; font-size: 1.25rem; }
+
+    .nouveau-texte-fin {
+      max-width: 720px;
+      margin: 65px auto 38px;
+      padding: 28px;
+      border: 1px solid rgba(185, 201, 156, 0.28);
+      border-radius: 24px;
+      background: rgba(185, 201, 156, 0.06);
+      font-size: 1rem;
+      line-height: 1.9;
+    }
+
+    @media (max-width: 650px) {
+      .parcours-chapitre-zero { padding-inline: 18px; }
+      .etape-zero { margin-top: 38px; }
+      .bloc-tiktok { gap: 0; }
+      .messagerie-reconstitution, .journal-appels { border-radius: 22px; }
+      .ligne-appel { grid-template-columns: 45px 1fr auto; padding: 13px 14px; }
+      .ligne-appel img { width: 45px; height: 45px; }
+      .nouveau-texte-fin { padding: 22px 18px; }
+    }
+
   </style>
 
 </head>
@@ -2993,256 +3199,118 @@
        CHAPITRE 0
   ========================================= -->
 
-  <section
-    class="chapitre-zero"
-    id="chapitre-zero"
-  >
+  <section class="chapitre-zero" id="chapitre-zero">
+    <div class="chapitre-zero-contenu parcours-chapitre-zero">
 
-    <div class="chapitre-zero-contenu">
+      <div class="chapitre-date">DÉCEMBRE 2021</div>
+      <h2 class="chapitre-titre">Chapitre 0</h2>
+      <div class="chapitre-sous-titre">Notre vraie rencontre</div>
 
-      <div class="chapitre-date">
-        DÉCEMBRE 2021
+      <div class="etape-zero visible-etape" id="intro-rencontre">
+        <p class="phrase-etape">Avant le nous, il y a d’abord eu la rencontre.</p>
+        <button class="fleche-decouverte" type="button" onclick="revelerCommentaire()" aria-label="Découvrir notre premier échange">⌄</button>
       </div>
 
-      <h2 class="chapitre-titre">
-        Chapitre 0
-      </h2>
-
-      <div class="chapitre-sous-titre">
-        Notre vraie rencontre
-      </div>
-
-      <!-- Reconstitution TikTok -->
-
-      <div class="bloc-tiktok">
-
-      <div class="telephone">
-
-        <div class="ecran-tiktok">
-
-          <img
-            class="tiktok-photo"
-            src="https://raw.githubusercontent.com/kimichouu/pour-mon-amoureux/main/ED4B8EFD-8D5F-4D49-9F74-1150BCCAAEBE.jpg"
-            alt="Photo de Kimi sur la reconstitution TikTok"
-          >
-
-          <div class="tiktok-haut">
-            <span>Suivis</span>
-            <span>Pour toi</span>
-            <span>⌕</span>
-          </div>
-
-          <div class="actions-tiktok">
-
-            <img
-              class="pdp-kimi"
-              src="https://raw.githubusercontent.com/kimichouu/pour-mon-amoureux/main/6DA6B9DA-0563-472C-AB57-07E05F9CF8FA.jpg"
-              alt="Photo de profil de Kimi_Chou"
-            >
-
-            <span>♡<br>21</span>
-            <span>◯<br>1</span>
-            <span>↗<br>0</span>
-
-          </div>
-
-          <div class="commentaire-tiktok">
-
-            <div class="pdp-edit-cadre">
-              <img
-                class="pdp-edit"
-                src="DE6AE301-62E4-4C31-BD1B-DA73AFDD0279.png"
-                alt="Ancienne photo de profil de Edit_afk"
-              >
+      <div class="etape-zero" id="etape-commentaire">
+        <div class="bloc-tiktok">
+          <div class="telephone">
+            <div class="ecran-tiktok">
+              <img class="tiktok-photo" src="https://raw.githubusercontent.com/kimichouu/pour-mon-amoureux/main/ED4B8EFD-8D5F-4D49-9F74-1150BCCAAEBE.jpg" alt="Photo de Kimi sur la reconstitution TikTok">
+              <div class="tiktok-haut"><span>Suivis</span><span>Pour toi</span><span>⌕</span></div>
+              <div class="actions-tiktok">
+                <img class="pdp-kimi" src="https://raw.githubusercontent.com/kimichouu/pour-mon-amoureux/main/6DA6B9DA-0563-472C-AB57-07E05F9CF8FA.jpg" alt="Photo de profil de Kimi_Chou">
+                <span>♡<br>21</span><span>◯<br>1</span><span>↗<br>0</span>
+              </div>
+              <div class="commentaire-tiktok">
+                <div class="pdp-edit-cadre"><img class="pdp-edit" src="DE6AE301-62E4-4C31-BD1B-DA73AFDD0279.png" alt="Ancienne photo de profil de Edit_afk"></div>
+                <div class="commentaire-texte"><strong>Edit_afk</strong><span>You gave me goosebumps</span><small>Décembre 2021</small></div>
+              </div>
+              <div class="legende-tiktok"><strong>@Kimi_Chou</strong><p>♫ Comfort Chain · Instupendo</p></div>
+              <div class="navigation-tiktok"><span>⌂<br>Accueil</span><span>⌕<br>Découvrir</span><span>＋</span><span>♡<br>Activité</span><span>♙<br>Profil</span></div>
             </div>
-
-            <div class="commentaire-texte">
-              <strong>Edit_afk</strong>
-              <span>Gave me goosebumps</span>
-              <small>Décembre 2021</small>
-            </div>
-
           </div>
-
-          <div class="legende-tiktok">
-            <strong>@Kimi_Chou</strong>
-            <p>♫ Comfort Chain · Instupendo</p>
-          </div>
-
-          <div class="navigation-tiktok">
-            <span>⌂<br>Accueil</span>
-            <span>⌕<br>Découvrir</span>
-            <span>＋</span>
-            <span>♡<br>Activité</span>
-            <span>♙<br>Profil</span>
-          </div>
-
         </div>
-
+        <p class="reconstitution">Reconstitution de notre premier échange. J’ai galéré…</p>
+        <div class="zone-like">
+          <button class="bouton-like" type="button" onclick="aimerEtReveler(this, 'etape-messages-intro')" aria-label="Aimer et découvrir la suite">♡</button>
+          <span class="compteur-like" data-like-global>0</span>
+        </div>
       </div>
 
-      <div class="commandes-musique">
-        <button
-          class="bouton-musique"
-          type="button"
-          onclick="controlerMusique('playVideo')"
-        >
-          ▶ Play
-        </button>
+      <iframe class="lecteur-musique" id="lecteur-musique" title="Comfort Chain par Instupendo" allow="autoplay"></iframe>
 
-        <button
-          class="bouton-musique"
-          type="button"
-          onclick="controlerMusique('pauseVideo')"
-        >
-          ❚❚ Pause
-        </button>
+      <div class="etape-zero" id="etape-messages-intro">
+        <p class="phrase-etape">Puis, on a fini par parler par messages.</p>
+        <button class="bouton-revelation" type="button" onclick="revelerEtape('etape-messages', this)">Voir les messages</button>
       </div>
 
+      <div class="etape-zero" id="etape-messages">
+        <div class="messagerie-reconstitution">
+          <div class="messagerie-entete">
+            <div class="profils-duo">
+              <img src="6DA6B9DA-0563-472C-AB57-07E05F9CF8FA.jpg" alt="Ancienne photo de profil de Kimi_Chou">
+              <img src="DE6AE301-62E4-4C31-BD1B-DA73AFDD0279.png" alt="Ancienne photo de profil de Edit_afk">
+            </div>
+            <div><strong>Kimi_Chou × Edit_afk</strong><small>Décembre 2021 · reconstitution</small></div>
+          </div>
+          <div class="conversation-reconstituee">
+            <div class="bulle-message lui">On parle encore un peu ?</div>
+            <div class="bulle-message moi">Oui, je dors pas encore</div>
+            <div class="bulle-message lui">Passe en appel</div>
+            <div class="bulle-message moi">J’arrive XD</div>
+          </div>
+          <p class="note-reconstitution">Les mots sont reconstitués, mais je me souviens de toutes ces discussions jusqu’à pas d’heure.</p>
+        </div>
+        <div class="zone-like">
+          <button class="bouton-like" type="button" onclick="aimerEtReveler(this, 'etape-appels-intro')" aria-label="Aimer et découvrir la suite">♡</button>
+          <span class="compteur-like" data-like-global>0</span>
+        </div>
       </div>
 
-      <div class="reconstitution">
-        Reconstitution de notre premier contacte. J’ai galéré…
+      <div class="etape-zero" id="etape-appels-intro">
+        <p class="phrase-etape">Et puis, on a fini par s’appeler… jusqu’à s’endormir ensemble.</p>
+        <button class="bouton-revelation" type="button" onclick="revelerEtape('etape-appels', this)">Voir nos appels</button>
       </div>
 
-      <div class="zone-like">
-        <button
-          class="bouton-like"
-          type="button"
-          data-like-button="tiktok"
-          onclick="ajouterLike('tiktok', this)"
-          aria-label="Aimer la reconstitution TikTok"
-          aria-pressed="false"
-        >
-          ♡
-        </button>
-        <span
-          class="compteur-like"
-          data-like="tiktok"
-        >
-          0
-        </span>
+      <div class="etape-zero" id="etape-appels">
+        <div class="journal-appels">
+          <div class="journal-titre">Appels récents · décembre 2021</div>
+          <div class="ligne-appel"><img src="DE6AE301-62E4-4C31-BD1B-DA73AFDD0279.png" alt="Photo de profil de Edit_afk"><div><strong>Edit_afk</strong><span>Appel audio · tard dans la nuit</span></div><b>↗</b></div>
+          <div class="ligne-appel"><img src="6DA6B9DA-0563-472C-AB57-07E05F9CF8FA.jpg" alt="Photo de profil de Kimi_Chou"><div><strong>Kimi_Chou</strong><span>Appel audio · jusqu’à s’endormir</span></div><b>↗</b></div>
+          <div class="ligne-appel"><img src="DE6AE301-62E4-4C31-BD1B-DA73AFDD0279.png" alt="Photo de profil de Edit_afk"><div><strong>Edit_afk</strong><span>Appel audio · encore une nuit</span></div><b>↗</b></div>
+          <div class="ligne-appel"><img src="6DA6B9DA-0563-472C-AB57-07E05F9CF8FA.jpg" alt="Photo de profil de Kimi_Chou"><div><strong>Kimi_Chou</strong><span>Appel audio · pas d’heure de fin</span></div><b>↗</b></div>
+        </div>
+        <div class="zone-like">
+          <button class="bouton-like" type="button" onclick="aimerEtReveler(this, 'etape-rencontre-intro')" aria-label="Aimer et découvrir la suite">♡</button>
+          <span class="compteur-like" data-like-global>0</span>
+        </div>
       </div>
 
-      <iframe
-        class="lecteur-musique"
-        id="lecteur-musique"
-        title="Comfort Chain par Instupendo"
-        allow="autoplay"
-      ></iframe>
-
-      <h3 class="titre-souvenirs">
-        Quelques photos de nous.
-      </h3>
-
-      <div class="mur-polaroids">
-
-        <figure class="souvenir-polaroid">
-          <img
-            src="IMG_9117.jpg"
-            alt="Un souvenir de notre rencontre"
-          >
-        </figure>
-
-        <figure class="souvenir-polaroid">
-          <img
-            src="IMG_9113.jpg"
-            alt="Une photo de nous deux"
-          >
-        </figure>
-
-        <figure class="souvenir-polaroid avec-annotation">
-          <img
-            src="IMG_9091.jpg"
-            alt="Une photo de nous deux"
-          >
-          <figcaption class="pupa-annotation">
-            <span class="pupa-fleche">↖</span>
-            Là, on a pupa hihihi
-          </figcaption>
-        </figure>
-
-        <figure class="souvenir-polaroid">
-          <img
-            src="IMG_9111.jpg"
-            alt="Une photo drôle de nous deux"
-          >
-        </figure>
-
-        <figure class="souvenir-polaroid">
-          <img
-            src="IMG_9086.jpg"
-            alt="Une photo déformée de nous deux"
-          >
-        </figure>
-
-        <figure class="souvenir-polaroid">
-          <img
-            src="IMG_9123.jpg"
-            alt="Un souvenir de nos sorties"
-          >
-        </figure>
-
+      <div class="etape-zero" id="etape-rencontre-intro">
+        <p class="phrase-etape">Et pour enfin se rencontrer en vrai…</p>
+        <button class="bouton-revelation" type="button" onclick="revelerEtape('etape-photos-rencontre', this)">Clique ici</button>
+        <small class="sous-bouton-zero">pour voir quelques photos de nous</small>
       </div>
 
-      <div class="zone-like">
-        <button
-          class="bouton-like"
-          type="button"
-          data-like-button="photos-chapitre-0"
-          onclick="ajouterLike('photos-chapitre-0', this)"
-          aria-label="Aimer les photos du chapitre 0"
-          aria-pressed="false"
-        >
-          ♡
-        </button>
-        <span
-          class="compteur-like"
-          data-like="photos-chapitre-0"
-        >
-          0
-        </span>
-      </div>
-
-      <p class="fin-chapitre-zero">
-        Ce sont tellement de moments que je n’oublierai jamais,
-        même si ça s’est mal terminé… Sincèrement, je m’en excuse
-        encore aujourd’hui. Ce sont des erreurs de jeunesse.
-        Maintenant, je t’aime plus que tout.
-      </p>
-
-      <div class="zone-like">
-        <button
-          class="bouton-like"
-          type="button"
-          data-like-button="chapitre-0"
-          onclick="ajouterLike('chapitre-0', this)"
-          aria-label="Aimer la fin du chapitre 0"
-          aria-pressed="false"
-        >
-          ♡
-        </button>
-        <span
-          class="compteur-like"
-          data-like="chapitre-0"
-        >
-          0
-        </span>
-      </div>
-
-      <div class="passage-chapitre-un">
-        <p>Et puis, on s’est retrouvés…</p>
-        <button
-          class="bouton-chapitre-un"
-          type="button"
-          onclick="ouvrirChapitreUn()"
-        >
-          Chapitre 1 ♡
-        </button>
+      <div class="etape-zero" id="etape-photos-rencontre">
+        <h3 class="titre-souvenirs">Quelques moments de notre rencontre.</h3>
+        <div class="mur-polaroids">
+          <figure class="souvenir-polaroid"><img src="IMG_9117.jpg" alt="Un souvenir de notre rencontre"></figure>
+          <figure class="souvenir-polaroid"><img src="IMG_9113.jpg" alt="Une photo de nous deux"></figure>
+          <figure class="souvenir-polaroid avec-annotation"><img src="IMG_9091.jpg" alt="Une photo de nous deux"><figcaption class="pupa-annotation"><span class="pupa-fleche">↖</span>Ici, on a Pupa hihihi</figcaption></figure>
+          <figure class="souvenir-polaroid"><img src="IMG_9111.jpg" alt="Une photo drôle de nous deux"></figure>
+          <figure class="souvenir-polaroid"><img src="IMG_9086.jpg" alt="Une photo déformée de nous deux"></figure>
+          <figure class="souvenir-polaroid"><img src="IMG_9123.jpg" alt="Un souvenir de nos sorties"></figure>
+        </div>
+        <p class="fin-chapitre-zero nouveau-texte-fin">
+          Je sais que ce n’est pas vraiment un beau souvenir avec ce qui s’est passé après. Je souhaiterais toujours et encore te demander pardon pour l’erreur que j’ai faite. Maintenant, c’est toi et rien que toi dans mon cœur. Et malgré mon erreur, ça reste une belle rencontre, saine et magique.
+        </p>
+        <div class="passage-chapitre-un">
+          <button class="bouton-chapitre-un" type="button" onclick="ouvrirChapitreUn()">Chapitre 1 ♡</button>
+        </div>
       </div>
 
     </div>
-
   </section>
 
   <!-- ========================================
@@ -3327,7 +3395,7 @@
 
       <div class="moment-album">
         <div class="entete-moment">
-          <span>J'te trouve trop beau là dessus</span>
+          <span>Deux photos · un même moment</span>
         </div>
 
         <div class="duo-album">
@@ -3666,49 +3734,85 @@
     }
 
     function ouvrirChapitreZero() {
-
-      const chapitreZero =
-        document.getElementById("chapitre-zero");
-
-      const lecteurMusique =
-        document.getElementById("lecteur-musique");
+      const chapitreZero = document.getElementById("chapitre-zero");
+      const transition = document.getElementById("transition-amour");
 
       if (document.getElementById("bouton-chapitre-zero").disabled) {
         return;
       }
 
-      chapitreZero.classList.add("visible");
-
-      lancerExtraitChapitreZero();
+      /* La transition reste verte pour le chapitre 0. */
+      transition.classList.remove("transition-rose");
+      transition.classList.add("active");
 
       setTimeout(function () {
+        chapitreZero.classList.add("visible");
 
         const positionChapitre =
-          chapitreZero.getBoundingClientRect().top
-          + window.pageYOffset;
+          chapitreZero.getBoundingClientRect().top + window.pageYOffset;
 
-        document.documentElement.style.scrollBehavior =
-          "auto";
-
-        window.scrollTo(
-          0,
-          Math.round(positionChapitre)
-        );
+        document.documentElement.style.scrollBehavior = "auto";
+        window.scrollTo(0, Math.round(positionChapitre));
 
         requestAnimationFrame(function () {
-
-          window.scrollTo(
-            0,
-            Math.round(positionChapitre)
-          );
-
-          document.documentElement.style.scrollBehavior =
-            "smooth";
-
+          window.scrollTo(0, Math.round(positionChapitre));
         });
+      }, 1100);
 
-      }, 100);
+      setTimeout(function () {
+        transition.classList.remove("active");
+        document.documentElement.style.scrollBehavior = "smooth";
+      }, 2100);
+    }
 
+    /*
+      Le chapitre 0 se découvre étape par étape.
+    */
+
+    function faireDefilerVers(element) {
+      setTimeout(function () {
+        element.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+      }, 120);
+    }
+
+    function revelerEtape(identifiant, bouton) {
+      const etape = document.getElementById(identifiant);
+
+      if (!etape) {
+        return;
+      }
+
+      etape.classList.add("visible-etape");
+
+      if (bouton) {
+        bouton.disabled = true;
+        bouton.style.opacity = "0.45";
+        bouton.style.cursor = "default";
+      }
+
+      faireDefilerVers(etape);
+    }
+
+    function revelerCommentaire() {
+      const introduction = document.getElementById("intro-rencontre");
+      const commentaire = document.getElementById("etape-commentaire");
+      const fleche = introduction.querySelector(".fleche-decouverte");
+
+      fleche.disabled = true;
+      fleche.style.opacity = "0";
+      commentaire.classList.add("visible-etape");
+
+      /* Le clic sur la flèche autorise l’autoplay sur téléphone. */
+      lancerExtraitChapitreZero();
+      faireDefilerVers(commentaire);
+    }
+
+    function aimerEtReveler(bouton, identifiantEtape) {
+      ajouterLike(bouton);
+      revelerEtape(identifiantEtape);
     }
 
     function controlerMusique(commande) {
