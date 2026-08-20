@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -3999,8 +4000,16 @@
     }
 
     function chargerLesLikes() {
-      totalLikesMemoire = lireTotalLikes();
-      afficherTotalLikes(totalLikesMemoire);
+      /* Une nouvelle actualisation recommence toujours à zéro. */
+      totalLikesMemoire = 0;
+
+      try {
+        localStorage.removeItem(cleTotalLikes);
+      } catch (erreur) {
+        /* Le compteur est quand même remis à zéro en mémoire. */
+      }
+
+      afficherTotalLikes(0);
     }
 
     chargerLesLikes();
