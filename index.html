@@ -2103,6 +2103,54 @@
       animation: apparitionChapitre 0.9s ease both;
     }
 
+    .indice-vingt-likes {
+      margin: 24px auto 4px;
+      color: #9fb184;
+      font-family: "Montserrat", sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-align: center;
+    }
+
+    #bouton-premiere-lettre {
+      width: 86px;
+      height: 86px;
+      padding: 0;
+      font-size: 45px;
+      line-height: 1;
+      border-radius: 50%;
+    }
+
+    .zone-like-etape {
+      grid-column: 1 / -1;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .etape-chapitre-un {
+      display: none !important;
+    }
+
+    .etape-chapitre-un.revelee {
+      display: block !important;
+      animation: apparitionChapitre 0.8s ease both;
+    }
+
+    .cadre-video-rose.etape-chapitre-un.revelee {
+      display: grid !important;
+    }
+
+    .photo-progressive {
+      display: none !important;
+      opacity: 0;
+    }
+
+    .photo-progressive.photo-revelee {
+      display: block !important;
+      opacity: 1;
+      animation: photoApparait 0.8s ease both;
+    }
+
     .chapitre-un::before,
     .chapitre-un::after {
       content: "";
@@ -3080,7 +3128,7 @@
           type="button"
           onclick="ouvrirLettre()"
         >
-          Première lettre ♡
+          ♡
         </button>
 
       </div>
@@ -3279,6 +3327,7 @@
             </div>
           </div>
         </div>
+        <p class="indice-vingt-likes">Pour continuer, il faut liker 20 fois hihihi</p>
         <div class="zone-like">
           <button class="bouton-like" type="button" onclick="aimerVingtFoisCommentaire(this)" aria-label="Appuyer vingt fois pour découvrir la suite">♡</button>
           <span class="compteur-like" data-like-global>0</span>
@@ -3368,7 +3417,7 @@
   <section class="chapitre-un" id="chapitre-1">
     <div class="album-rose">
 
-      <div class="etiquette-chapitre">Août · Tahiti</div>
+      <div class="etiquette-chapitre">Août 2023</div>
 
       <h2 class="titre-chapitre-un">Chapitre 1</h2>
       <p class="sous-titre-chapitre-un">
@@ -3396,9 +3445,14 @@
             Et cette fois, notre histoire a réellement commencé.
           </p>
         </div>
+
+        <div class="zone-like zone-like-etape">
+          <button class="bouton-like" type="button" onclick="aimerEtRevelerChapitreUn(this, 'preuve-retour')" aria-label="Aimer et révéler la suite">♡</button>
+          <span class="compteur-like" data-like-global>0</span>
+        </div>
       </div>
 
-      <div class="preuve-retour">
+      <div class="preuve-retour etape-chapitre-un" id="preuve-retour">
         <h3>J’ai gardé une preuve de ton retour…</h3>
         <p>
           Ton message où, un peu pompette, tu m’écrivais que tu voulais bien de moi XD
@@ -3439,23 +3493,28 @@
             loading="lazy"
           >
         </button>
+
+        <div class="zone-like zone-like-etape">
+          <button class="bouton-like" type="button" onclick="aimerEtRevelerChapitreUn(this, 'moment-beau')" aria-label="Aimer et révéler la suite">♡</button>
+          <span class="compteur-like" data-like-global>0</span>
+        </div>
       </div>
 
-      <div class="moment-album">
+      <div class="moment-album etape-chapitre-un" id="moment-beau">
         <div class="entete-moment">
           <span>Je te trouve trop beau là dessus</span>
         </div>
 
         <div class="duo-album">
           <figure
-            class="photo-album"
+            class="photo-album photo-progressive"
             onclick="ouvrirPhoto(this.querySelector('img').src)"
           >
             <img src="IMG_1586.jpg" alt="Nous deux près de l’eau" loading="lazy">
           </figure>
 
           <figure
-            class="photo-album"
+            class="photo-album photo-progressive"
             onclick="ouvrirPhoto(this.querySelector('img').src)"
           >
             <img src="IMG_1599.jpg" alt="Nous deux avec les montagnes derrière" loading="lazy">
@@ -3463,54 +3522,54 @@
         </div>
 
         <div class="zone-like">
-          <button class="bouton-like" type="button" onclick="ajouterLike(this)" aria-label="Ajouter un cœur">♡</button>
+          <button class="bouton-like" type="button" onclick="revelerPhotoPuisSuite(this, 'moment-beau', 'moment-pellicule')" aria-label="Aimer et révéler une photo">♡</button>
           <span class="compteur-like" data-like-global>0</span>
         </div>
       </div>
 
-      <div class="moment-album">
+      <div class="moment-album etape-chapitre-un" id="moment-pellicule">
         <div class="entete-moment">
           <span>Fais glisser les photos</span>
         </div>
 
         <div class="pellicule-rose">
-          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_1673.jpg" alt="Nous pendant une promenade" loading="lazy"></button>
-          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_5866.jpg" alt="Une photo drôle dans les hauteurs" loading="lazy"></button>
-          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_5910.jpg" alt="Un bisou sur la joue" loading="lazy"></button>
-          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_5916.jpg" alt="Nous deux souriants" loading="lazy"></button>
-          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_5922.jpg" alt="Nous deux dans le brouillard" loading="lazy"></button>
-          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_5952.jpg" alt="Nous enlacés dans les hauteurs" loading="lazy"></button>
-          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_5965.jpg" alt="Un bisou dans les hauteurs" loading="lazy"></button>
-          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_6019.jpg" alt="Nous marchant main dans la main" loading="lazy"></button>
+          <button class="photo-progressive" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_1673.jpg" alt="Nous pendant une promenade" loading="lazy"></button>
+          <button class="photo-progressive" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_5866.jpg" alt="Une photo drôle dans les hauteurs" loading="lazy"></button>
+          <button class="photo-progressive" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_5910.jpg" alt="Un bisou sur la joue" loading="lazy"></button>
+          <button class="photo-progressive" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_5916.jpg" alt="Nous deux souriants" loading="lazy"></button>
+          <button class="photo-progressive" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_5922.jpg" alt="Nous deux dans le brouillard" loading="lazy"></button>
+          <button class="photo-progressive" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_5952.jpg" alt="Nous enlacés dans les hauteurs" loading="lazy"></button>
+          <button class="photo-progressive" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_5965.jpg" alt="Un bisou dans les hauteurs" loading="lazy"></button>
+          <button class="photo-progressive" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_6019.jpg" alt="Nous marchant main dans la main" loading="lazy"></button>
         </div>
 
         <div class="zone-like">
-          <button class="bouton-like" type="button" onclick="ajouterLike(this)" aria-label="Ajouter un cœur">♡</button>
+          <button class="bouton-like" type="button" onclick="revelerPhotoPuisSuite(this, 'moment-pellicule', 'moment-mosaique', true)" aria-label="Aimer et révéler une photo">♡</button>
           <span class="compteur-like" data-like-global>0</span>
         </div>
       </div>
 
-      <div class="moment-album">
+      <div class="moment-album etape-chapitre-un" id="moment-mosaique">
         <div class="entete-moment">
           <span>Rien d’extraordinaire · juste nous</span>
         </div>
 
         <div class="mosaique-rose">
-          <button class="tuile-photo" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_6999.jpg" alt="Nous pendant une sortie" loading="lazy"></button>
-          <button class="tuile-photo" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_7286.jpg" alt="Nous deux à la maison" loading="lazy"></button>
-          <button class="tuile-photo" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8098.jpg" alt="Un moment de notre quotidien" loading="lazy"></button>
-          <button class="tuile-photo" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8460.jpg" alt="Nous deux pendant une sortie" loading="lazy"></button>
-          <button class="tuile-photo" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8471.jpg" alt="Moi appuyée contre toi" loading="lazy"></button>
-          <button class="tuile-photo" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8505.jpg" alt="Nous deux dans la voiture" loading="lazy"></button>
+          <button class="tuile-photo photo-progressive" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_6999.jpg" alt="Nous pendant une sortie" loading="lazy"></button>
+          <button class="tuile-photo photo-progressive" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_7286.jpg" alt="Nous deux à la maison" loading="lazy"></button>
+          <button class="tuile-photo photo-progressive" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8098.jpg" alt="Un moment de notre quotidien" loading="lazy"></button>
+          <button class="tuile-photo photo-progressive" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8460.jpg" alt="Nous deux pendant une sortie" loading="lazy"></button>
+          <button class="tuile-photo photo-progressive" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8471.jpg" alt="Moi appuyée contre toi" loading="lazy"></button>
+          <button class="tuile-photo photo-progressive" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8505.jpg" alt="Nous deux dans la voiture" loading="lazy"></button>
         </div>
 
         <div class="zone-like">
-          <button class="bouton-like" type="button" onclick="ajouterLike(this)" aria-label="Ajouter un cœur">♡</button>
+          <button class="bouton-like" type="button" onclick="revelerPhotoPuisSuite(this, 'moment-mosaique', 'video-nouvel-an')" aria-label="Aimer et révéler une photo">♡</button>
           <span class="compteur-like" data-like-global>0</span>
         </div>
       </div>
 
-      <div class="cadre-video-rose">
+      <div class="cadre-video-rose etape-chapitre-un" id="video-nouvel-an">
         <video
           controls
           muted
@@ -3528,33 +3587,33 @@
           <p>J’ai pas retrouvé les deux premières années, mais je m’en souviens encore.</p>
 
           <div class="zone-like">
-            <button class="bouton-like" type="button" onclick="ajouterLike(this)" aria-label="Ajouter un cœur">♡</button>
+            <button class="bouton-like" type="button" onclick="aimerEtRevelerChapitreUn(this, 'moment-eau')" aria-label="Aimer et révéler la suite">♡</button>
             <span class="compteur-like" data-like-global>0</span>
           </div>
         </div>
       </div>
 
-      <div class="moment-album">
+      <div class="moment-album etape-chapitre-un" id="moment-eau">
         <div class="entete-moment">
           <span>Et toujours aucune photo normale</span>
         </div>
 
         <div class="pellicule-rose">
-          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_7087.jpg" alt="Une photo drôle dans l’eau" loading="lazy"></button>
-          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8276.jpg" alt="Une photo drôle de nous dans l’eau" loading="lazy"></button>
-          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8291.jpg" alt="Un bisou dans l’eau" loading="lazy"></button>
-          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8297.jpg" alt="Une photo drôle de nous deux" loading="lazy"></button>
-          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="WhatsApp Image 2026-08-19 at 14.55.12.jpg" alt="Une photo très rapprochée dans l’eau" loading="lazy"></button>
-          <button type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="WhatsApp Image 2026-08-19 at 14.55.14 (1).jpg" alt="Nous souriants après la baignade" loading="lazy"></button>
+          <button class="photo-progressive" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_7087.jpg" alt="Une photo drôle dans l’eau" loading="lazy"></button>
+          <button class="photo-progressive" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8276.jpg" alt="Une photo drôle de nous dans l’eau" loading="lazy"></button>
+          <button class="photo-progressive" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8291.jpg" alt="Un bisou dans l’eau" loading="lazy"></button>
+          <button class="photo-progressive" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_8297.jpg" alt="Une photo drôle de nous deux" loading="lazy"></button>
+          <button class="photo-progressive" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="WhatsApp Image 2026-08-19 at 14.55.12.jpg" alt="Une photo très rapprochée dans l’eau" loading="lazy"></button>
+          <button class="photo-progressive" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="WhatsApp Image 2026-08-19 at 14.55.14 (1).jpg" alt="Nous souriants après la baignade" loading="lazy"></button>
         </div>
 
         <div class="zone-like">
-          <button class="bouton-like" type="button" onclick="ajouterLike(this)" aria-label="Ajouter un cœur">♡</button>
+          <button class="bouton-like" type="button" onclick="revelerPhotoPuisSuite(this, 'moment-eau', 'dossiers-caches')" aria-label="Aimer et révéler une photo">♡</button>
           <span class="compteur-like" data-like-global>0</span>
         </div>
       </div>
 
-      <div class="dossiers-caches">
+      <div class="dossiers-caches etape-chapitre-un" id="dossiers-caches">
         <h3>Encore plus de photos si tu cliques.</h3>
 
         <button
@@ -3576,12 +3635,12 @@
         </div>
 
         <div class="zone-like">
-          <button class="bouton-like" type="button" onclick="ajouterLike(this)" aria-label="Ajouter un cœur">♡</button>
+          <button class="bouton-like" type="button" onclick="aimerEtRevelerChapitreUn(this, 'fin-chapitre-un')" aria-label="Aimer et révéler la suite">♡</button>
           <span class="compteur-like" data-like-global>0</span>
         </div>
       </div>
 
-      <div class="fin-chapitre-un">
+      <div class="fin-chapitre-un etape-chapitre-un" id="fin-chapitre-un">
         <p>
           On vivait encore chacun chez soi, mais on construisait déjà quelque chose à nous.
         </p>
@@ -4167,13 +4226,13 @@
 
         setTimeout(function () {
           porte.classList.add("terminee");
-        }, 450);
+        }, 4000);
 
         setTimeout(function () {
           porte.style.display = "none";
           vraieEntree.classList.remove("avant-entree-cache");
           vraieEntree.classList.add("avant-entree-visible");
-        }, 1000);
+        }, 5000);
       }
     }
 
@@ -4210,6 +4269,73 @@
     chargerPorteTrenteSix();
 
     /* Interactions du chapitre 1. */
+
+    function aimerEtRevelerChapitreUn(bouton, identifiant) {
+      ajouterLike(bouton);
+
+      const element = document.getElementById(identifiant);
+      if (!element) {
+        return;
+      }
+
+      element.classList.add("revelee");
+      bouton.disabled = true;
+      bouton.textContent = "♥";
+      faireDefilerVers(element);
+    }
+
+    function revelerPhotoPuisSuite(bouton, identifiantBloc, identifiantSuite, lancerMusique) {
+      ajouterLike(bouton);
+
+      const bloc = document.getElementById(identifiantBloc);
+      if (!bloc) {
+        return;
+      }
+
+      const prochainePhoto = bloc.querySelector(".photo-progressive:not(.photo-revelee)");
+
+      if (prochainePhoto) {
+        prochainePhoto.classList.add("photo-revelee");
+        faireDefilerVers(prochainePhoto);
+
+        const resteUnePhoto = bloc.querySelector(".photo-progressive:not(.photo-revelee)");
+        if (resteUnePhoto) {
+          return;
+        }
+      }
+
+      const suite = document.getElementById(identifiantSuite);
+      if (suite) {
+        suite.classList.add("revelee");
+        bouton.disabled = true;
+        bouton.textContent = "♥";
+
+        if (lancerMusique) {
+          lancerMusiqueRienExtraordinaire();
+        }
+
+        faireDefilerVers(suite);
+      }
+    }
+
+    function lancerMusiqueRienExtraordinaire() {
+      const lecteurMusique = document.getElementById("lecteur-musique");
+
+      annulerExtraitChapitreZero();
+      annulerExtraitChapitreUn();
+      musiqueActive = "souvenirs-chapitre-un";
+
+      lecteurMusique.src =
+        "https://www.youtube.com/embed/LUXu4aTnK7E" +
+        "?autoplay=1&playsinline=1&enablejsapi=1";
+    }
+
+    function arreterMusiqueSouvenirs() {
+      if (musiqueActive === "souvenirs-chapitre-un") {
+        envoyerCommandeMusique("pauseVideo");
+        musiqueActive = "";
+      }
+    }
 
     function revelerPreuve(choix) {
       const reponse = document.getElementById("reponse-preuve");
@@ -4259,6 +4385,8 @@
         messageErreur.classList.add("visible");
         return;
       }
+
+      arreterMusiqueSouvenirs();
 
       const chapitreDeux = document.getElementById("chapitre-2");
 
