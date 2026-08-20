@@ -4039,11 +4039,10 @@
 
     function chargerDeblocageLike() {
       try {
-        if (localStorage.getItem(cleDeblocageLike) === "oui") {
-          afficherSuiteDebloquee();
-        }
+        /* Le déblocage doit être refait après chaque actualisation. */
+        localStorage.removeItem(cleDeblocageLike);
       } catch (erreur) {
-        /* Le bouton attendra simplement un nouveau clic sur un cœur. */
+        /* Le bouton attend simplement un nouveau clic sur un cœur. */
       }
     }
 
@@ -4110,22 +4109,32 @@
     }
 
     function chargerPorteTrenteSix() {
-      let dejaTerminee = false;
+      /*
+        À chaque chargement, la porte revient à zéro et tout le site
+        reste caché jusqu’au trente-sixième clic.
+      */
+      nombreClicsEntree = 0;
 
       try {
-        dejaTerminee = localStorage.getItem(clePorte36) === "terminee";
+        localStorage.removeItem(clePorte36);
       } catch (erreur) {
-        dejaTerminee = false;
+        /* La remise à zéro fonctionne quand même pendant la visite. */
       }
 
-      if (dejaTerminee) {
-        document.getElementById("porte-trente-six").style.display = "none";
+      const porte = document.getElementById("porte-trente-six");
+      const bouton = document.getElementById("bouton-trente-six");
+      const compteur = document.getElementById("compteur-trente-six");
+      const vraieEntree = document.getElementById("vraie-entree");
+      const histoire = document.getElementById("histoire");
 
-        const vraieEntree = document.getElementById("vraie-entree");
-        vraieEntree.classList.remove("avant-entree-cache");
-        vraieEntree.classList.add("avant-entree-visible");
-        document.getElementById("histoire").classList.remove("verrouillee-36");
-      }
+      porte.style.display = "flex";
+      porte.classList.remove("terminee");
+      bouton.textContent = "CLIQUE";
+      compteur.textContent = "0 / 36";
+
+      vraieEntree.classList.remove("avant-entree-visible");
+      vraieEntree.classList.add("avant-entree-cache");
+      histoire.classList.add("verrouillee-36");
     }
 
     chargerPorteTrenteSix();
