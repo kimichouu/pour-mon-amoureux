@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -3595,6 +3594,526 @@
       }
     }
 
+    /* ========================================
+       CHAPITRE 2 — PARCOURS INTERACTIF
+    ======================================== */
+
+    .transition-chapitre-deux {
+      position: fixed;
+      inset: 0;
+      z-index: 9998;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      overflow: hidden;
+      visibility: hidden;
+      opacity: 0;
+      background: linear-gradient(145deg, #dce8ec 0%, #f6e8e4 52%, #efe2d1 100%);
+      transition: opacity .35s ease, visibility .35s ease;
+    }
+
+    .transition-chapitre-deux.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .transition-chapitre-deux::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: .28;
+      background-image: radial-gradient(circle, #718d98 1px, transparent 1.2px);
+      background-size: 28px 28px;
+    }
+
+    .trajet-transition-deux {
+      position: relative;
+      width: min(680px, 90vw);
+      height: 190px;
+    }
+
+    .trajet-transition-deux::after {
+      content: "";
+      position: absolute;
+      left: 7%;
+      right: 7%;
+      top: 50%;
+      border-top: 3px dashed rgba(83, 109, 119, .45);
+      transform: rotate(-5deg);
+    }
+
+    .ile-transition,
+    .france-transition {
+      position: absolute;
+      top: 50%;
+      z-index: 2;
+      color: #536d77;
+      font: 700 13px "Montserrat", sans-serif;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+
+    .ile-transition { left: 0; }
+    .france-transition { right: 0; }
+
+    .enveloppe-transition-deux {
+      position: absolute;
+      left: 4%;
+      top: 42%;
+      z-index: 3;
+      width: 78px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border: 2px solid #8d6e72;
+      border-radius: 7px;
+      color: #a35e70;
+      background: #fffaf2;
+      box-shadow: 0 12px 30px rgba(79, 92, 98, .2);
+      font-size: 31px;
+    }
+
+    .transition-chapitre-deux.active .enveloppe-transition-deux {
+      animation: voyageEnveloppe 2.1s cubic-bezier(.55,.04,.3,1) both;
+    }
+
+    @keyframes voyageEnveloppe {
+      0% { left: 4%; transform: translateY(0) rotate(-8deg) scale(.8); }
+      45% { transform: translateY(-68px) rotate(5deg) scale(1); }
+      100% { left: calc(90% - 78px); transform: translateY(0) rotate(-3deg) scale(.88); }
+    }
+
+    .texte-transition-deux {
+      position: absolute;
+      left: 50%;
+      bottom: 18%;
+      z-index: 4;
+      width: min(620px, 88vw);
+      transform: translateX(-50%);
+      color: #5e4a52;
+      text-align: center;
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(24px, 4.2vw, 39px);
+      font-style: italic;
+    }
+
+    .chapitre-deux.parcours-voyage {
+      color: #4f5f65;
+      background:
+        radial-gradient(circle at 15% 8%, rgba(183, 208, 213, .55), transparent 30%),
+        radial-gradient(circle at 88% 22%, rgba(234, 193, 199, .42), transparent 28%),
+        linear-gradient(180deg, #edf4f3 0%, #f7ece9 47%, #f2e7d7 100%);
+    }
+
+    .chapitre-deux.parcours-voyage::before {
+      opacity: .2;
+      background-image: radial-gradient(circle, #6f8790 1px, transparent 1.25px);
+      background-size: 34px 34px;
+    }
+
+    .parcours-voyage .entete-deux {
+      margin-inline: auto;
+      padding: clamp(28px, 6vw, 60px);
+      border: 1px solid rgba(107, 131, 138, .28);
+      border-radius: 34px 8px 34px 8px;
+      background: rgba(255, 250, 243, .78);
+      box-shadow: 0 24px 60px rgba(87, 106, 112, .13);
+    }
+
+    .parcours-voyage .etiquette-chapitre,
+    .parcours-voyage .petit-repere { color: #9b6676; }
+    .parcours-voyage .titre-deux { color: #5c737b; }
+    .parcours-voyage .sous-titre-deux { color: #795965; }
+    .parcours-voyage .intro-deux { color: #65767b; }
+
+    .etape-interactive-deux {
+      display: none;
+      width: min(1020px, 100%);
+      margin: 82px auto 0;
+      animation: apparitionEtapeVoyage .75s ease both;
+    }
+
+    .etape-interactive-deux.active { display: block; }
+
+    .parcours-voyage [hidden] { display: none !important; }
+
+    @keyframes apparitionEtapeVoyage {
+      from { opacity: 0; transform: translateY(22px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .carte-interaction-deux {
+      padding: clamp(24px, 5vw, 48px);
+      border: 1px solid rgba(104, 127, 134, .23);
+      border-radius: 28px;
+      background: rgba(255, 251, 245, .84);
+      box-shadow: 0 22px 55px rgba(91, 107, 112, .12);
+    }
+
+    .carte-interaction-deux h3 {
+      margin: 0 0 10px;
+      color: #6f5360;
+      font: 600 clamp(29px, 5vw, 48px) "Cormorant Garamond", serif;
+    }
+
+    .carte-interaction-deux > p {
+      margin: 0 auto 26px;
+      max-width: 700px;
+      color: #66777b;
+      font: 500 14px/1.8 "Montserrat", sans-serif;
+    }
+
+    .jeu-enveloppe {
+      position: relative;
+      height: 270px;
+      overflow: hidden;
+      border: 2px dashed rgba(92, 119, 127, .34);
+      border-radius: 24px;
+      background: linear-gradient(135deg, rgba(210, 229, 231, .72), rgba(247, 224, 224, .68));
+      touch-action: none;
+    }
+
+    .destination-france {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      width: 118px;
+      height: 118px;
+      display: grid;
+      place-items: center;
+      border: 2px dashed #8a6a75;
+      border-radius: 50%;
+      transform: translateY(-50%);
+      color: #7e5966;
+      background: rgba(255,255,255,.5);
+      font: 700 12px "Montserrat", sans-serif;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+    .enveloppe-a-glisser {
+      position: absolute;
+      left: 22px;
+      top: 50%;
+      z-index: 2;
+      width: 104px;
+      height: 72px;
+      border: 2px solid #8d6975;
+      border-radius: 9px;
+      transform: translateY(-50%);
+      color: #a2536d;
+      background: #fff9ed;
+      box-shadow: 0 12px 28px rgba(87, 99, 103, .2);
+      cursor: grab;
+      font-size: 38px;
+      user-select: none;
+      touch-action: none;
+    }
+
+    .enveloppe-a-glisser:active { cursor: grabbing; }
+
+    .indication-jeu {
+      margin: 14px 0 0;
+      color: #8b6a76;
+      font: 600 12px "Montserrat", sans-serif;
+    }
+
+    .valise-interactive {
+      position: relative;
+      width: min(620px, 100%);
+      min-height: 350px;
+      margin: 25px auto 0;
+      padding: 74px 25px 28px;
+      border: 8px solid #71878d;
+      border-radius: 38px;
+      background: #d6c2a8;
+      box-shadow: inset 0 0 0 4px #f2e6d3, 0 22px 42px rgba(79, 94, 99, .18);
+    }
+
+    .valise-interactive::before {
+      content: "";
+      position: absolute;
+      top: -58px;
+      left: 50%;
+      width: 170px;
+      height: 70px;
+      border: 12px solid #71878d;
+      border-bottom: 0;
+      border-radius: 28px 28px 0 0;
+      transform: translateX(-50%);
+    }
+
+    .objets-valise {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .objet-valise {
+      min-height: 92px;
+      border: 1px solid rgba(88, 104, 109, .25);
+      border-radius: 18px;
+      color: #5e6970;
+      background: #fffaf1;
+      box-shadow: 0 9px 18px rgba(76, 87, 91, .1);
+      font: 600 13px "Montserrat", sans-serif;
+      cursor: pointer;
+      transition: transform .25s ease, opacity .25s ease;
+    }
+
+    .objet-valise span { display: block; font-size: 29px; margin-bottom: 5px; }
+    .objet-valise.range { transform: scale(.78) rotate(4deg); opacity: .4; pointer-events: none; }
+
+    .progression-mini {
+      margin-top: 18px;
+      color: #6e5961;
+      font: 700 12px "Montserrat", sans-serif;
+    }
+
+    .coeur-maintenir {
+      width: 150px;
+      height: 150px;
+      margin: 26px auto 18px;
+      border: 2px solid rgba(148, 82, 105, .45);
+      border-radius: 50%;
+      color: #ad5574;
+      background: conic-gradient(#cf819c var(--maintien, 0%), rgba(255,255,255,.72) 0);
+      box-shadow: inset 0 0 0 10px rgba(255,250,247,.75), 0 18px 35px rgba(121, 82, 96, .14);
+      font-size: 62px;
+      cursor: pointer;
+      user-select: none;
+      touch-action: none;
+    }
+
+    .coeur-maintenir.termine { color: #fff; background: #bf6d8b; }
+
+    .conversation-distance {
+      width: min(620px, 100%);
+      margin: 26px auto 0;
+      padding: 20px;
+      border-radius: 28px;
+      background: #e3eef0;
+    }
+
+    .message-distance {
+      display: none;
+      max-width: 82%;
+      margin: 10px 0;
+      padding: 12px 15px;
+      border-radius: 18px 18px 18px 5px;
+      color: #4f5d61;
+      background: #fff;
+      box-shadow: 0 7px 14px rgba(81, 102, 108, .08);
+      font: 500 13px/1.5 "Montserrat", sans-serif;
+      text-align: left;
+      animation: messageArrive .35s ease both;
+    }
+
+    .message-distance.moi {
+      margin-left: auto;
+      border-radius: 18px 18px 5px 18px;
+      color: #fff;
+      background: #b87890;
+    }
+
+    .message-distance.visible { display: block; }
+    @keyframes messageArrive { from { opacity: 0; transform: translateY(8px) scale(.97); } }
+
+    .bouton-action-deux {
+      min-width: 190px;
+      margin-top: 22px;
+      padding: 13px 22px;
+      border: 1px solid rgba(91, 119, 127, .4);
+      border-radius: 999px;
+      color: #fff;
+      background: linear-gradient(135deg, #78939a, #b7788e);
+      box-shadow: 0 12px 24px rgba(89, 109, 114, .15);
+      font: 700 12px "Montserrat", sans-serif;
+      cursor: pointer;
+    }
+
+    .puzzle-souvenir {
+      position: relative;
+      width: min(620px, 88vw);
+      aspect-ratio: 4 / 3;
+      margin: 28px auto;
+      overflow: hidden;
+      border: 10px solid #fffaf2;
+      border-radius: 8px;
+      box-shadow: 0 20px 45px rgba(75, 94, 100, .18);
+      background: #c9d9db;
+    }
+
+    .piece-puzzle {
+      position: absolute;
+      width: 50%;
+      height: 50%;
+      border: 1px solid rgba(255,255,255,.75);
+      background-image: url("IMG_1778.jpg");
+      background-size: 200% 200%;
+      cursor: pointer;
+      transition: transform .55s cubic-bezier(.2,.8,.2,1), filter .4s ease;
+    }
+
+    .piece-puzzle:nth-child(1) { left: 0; top: 0; background-position: left top; transform: translate(-35px,-22px) rotate(-8deg); }
+    .piece-puzzle:nth-child(2) { right: 0; top: 0; background-position: right top; transform: translate(38px,-28px) rotate(7deg); }
+    .piece-puzzle:nth-child(3) { left: 0; bottom: 0; background-position: left bottom; transform: translate(-40px,30px) rotate(6deg); }
+    .piece-puzzle:nth-child(4) { right: 0; bottom: 0; background-position: right bottom; transform: translate(34px,26px) rotate(-7deg); }
+    .piece-puzzle.placee { transform: translate(0) rotate(0) !important; filter: saturate(1.05); pointer-events: none; }
+
+    .courriers-distance {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 26px;
+    }
+
+    .courrier-secret {
+      min-height: 220px;
+      padding: 20px;
+      border: 1px solid rgba(125, 93, 104, .26);
+      border-radius: 10px;
+      color: #7d5966;
+      background: #fff9ed;
+      box-shadow: 0 15px 28px rgba(85, 97, 101, .12);
+      cursor: pointer;
+      transform: rotate(var(--rotation));
+      transition: transform .4s ease;
+    }
+
+    .courrier-secret:nth-child(1) { --rotation: -2deg; }
+    .courrier-secret:nth-child(2) { --rotation: 2deg; }
+    .courrier-secret:nth-child(3) { --rotation: -1deg; }
+    .courrier-secret.ouverte { transform: rotate(0) translateY(-8px); background: #f5e4e5; }
+    .courrier-secret .contenu-courrier { display: none; font: 500 13px/1.7 "Montserrat", sans-serif; }
+    .courrier-secret.ouverte .icone-courrier { display: none; }
+    .courrier-secret.ouverte .contenu-courrier { display: block; animation: messageArrive .4s ease both; }
+    .icone-courrier { display: block; margin-top: 45px; font-size: 55px; }
+
+    .calendrier-distance {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(42px, 1fr));
+      gap: 9px;
+      margin-top: 28px;
+    }
+
+    .jour-distance {
+      aspect-ratio: 1;
+      border: 1px solid rgba(95, 120, 127, .28);
+      border-radius: 12px;
+      color: #60747a;
+      background: #fffaf3;
+      font: 700 14px "Montserrat", sans-serif;
+      cursor: pointer;
+    }
+
+    .jour-distance.barre { color: #fff; background: #b97990; text-decoration: line-through; pointer-events: none; }
+    .jour-distance:disabled { opacity: .35; cursor: not-allowed; }
+
+    .billet-voyage {
+      position: relative;
+      width: min(760px, 100%);
+      margin: 28px auto;
+      padding: 30px;
+      overflow: hidden;
+      border-radius: 20px;
+      color: #52666c;
+      background: #fffaf0;
+      box-shadow: 0 20px 40px rgba(79, 96, 101, .16);
+      text-align: left;
+    }
+
+    .billet-voyage::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 25%;
+      height: 100%;
+      border-left: 2px dashed rgba(105, 126, 132, .28);
+    }
+
+    .trajet-billet { display: flex; justify-content: space-between; width: 65%; font: 700 21px "Montserrat", sans-serif; }
+    .details-billet { margin-top: 16px; font: 500 12px/1.8 "Montserrat", sans-serif; }
+
+    .tampon-billet {
+      position: absolute;
+      right: 4%;
+      top: 50%;
+      width: 112px;
+      height: 112px;
+      border: 4px double #a55c72;
+      border-radius: 50%;
+      transform: translateY(-50%) rotate(-10deg) scale(1.3);
+      opacity: 0;
+      color: #a55c72;
+      background: transparent;
+      font: 800 12px/1.2 "Montserrat", sans-serif;
+      text-align: center;
+      display: grid;
+      place-items: center;
+      transition: opacity .25s ease, transform .35s ease;
+    }
+
+    .billet-voyage.tamponne .tampon-billet { opacity: .9; transform: translateY(-50%) rotate(-10deg) scale(1); }
+
+    .album-oriente-deux {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-auto-flow: dense;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .album-oriente-deux .photo-deux {
+      min-height: 280px;
+      overflow: hidden;
+      border: 8px solid #fffaf3;
+      border-radius: 9px;
+      box-shadow: 0 13px 28px rgba(77, 94, 99, .13);
+      background: #dbe6e7;
+    }
+
+    .album-oriente-deux .photo-deux.horizontale { grid-column: span 2; }
+    .album-oriente-deux .photo-deux.verticale { grid-row: span 2; min-height: 574px; }
+    .album-oriente-deux .photo-deux img { width: 100%; height: 100%; object-fit: cover; }
+
+    .confirmation-interaction {
+      display: none;
+      margin-top: 22px;
+      color: #9b5f75;
+      font: 700 13px "Montserrat", sans-serif;
+    }
+
+    .confirmation-interaction.visible { display: block; animation: messageArrive .4s ease both; }
+
+    @media (max-width: 760px) {
+      .texte-transition-deux { bottom: 12%; }
+      .trajet-transition-deux { height: 150px; }
+      .destination-france { width: 94px; height: 94px; right: 10px; }
+      .enveloppe-a-glisser { width: 88px; height: 62px; left: 12px; }
+      .jeu-enveloppe { height: 230px; }
+      .courriers-distance { grid-template-columns: 1fr; }
+      .courrier-secret { min-height: 165px; }
+      .icone-courrier { margin-top: 20px; }
+      .calendrier-distance { grid-template-columns: repeat(4, 1fr); }
+      .billet-voyage::after { right: 31%; }
+      .trajet-billet { width: 62%; font-size: 15px; }
+      .tampon-billet { width: 84px; height: 84px; font-size: 9px; }
+      .album-oriente-deux { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .album-oriente-deux .photo-deux.horizontale { grid-column: span 2; min-height: 230px; }
+      .album-oriente-deux .photo-deux.verticale { grid-row: span 1; min-height: 330px; }
+    }
+
+    @media (max-width: 430px) {
+      .parcours-voyage .entete-deux { padding: 28px 18px; }
+      .carte-interaction-deux { padding: 24px 15px; }
+      .objets-valise { grid-template-columns: 1fr 1fr; }
+      .objet-valise { min-height: 82px; font-size: 11px; }
+      .valise-interactive { padding-inline: 15px; }
+      .billet-voyage { padding: 22px 14px; }
+      .details-billet { max-width: 58%; }
+    }
+
   </style>
 
 </head>
@@ -4301,175 +4820,184 @@
        CHAPITRE 2 — TON DÉPART POUR LA FRANCE
   ========================================= -->
 
-  <section class="chapitre-deux" id="chapitre-2">
-    <div class="chapitre-deux-contenu">
+  <div class="transition-chapitre-deux" id="transition-chapitre-deux" aria-hidden="true">
+    <div class="trajet-transition-deux">
+      <span class="ile-transition">Tahiti</span>
+      <span class="france-transition">France</span>
+      <div class="enveloppe-transition-deux">♡</div>
+    </div>
+    <p class="texte-transition-deux">La première fois que les kilomètres se sont installés entre nous…</p>
+  </div>
 
+  <section class="chapitre-deux parcours-voyage" id="chapitre-2">
+    <div class="chapitre-deux-contenu">
       <header class="entete-deux">
         <div class="etiquette-chapitre">La distance</div>
         <h2 class="titre-deux">Chapitre 2</h2>
         <p class="sous-titre-deux">Ton départ pour la France, une torture</p>
-        <p class="intro-deux">
-          J'ai tellement mal vécu ton départ, c'était très soudain... mais on a tenu le coup 
-        </p>
+        <p class="intro-deux">J’ai tellement mal vécu ton départ. C’était très soudain… mais malgré les kilomètres, on a tenu.</p>
       </header>
 
-      <!-- 1 — LE DÉPART -->
-      <section class="etape-deux" id="deux-depart">
-        <div class="entete-souvenir-deux">
-          <span class="petit-repere">Le jour où tu es parti</span>
-          <h3>Le départ</h3>
-          <p>
-            Pas un album bien rangé. Juste les images que j’aurais voulu pouvoir retenir un peu plus longtemps.
-          </p>
-        </div>
-
-        <div class="depart-composition">
-          <button class="photo-deux souvenir-deux-photo depart-principale" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)">
-            <img src="IMG_1518.jpg" alt="Nous avant ton départ" loading="lazy">
-          </button>
-
-          <button class="photo-deux souvenir-deux-photo depart-gauche-haut" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)">
-            <img src="CLSX5597.jpg" alt="Un souvenir avant le départ" loading="lazy">
-          </button>
-
-          <button class="photo-deux souvenir-deux-photo depart-gauche-bas" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)">
-            <img src="IMG_1495.jpg" alt="Nous avant la distance" loading="lazy">
-          </button>
-
-          <button class="photo-deux souvenir-deux-photo depart-droite-haut" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)">
-            <img src="IMG_1512.jpg" alt="Un souvenir de cette période" loading="lazy">
-          </button>
-
-          <button class="photo-deux souvenir-deux-photo depart-droite-bas" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)">
-            <img src="IMG_1513.jpg" alt="Nous juste avant ton départ" loading="lazy">
-          </button>
-
-          <div class="petit-mot-depart">j’aurais bien arrêté le temps ici ♡</div>
-        </div>
-
-        <div class="continuer-deux">
-          <div class="zone-like">
-            <button class="bouton-like" type="button" onclick="aimerEtRevelerChapitreDeux(this, 'deux-distance')" aria-label="Aimer et révéler la suite">♡</button>
-            <span class="compteur-like" data-like-global>0</span>
+      <section class="etape-interactive-deux active" id="jeu-trajet-deux">
+        <div class="carte-interaction-deux">
+          <h3>Fais traverser notre lettre</h3>
+          <p>Fais glisser l’enveloppe de Tahiti jusqu’à la France pour commencer ce chapitre.</p>
+          <div class="jeu-enveloppe" id="zone-glisser-enveloppe">
+            <button class="enveloppe-a-glisser" id="enveloppe-a-glisser" type="button" aria-label="Enveloppe à faire glisser">✉</button>
+            <div class="destination-france" id="destination-france">France</div>
           </div>
-          <p>continuer notre histoire</p>
+          <p class="indication-jeu">Tu peux la faire glisser avec ton doigt ou ta souris.</p>
+          <p class="confirmation-interaction" id="confirmation-trajet">La lettre est arrivée ♡</p>
         </div>
       </section>
 
-      <!-- 2 — LA DISTANCE -->
-      <section class="etape-deux cachee" id="deux-distance">
-        <div class="entete-souvenir-deux">
-          <span class="petit-repere">Des kilomètres entre nous</span>
+      <section class="etape-interactive-deux" id="jeu-valise-deux">
+        <div class="carte-interaction-deux">
+          <h3>Prépare ta valise</h3>
+          <p>Avant ton départ, range les quatre objets dans ta valise en cliquant dessus.</p>
+          <div class="valise-interactive">
+            <div class="objets-valise">
+              <button class="objet-valise" type="button" onclick="rangerObjetValise(this)"><span>👕</span>Des vêtements</button>
+              <button class="objet-valise" type="button" onclick="rangerObjetValise(this)"><span>🎧</span>Tes écouteurs</button>
+              <button class="objet-valise" type="button" onclick="rangerObjetValise(this)"><span>📱</span>Ton téléphone</button>
+              <button class="objet-valise" type="button" onclick="rangerObjetValise(this)"><span>♡</span>Un peu de nous</button>
+            </div>
+            <div class="progression-mini" id="progression-valise">0 / 4 objets rangés</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="etape-interactive-deux" id="souvenirs-depart-deux">
+        <div class="carte-interaction-deux">
+          <h3>Le jour où tu es parti</h3>
+          <p>Les images que j’aurais voulu pouvoir retenir un peu plus longtemps.</p>
+          <div class="album-oriente-deux">
+            <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_1518.jpg" alt="Nous avant ton départ" loading="lazy"></button>
+            <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="CLSX5597.jpg" alt="Un souvenir avant le départ" loading="lazy"></button>
+            <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_1495.jpg" alt="Nous avant la distance" loading="lazy"></button>
+            <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_1512.jpg" alt="Un souvenir de cette période" loading="lazy"></button>
+            <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_1513.jpg" alt="Nous juste avant ton départ" loading="lazy"></button>
+          </div>
+          <p class="indication-jeu">J’aurais bien arrêté le temps ici.</p>
+          <button class="bouton-action-deux" type="button" onclick="revelerEtapeDeux('tenir-distance-deux')">Continuer malgré les kilomètres</button>
+        </div>
+      </section>
+
+      <section class="etape-interactive-deux" id="tenir-distance-deux">
+        <div class="carte-interaction-deux">
+          <h3>Tenir malgré la distance</h3>
+          <p>Maintiens le cœur pendant quelques secondes. Il faut parfois s’accrocher un peu.</p>
+          <button class="coeur-maintenir" id="coeur-maintenir" type="button" aria-label="Maintenir le cœur">♡</button>
+          <p class="progression-mini" id="texte-maintien">Maintiens sans lâcher…</p>
+        </div>
+      </section>
+
+      <section class="etape-interactive-deux" id="messages-distance-deux">
+        <div class="carte-interaction-deux">
           <h3>Nous à travers un écran</h3>
-          <p>
-            Alors on a fait comme on pouvait : beaucoup d’appels, des captures,
-            nos têtes fatiguées et parfois juste le fait de rester ensemble sans parler.
-          </p>
-        </div>
-
-        <div class="distance-scene">
-          <button class="photo-deux appel-carte appel-un" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)">
-            <img src="IMG_9171.png" alt="Un de nos appels à distance" loading="lazy">
-          </button>
-
-          <button class="photo-deux appel-carte appel-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)">
-            <img src="IMG_9684.png" alt="Nous pendant un appel" loading="lazy">
-          </button>
-
-          <button class="photo-deux appel-carte appel-trois" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)">
-            <img src="IMG_9687.png" alt="Une capture de nos appels" loading="lazy">
-          </button>
-
-          <button class="photo-deux appel-carte appel-quatre" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)">
-            <img src="IMG_9898.png" alt="Un autre moment à travers l'écran" loading="lazy">
-          </button>
-        </div>
-
-        <div class="continuer-deux">
-          <div class="zone-like">
-            <button class="bouton-like" type="button" onclick="aimerEtRevelerChapitreDeux(this, 'deux-retour')" aria-label="Aimer et révéler la suite">♡</button>
-            <span class="compteur-like" data-like-global>0</span>
+          <p>On a fait comme on pouvait : des messages, des appels et le simple fait de rester ensemble.</p>
+          <div class="conversation-distance" id="conversation-distance">
+            <div class="message-distance visible">Tu es bien arrivée ?</div>
+            <div class="message-distance moi">Oui, mais tu me manques déjà.</div>
+            <div class="message-distance">Appelle-moi quand tu peux.</div>
+            <div class="message-distance moi">Même si on ne parle pas, reste avec moi.</div>
+            <div class="message-distance">Toujours ♡</div>
           </div>
-          <p>et puis enfin…</p>
+          <button class="bouton-action-deux" id="bouton-message-suivant" type="button" onclick="afficherMessageDistance()">Voir le message suivant</button>
+          <div class="album-oriente-deux" id="album-appels-deux" hidden>
+            <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_9171.png" alt="Un de nos appels à distance" loading="lazy"></button>
+            <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_9684.png" alt="Nous pendant un appel" loading="lazy"></button>
+            <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_9687.png" alt="Une capture de nos appels" loading="lazy"></button>
+            <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_9898.png" alt="Un autre moment à travers l’écran" loading="lazy"></button>
+          </div>
+          <button class="bouton-action-deux" id="bouton-vers-puzzle" type="button" onclick="revelerEtapeDeux('puzzle-retour-deux')" hidden>Continuer</button>
         </div>
       </section>
 
-      <!-- 3 — SON RETOUR -->
-      <section class="etape-deux cachee" id="deux-retour">
-        <div class="entete-souvenir-deux">
-          <span class="petit-repere">Enfin toi, ici</span>
+      <section class="etape-interactive-deux" id="puzzle-retour-deux">
+        <div class="carte-interaction-deux">
+          <h3>Reconstruis nos retrouvailles</h3>
+          <p>Clique sur chacun des quatre morceaux pour reformer la photo.</p>
+          <div class="puzzle-souvenir" id="puzzle-souvenir">
+            <button class="piece-puzzle" type="button" onclick="placerPiecePuzzle(this)" aria-label="Placer le premier morceau"></button>
+            <button class="piece-puzzle" type="button" onclick="placerPiecePuzzle(this)" aria-label="Placer le deuxième morceau"></button>
+            <button class="piece-puzzle" type="button" onclick="placerPiecePuzzle(this)" aria-label="Placer le troisième morceau"></button>
+            <button class="piece-puzzle" type="button" onclick="placerPiecePuzzle(this)" aria-label="Placer le quatrième morceau"></button>
+          </div>
+          <p class="confirmation-interaction" id="confirmation-puzzle">Enfin toi, ici ♡</p>
+        </div>
+      </section>
+
+      <section class="etape-interactive-deux" id="album-retour-deux">
+        <div class="carte-interaction-deux">
           <h3>Ton retour à Tahiti</h3>
-          <p>
-            Après les écrans, je pouvais enfin te reprendre dans mes bras.
-            Alors forcément… il y a beaucoup trop de photos.
-          </p>
-        </div>
-
-        <div class="retour-mur">
-          <button class="photo-deux retour-polaroid" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_1778.jpg" alt="Nos retrouvailles à Tahiti" loading="lazy"></button>
-          <button class="photo-deux retour-polaroid" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_1782.jpg" alt="Nous réunis à Tahiti" loading="lazy"></button>
-          <button class="photo-deux retour-polaroid" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_1795.jpg" alt="Un souvenir de ton retour" loading="lazy"></button>
-          <button class="photo-deux retour-polaroid" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_1809.jpg" alt="Nous pendant ton retour" loading="lazy"></button>
-          <button class="photo-deux retour-polaroid" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_1816.jpg" alt="Un moment ensemble à Tahiti" loading="lazy"></button>
-          <button class="photo-deux retour-polaroid" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_1867.jpg" alt="Nous deux à Tahiti" loading="lazy"></button>
-          <button class="photo-deux retour-polaroid" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_1879.jpg" alt="Encore nous à Tahiti" loading="lazy"></button>
-          <button class="photo-deux retour-polaroid" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_1917.jpg" alt="Un souvenir de nos retrouvailles" loading="lazy"></button>
-          <button class="photo-deux retour-polaroid" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_1929.jpg" alt="Nous retrouvés" loading="lazy"></button>
-        </div>
-
-        <div class="continuer-deux">
-          <div class="zone-like">
-            <button class="bouton-like" type="button" onclick="aimerEtRevelerChapitreDeux(this, 'deux-france')" aria-label="Aimer et révéler la suite">♡</button>
-            <span class="compteur-like" data-like-global>0</span>
+          <p>Après les écrans, je pouvais enfin te reprendre dans mes bras.</p>
+          <div class="album-oriente-deux">
+            <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_1782.jpg" alt="Nous réunis à Tahiti" loading="lazy"></button>
+            <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_1795.jpg" alt="Un souvenir de ton retour" loading="lazy"></button>
+            <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_1809.jpg" alt="Nous pendant ton retour" loading="lazy"></button>
+            <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_1816.jpg" alt="Un moment ensemble à Tahiti" loading="lazy"></button>
+            <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_1867.jpg" alt="Nous deux à Tahiti" loading="lazy"></button>
+            <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_1879.jpg" alt="Encore nous à Tahiti" loading="lazy"></button>
+            <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_1917.jpg" alt="Un souvenir de nos retrouvailles" loading="lazy"></button>
+            <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_1929.jpg" alt="Nous retrouvés" loading="lazy"></button>
           </div>
-          <p>à mon tour de traverser les kilomètres</p>
+          <button class="bouton-action-deux" type="button" onclick="revelerEtapeDeux('courriers-deux')">Ouvrir nos courriers</button>
         </div>
       </section>
 
-      <!-- 4 — LA FRANCE -->
-      <section class="etape-deux cachee" id="deux-france">
-        <div class="entete-souvenir-deux">
-          <span class="petit-repere">Vacances de Noël</span>
-          <h3>À mon tour de te rejoindre</h3>
-          <p>
-            Cette fois c’est moi qui ai traversé les kilomètres.
-            Et j’ai enfin pu découvrir un petit bout de ta vie en France.
-          </p>
+      <section class="etape-interactive-deux" id="courriers-deux">
+        <div class="carte-interaction-deux">
+          <h3>Trois petites enveloppes</h3>
+          <p>Ouvre-les toutes pour continuer.</p>
+          <div class="courriers-distance">
+            <button class="courrier-secret" type="button" onclick="ouvrirCourrierDeux(this)"><span class="icone-courrier">✉</span><span class="contenu-courrier">La distance a changé notre quotidien, mais pas ce que je ressentais pour toi.</span></button>
+            <button class="courrier-secret" type="button" onclick="ouvrirCourrierDeux(this)"><span class="icone-courrier">✉</span><span class="contenu-courrier">Même à travers un écran, entendre ta voix me faisait du bien.</span></button>
+            <button class="courrier-secret" type="button" onclick="ouvrirCourrierDeux(this)"><span class="icone-courrier">✉</span><span class="contenu-courrier">Chaque journée terminée était une journée de moins avant de te retrouver.</span></button>
+          </div>
         </div>
+      </section>
 
-        <div class="page-france">
-          <div class="france-intro">
-            <span>petit carnet de décembre</span>
-            <h4>Nos souvenirs en France</h4>
+      <section class="etape-interactive-deux" id="calendrier-deux">
+        <div class="carte-interaction-deux">
+          <h3>Fais avancer les jours</h3>
+          <p>Barre les jours dans l’ordre jusqu’à nos prochaines retrouvailles.</p>
+          <div class="calendrier-distance" id="calendrier-distance">
+            <button class="jour-distance" type="button" onclick="barrerJourDeux(this, 0)">1</button>
+            <button class="jour-distance" type="button" onclick="barrerJourDeux(this, 1)" disabled>2</button>
+            <button class="jour-distance" type="button" onclick="barrerJourDeux(this, 2)" disabled>3</button>
+            <button class="jour-distance" type="button" onclick="barrerJourDeux(this, 3)" disabled>4</button>
+            <button class="jour-distance" type="button" onclick="barrerJourDeux(this, 4)" disabled>5</button>
+            <button class="jour-distance" type="button" onclick="barrerJourDeux(this, 5)" disabled>6</button>
+            <button class="jour-distance" type="button" onclick="barrerJourDeux(this, 6)" disabled>7</button>
           </div>
+        </div>
+      </section>
 
-          <div class="france-collage">
-            <button class="photo-deux france-postcard" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)">
-              <img src="IMG_2528.jpg" alt="Nous pendant mes vacances en France" loading="lazy">
-            </button>
-
-            <button class="photo-deux france-polaroid" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)">
-              <img src="IMG_2394.jpg" alt="Un souvenir de mon arrivée en France" loading="lazy">
-            </button>
-
-            <button class="photo-deux france-polaroid" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)">
-              <img src="IMG_2679.PNG" alt="Un souvenir de Noël en France" loading="lazy">
-            </button>
-
-            <button class="photo-deux france-polaroid" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)">
-              <img src="IMG_2682.PNG" alt="Nous pendant Noël" loading="lazy">
-            </button>
-
-            <button class="photo-deux france-polaroid" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)">
-              <img src="IMG_2723.jpg" alt="Nous pendant les vacances" loading="lazy">
-            </button>
-
-            <button class="photo-deux france-polaroid" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)">
-              <img src="IMG_2804.jpg" alt="Un souvenir de notre séjour" loading="lazy">
-            </button>
+      <section class="etape-interactive-deux" id="billet-deux">
+        <div class="carte-interaction-deux">
+          <h3>À mon tour de traverser les kilomètres</h3>
+          <p>Tamponne mon billet pour me laisser te rejoindre en France.</p>
+          <div class="billet-voyage" id="billet-voyage">
+            <div class="trajet-billet"><span>PPT</span><span>→</span><span>FRA</span></div>
+            <div class="details-billet">PASSAGÈRE : KIMI_CHOU<br>DESTINATION : TOI<br>CLASSE : AMOUREUSE</div>
+            <div class="tampon-billet">VOYAGE<br>VALIDÉ<br>♡</div>
           </div>
+          <button class="bouton-action-deux" id="bouton-tampon" type="button" onclick="tamponnerBilletDeux()">Tamponner le billet</button>
+        </div>
+      </section>
 
-          <div class="france-bande">
+      <section class="etape-interactive-deux" id="france-deux">
+        <div class="carte-interaction-deux">
+          <h3>Nos souvenirs en France</h3>
+          <p>Cette fois, c’est moi qui avais traversé les kilomètres pour retrouver un petit bout de ta vie.</p>
+          <div class="album-oriente-deux">
+            <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_2528.jpg" alt="Nous pendant mes vacances en France" loading="lazy"></button>
+            <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_2394.jpg" alt="Un souvenir de mon arrivée en France" loading="lazy"></button>
+            <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_2679.PNG" alt="Un souvenir de Noël en France" loading="lazy"></button>
+            <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_2682.PNG" alt="Nous pendant Noël" loading="lazy"></button>
+            <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_2723.jpg" alt="Nous pendant les vacances" loading="lazy"></button>
+            <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_2804.jpg" alt="Un souvenir de notre séjour" loading="lazy"></button>
             <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_2815.jpg" alt="Souvenir en France" loading="lazy"></button>
             <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_2828.jpg" alt="Souvenir en France" loading="lazy"></button>
             <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_2891.jpg" alt="Souvenir en France" loading="lazy"></button>
@@ -4478,24 +5006,15 @@
             <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_3073.jpg" alt="Souvenir en France" loading="lazy"></button>
             <button class="photo-deux" type="button" onclick="ouvrirPhoto(this.querySelector('img').src)"><img src="IMG_3204.jpg" alt="Souvenir en France" loading="lazy"></button>
           </div>
-
           <div class="video-france">
-            <video controls muted playsinline preload="metadata">
-              <source src="CWAV3974.MP4" type="video/mp4">
-              Ton navigateur ne peut pas lire cette vidéo.
-            </video>
+            <video controls muted playsinline preload="metadata"><source src="CWAV3974.MP4" type="video/mp4">Ton navigateur ne peut pas lire cette vidéo.</video>
           </div>
-        </div>
-
-        <div class="continuer-deux">
-          <div class="zone-like">
+          <div class="zone-like continuer-deux">
             <button class="bouton-like" type="button" onclick="ajouterLike(this)" aria-label="Ajouter un cœur">♡</button>
             <span class="compteur-like" data-like-global>0</span>
           </div>
-          <p>la suite arrive bientôt ♡</p>
         </div>
       </section>
-
     </div>
   </section>
 
@@ -5194,37 +5713,267 @@
       }
 
       arreterMusiqueSouvenirs();
-
-      const chapitreDeux = document.getElementById("chapitre-2");
-
-      if (chapitreDeux) {
-        chapitreDeux.classList.add("visible");
-        chapitreDeux.scrollIntoView({ behavior: "smooth", block: "start" });
-      } else {
-        messageErreur.textContent = "Chapitre 2 débloqué ♡";
-        messageErreur.classList.add("visible");
-      }
+      lancerTransitionChapitreDeux();
     }
 
+    let chapitreDeuxLance = false;
+    let objetsValiseRanges = 0;
+    let messagesDistanceVisibles = 1;
+    let piecesPuzzlePlacees = 0;
+    let courriersOuverts = 0;
+    let prochainJourDistance = 0;
+    let maintienCoeurTimer = null;
+    let maintienCoeurDebut = 0;
+    let animationMaintien = null;
 
-    function aimerEtRevelerChapitreDeux(bouton, idEtape) {
-      ajouterLike(bouton);
+    function lancerTransitionChapitreDeux() {
+      const transition = document.getElementById("transition-chapitre-deux");
+      const chapitreDeux = document.getElementById("chapitre-2");
 
-      const etape = document.getElementById(idEtape);
-
-      if (!etape) {
+      if (!transition || !chapitreDeux) {
         return;
       }
 
-      etape.classList.add("visible-etape-deux");
+      chapitreDeuxLance = true;
+      transition.classList.add("active");
+      transition.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
 
       setTimeout(function () {
-        etape.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      }, 140);
+        chapitreDeux.classList.add("visible");
+        chapitreDeux.scrollIntoView({ behavior: "auto", block: "start" });
+      }, 1750);
+
+      setTimeout(function () {
+        transition.classList.remove("active");
+        transition.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        initialiserGlisserEnveloppe();
+        classerPhotosChapitreDeux();
+      }, 2450);
     }
+
+    function revelerEtapeDeux(idEtape) {
+      const etape = document.getElementById(idEtape);
+      if (!etape || etape.classList.contains("active")) {
+        return;
+      }
+
+      etape.classList.add("active");
+      setTimeout(function () {
+        etape.scrollIntoView({ behavior: "smooth", block: "center" });
+        classerPhotosChapitreDeux();
+      }, 90);
+    }
+
+    function initialiserGlisserEnveloppe() {
+      const enveloppe = document.getElementById("enveloppe-a-glisser");
+      const zone = document.getElementById("zone-glisser-enveloppe");
+      const destination = document.getElementById("destination-france");
+
+      if (!enveloppe || !zone || !destination || enveloppe.dataset.initialisee === "oui") {
+        return;
+      }
+
+      enveloppe.dataset.initialisee = "oui";
+      let glisse = false;
+      let decalageX = 0;
+      let decalageY = 0;
+
+      enveloppe.addEventListener("pointerdown", function (event) {
+        glisse = true;
+        enveloppe.setPointerCapture(event.pointerId);
+        const rectangle = enveloppe.getBoundingClientRect();
+        decalageX = event.clientX - rectangle.left;
+        decalageY = event.clientY - rectangle.top;
+      });
+
+      enveloppe.addEventListener("pointermove", function (event) {
+        if (!glisse) return;
+
+        const rectangleZone = zone.getBoundingClientRect();
+        const largeur = enveloppe.offsetWidth;
+        const hauteur = enveloppe.offsetHeight;
+        const x = Math.max(0, Math.min(event.clientX - rectangleZone.left - decalageX, rectangleZone.width - largeur));
+        const y = Math.max(0, Math.min(event.clientY - rectangleZone.top - decalageY, rectangleZone.height - hauteur));
+
+        enveloppe.style.left = x + "px";
+        enveloppe.style.top = y + "px";
+        enveloppe.style.transform = "none";
+      });
+
+      function terminerGlisser(event) {
+        if (!glisse) return;
+        glisse = false;
+
+        const rectangleEnveloppe = enveloppe.getBoundingClientRect();
+        const rectangleDestination = destination.getBoundingClientRect();
+        const centreX = rectangleEnveloppe.left + rectangleEnveloppe.width / 2;
+        const centreY = rectangleEnveloppe.top + rectangleEnveloppe.height / 2;
+
+        if (
+          centreX >= rectangleDestination.left &&
+          centreX <= rectangleDestination.right &&
+          centreY >= rectangleDestination.top &&
+          centreY <= rectangleDestination.bottom
+        ) {
+          enveloppe.style.left = destination.offsetLeft + (destination.offsetWidth - enveloppe.offsetWidth) / 2 + "px";
+          enveloppe.style.top = destination.offsetTop + (destination.offsetHeight - enveloppe.offsetHeight) / 2 + "px";
+          enveloppe.disabled = true;
+          destination.textContent = "Arrivée ♡";
+          document.getElementById("confirmation-trajet").classList.add("visible");
+          setTimeout(function () { revelerEtapeDeux("jeu-valise-deux"); }, 650);
+        }
+      }
+
+      enveloppe.addEventListener("pointerup", terminerGlisser);
+      enveloppe.addEventListener("pointercancel", terminerGlisser);
+    }
+
+    function rangerObjetValise(bouton) {
+      if (bouton.classList.contains("range")) return;
+
+      bouton.classList.add("range");
+      objetsValiseRanges += 1;
+      document.getElementById("progression-valise").textContent = objetsValiseRanges + " / 4 objets rangés";
+
+      if (objetsValiseRanges === 4) {
+        document.getElementById("progression-valise").textContent = "Valise prête ♡";
+        setTimeout(function () { revelerEtapeDeux("souvenirs-depart-deux"); }, 650);
+      }
+    }
+
+    function commencerMaintienCoeur(event) {
+      const coeur = document.getElementById("coeur-maintenir");
+      if (!coeur || coeur.classList.contains("termine")) return;
+
+      event.preventDefault();
+      maintienCoeurDebut = performance.now();
+
+      function progresserMaintien(temps) {
+        const progression = Math.min(100, ((temps - maintienCoeurDebut) / 2500) * 100);
+        coeur.style.setProperty("--maintien", progression + "%");
+        document.getElementById("texte-maintien").textContent = Math.round(progression) + " %";
+
+        if (progression >= 100) {
+          terminerMaintienCoeur(true);
+        } else {
+          animationMaintien = requestAnimationFrame(progresserMaintien);
+        }
+      }
+
+      animationMaintien = requestAnimationFrame(progresserMaintien);
+      maintienCoeurTimer = true;
+    }
+
+    function terminerMaintienCoeur(reussi) {
+      const coeur = document.getElementById("coeur-maintenir");
+      if (!coeur || !maintienCoeurTimer) return;
+
+      maintienCoeurTimer = null;
+      cancelAnimationFrame(animationMaintien);
+
+      if (reussi) {
+        coeur.classList.add("termine");
+        coeur.textContent = "♥";
+        coeur.style.setProperty("--maintien", "100%");
+        document.getElementById("texte-maintien").textContent = "On a tenu ♡";
+        ajouterLike(coeur);
+        setTimeout(function () { coeur.textContent = "♥"; }, 600);
+        setTimeout(function () { revelerEtapeDeux("messages-distance-deux"); }, 600);
+      } else {
+        coeur.style.setProperty("--maintien", "0%");
+        document.getElementById("texte-maintien").textContent = "Recommence et ne lâche pas…";
+      }
+    }
+
+    function afficherMessageDistance() {
+      const messages = document.querySelectorAll("#conversation-distance .message-distance");
+
+      if (messagesDistanceVisibles < messages.length) {
+        messages[messagesDistanceVisibles].classList.add("visible");
+        messagesDistanceVisibles += 1;
+      }
+
+      if (messagesDistanceVisibles >= messages.length) {
+        document.getElementById("bouton-message-suivant").hidden = true;
+        document.getElementById("album-appels-deux").hidden = false;
+        document.getElementById("bouton-vers-puzzle").hidden = false;
+        classerPhotosChapitreDeux();
+      }
+    }
+
+    function placerPiecePuzzle(piece) {
+      if (piece.classList.contains("placee")) return;
+      piece.classList.add("placee");
+      piecesPuzzlePlacees += 1;
+
+      if (piecesPuzzlePlacees === 4) {
+        document.getElementById("confirmation-puzzle").classList.add("visible");
+        setTimeout(function () { revelerEtapeDeux("album-retour-deux"); }, 900);
+      }
+    }
+
+    function ouvrirCourrierDeux(courrier) {
+      if (courrier.classList.contains("ouverte")) return;
+      courrier.classList.add("ouverte");
+      courriersOuverts += 1;
+
+      if (courriersOuverts === 3) {
+        setTimeout(function () { revelerEtapeDeux("calendrier-deux"); }, 850);
+      }
+    }
+
+    function barrerJourDeux(bouton, index) {
+      if (index !== prochainJourDistance) return;
+
+      bouton.classList.add("barre");
+      bouton.disabled = true;
+      prochainJourDistance += 1;
+      const jours = document.querySelectorAll("#calendrier-distance .jour-distance");
+
+      if (prochainJourDistance < jours.length) {
+        jours[prochainJourDistance].disabled = false;
+      } else {
+        setTimeout(function () { revelerEtapeDeux("billet-deux"); }, 700);
+      }
+    }
+
+    function tamponnerBilletDeux() {
+      const billet = document.getElementById("billet-voyage");
+      const bouton = document.getElementById("bouton-tampon");
+      if (billet.classList.contains("tamponne")) return;
+
+      billet.classList.add("tamponne");
+      bouton.textContent = "Voyage validé ♡";
+      bouton.disabled = true;
+      setTimeout(function () { revelerEtapeDeux("france-deux"); }, 850);
+    }
+
+    function classerPhotosChapitreDeux() {
+      document.querySelectorAll("#chapitre-2 .album-oriente-deux .photo-deux img").forEach(function (image) {
+        function classer() {
+          const carte = image.closest(".photo-deux");
+          if (!carte || !image.naturalWidth || !image.naturalHeight) return;
+          carte.classList.remove("horizontale", "verticale");
+          carte.classList.add(image.naturalWidth >= image.naturalHeight ? "horizontale" : "verticale");
+        }
+
+        if (image.complete) classer();
+        else image.addEventListener("load", classer, { once: true });
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const coeur = document.getElementById("coeur-maintenir");
+      if (coeur) {
+        coeur.addEventListener("pointerdown", commencerMaintienCoeur);
+        coeur.addEventListener("pointerup", function () { terminerMaintienCoeur(false); });
+        coeur.addEventListener("pointerleave", function () { terminerMaintienCoeur(false); });
+        coeur.addEventListener("pointercancel", function () { terminerMaintienCoeur(false); });
+      }
+      classerPhotosChapitreDeux();
+    });
 
     function ouvrirPhoto(source) {
       const visionneuse = document.getElementById("visionneuse-photo");
